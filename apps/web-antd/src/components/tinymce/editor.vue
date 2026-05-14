@@ -89,6 +89,9 @@ const langName = computed(() => {
   if (locale.value === 'en-US') {
     return 'en';
   }
+  if (locale.value === 'zh-TW') {
+    return 'zh_TW';
+  }
   return 'zh_CN';
 });
 

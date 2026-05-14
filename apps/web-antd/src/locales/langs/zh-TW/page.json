@@ -1,0 +1,43 @@
+{
+  "auth": {
+    "login": "登入",
+    "register": "註冊",
+    "codeLogin": "驗證碼登入",
+    "qrcodeLogin": "QR Code 登入",
+    "forgetPassword": "忘記密碼",
+    "profile": "個人中心"
+  },
+  "dashboard": {
+    "title": "概覽",
+    "analytics": "分析頁",
+    "workspace": "工作台"
+  },
+  "action": {
+    "action": "操作",
+    "add": "新增",
+    "edit": "編輯",
+    "delete": "刪除",
+    "save": "儲存",
+    "import": "匯入",
+    "export": "匯出",
+    "submit": "提交",
+    "cancel": "取消",
+    "confirm": "確認",
+    "reset": "重設",
+    "search": "搜尋",
+    "more": "更多"
+  },
+  "tenant": {
+    "placeholder": "請選擇租戶",
+    "success": "切換租戶成功"
+  },
+  "mp": {
+    "upload": {
+      "invalidFormat": "上傳 {0} 格式不正確！",
+      "maxSize": "上傳 {0} 大小不能超過 {1}M！",
+      "image": "圖片",
+      "video": "影片",
+      "voice": "語音"
+    }
+  }
+}

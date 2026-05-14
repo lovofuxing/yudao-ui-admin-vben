@@ -15,6 +15,7 @@ import { preferences } from '@vben/preferences';
 
 import antdEnLocale from 'ant-design-vue/es/locale/en_US';
 import antdDefaultLocale from 'ant-design-vue/es/locale/zh_CN';
+import antdZhTwLocale from 'ant-design-vue/es/locale/zh_TW';
 import dayjs from 'dayjs';
 
 const antdLocale = ref<Locale>(antdDefaultLocale);
@@ -51,26 +52,28 @@ async function loadThirdPartyMessage(lang: SupportedLanguagesType) {
  * @param lang
  */
 async function loadDayjsLocale(lang: SupportedLanguagesType) {
-  let locale;
+  let localeName = 'en';
   switch (lang) {
     case 'en-US': {
-      locale = await import('dayjs/locale/en');
+      await import('dayjs/locale/en');
       break;
     }
     case 'zh-CN': {
-      locale = await import('dayjs/locale/zh-cn');
+      await import('dayjs/locale/zh-cn');
+      localeName = 'zh-cn';
+      break;
+    }
+    case 'zh-TW': {
+      await import('dayjs/locale/zh-tw');
+      localeName = 'zh-tw';
       break;
     }
     // 默认使用英语
     default: {
-      locale = await import('dayjs/locale/en');
+      await import('dayjs/locale/en');
     }
   }
-  if (locale) {
-    dayjs.locale(locale);
-  } else {
-    console.error(`Failed to load dayjs locale for ${lang}`);
-  }
+  dayjs.locale(localeName);
 }
 
 /**
@@ -85,6 +88,10 @@ async function loadAntdLocale(lang: SupportedLanguagesType) {
     }
     case 'zh-CN': {
       antdLocale.value = antdDefaultLocale;
+      break;
+    }
+    case 'zh-TW': {
+      antdLocale.value = antdZhTwLocale;
       break;
     }
   }
