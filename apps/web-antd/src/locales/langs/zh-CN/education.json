@@ -1,0 +1,177 @@
+{
+  "title": "教务中心",
+  "common": {
+    "action": "操作",
+    "detail": "详情",
+    "inputPlaceholder": "请输入{0}",
+    "selectPlaceholder": "请选择{0}",
+    "exportFileSuffix": "导出数据",
+    "deleteLoading": "正在删除{0}",
+    "deleteBatchLoading": "正在批量删除",
+    "batchDeleteConfirm": "确认删除选中的教务记录吗？"
+  },
+  "status": {
+    "studying": "在读",
+    "renewalPending": "待续费",
+    "paused": "停课",
+    "enabled": "启用",
+    "disabled": "停用",
+    "opening": "开班中",
+    "schedulePending": "待排课",
+    "full": "已满班",
+    "lessonPending": "待上课",
+    "pending": "待确认",
+    "done": "已完成",
+    "conflict": "资源冲突",
+    "attended": "到课",
+    "leave": "请假",
+    "late": "迟到",
+    "absent": "缺勤",
+    "confirmed": "已确认",
+    "canceled": "已取消",
+    "deducted": "已扣课",
+    "revoked": "已撤销",
+    "recognized": "识别成功",
+    "recognizeFailed": "识别失败",
+    "checkedIn": "已签到",
+    "checkedOut": "已签退",
+    "checkinPending": "待签到",
+    "abnormal": "异常"
+  },
+  "student": {
+    "title": "学员管理",
+    "tableTitle": "学员列表",
+    "fields": {
+      "id": "编号",
+      "studentName": "学员姓名",
+      "phone": "联系方式",
+      "className": "所在班级",
+      "courseName": "报读课程",
+      "advisor": "所属顾问",
+      "remainingHours": "剩余课时",
+      "status": "学员状态",
+      "enrollTime": "入学时间",
+      "remark": "备注"
+    }
+  },
+  "course": {
+    "title": "课程管理",
+    "tableTitle": "课程列表",
+    "fields": {
+      "id": "编号",
+      "courseName": "课程名称",
+      "subject": "科目",
+      "teachMode": "授课模式",
+      "chargeType": "收费方式",
+      "deductHours": "扣课课时",
+      "price": "单价(元)",
+      "giftPoints": "赠送积分",
+      "status": "课程状态"
+    }
+  },
+  "class": {
+    "title": "班级管理",
+    "tableTitle": "班级列表",
+    "fields": {
+      "id": "编号",
+      "className": "班级名称",
+      "courseName": "课程名称",
+      "headTeacher": "班主任",
+      "studentCount": "班级人数",
+      "capacity": "满班人数",
+      "scheduleText": "上课时间",
+      "classroom": "上课教室",
+      "status": "班级状态"
+    }
+  },
+  "schedule": {
+    "title": "课表管理",
+    "tableTitle": "课表列表",
+    "fields": {
+      "id": "编号",
+      "lessonDate": "上课日期",
+      "timeRange": "上课时间",
+      "className": "班级名称",
+      "courseName": "课程名称",
+      "teacher": "授课老师",
+      "assistant": "助教",
+      "classroom": "教室",
+      "status": "排课状态"
+    }
+  },
+  "lessonRecord": {
+    "title": "上课记录",
+    "tableTitle": "上课记录列表",
+    "fields": {
+      "id": "编号",
+      "lessonDate": "上课日期",
+      "className": "上课班级",
+      "courseName": "授课课程",
+      "teacher": "授课老师",
+      "studentName": "学员",
+      "status": "点名状态",
+      "deductHours": "消耗课时",
+      "operator": "操作人"
+    }
+  },
+  "reservation": {
+    "title": "约课记录",
+    "tableTitle": "约课记录列表",
+    "fields": {
+      "id": "编号",
+      "studentName": "学员信息",
+      "phone": "联系方式",
+      "courseName": "课程名称",
+      "className": "班级名称",
+      "teacher": "教师姓名",
+      "bookingTime": "约课时间",
+      "lessonTime": "上课时间",
+      "status": "约课状态"
+    }
+  },
+  "quickDeduction": {
+    "title": "快速扣课",
+    "tableTitle": "扣课记录列表",
+    "fields": {
+      "id": "编号",
+      "studentName": "学员",
+      "courseName": "课程名称",
+      "className": "班级",
+      "remainingHours": "剩余课时",
+      "deductHours": "扣课课时",
+      "teacher": "授课老师",
+      "deductionTime": "扣课时间",
+      "status": "扣课状态"
+    }
+  },
+  "faceDeduction": {
+    "title": "刷脸扣课",
+    "tableTitle": "识别记录列表",
+    "fields": {
+      "id": "编号",
+      "studentName": "学员",
+      "phone": "联系方式",
+      "courseName": "课程",
+      "teacher": "授课老师",
+      "deductHours": "扣课课时",
+      "matchScore": "匹配度",
+      "status": "匹配状态"
+    }
+  },
+  "faceCheckin": {
+    "title": "签到管理",
+    "tableTitle": "签到记录列表",
+    "fields": {
+      "id": "编号",
+      "studentName": "学员",
+      "phone": "联系方式",
+      "className": "所在班级",
+      "checkinDate": "签到日期",
+      "checkinTime": "签到时间",
+      "checkoutTime": "签退时间",
+      "source": "签到来源",
+      "deductHours": "扣减课时",
+      "status": "签到状态"
+    }
+  }
+}

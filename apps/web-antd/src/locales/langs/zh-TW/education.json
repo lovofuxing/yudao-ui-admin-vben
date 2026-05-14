@@ -1,0 +1,177 @@
+{
+  "title": "教務中心",
+  "common": {
+    "action": "操作",
+    "detail": "詳情",
+    "inputPlaceholder": "請輸入{0}",
+    "selectPlaceholder": "請選擇{0}",
+    "exportFileSuffix": "匯出資料",
+    "deleteLoading": "正在刪除{0}",
+    "deleteBatchLoading": "正在批次刪除",
+    "batchDeleteConfirm": "確認刪除選中的教務記錄嗎？"
+  },
+  "status": {
+    "studying": "在讀",
+    "renewalPending": "待續費",
+    "paused": "停課",
+    "enabled": "啟用",
+    "disabled": "停用",
+    "opening": "開班中",
+    "schedulePending": "待排課",
+    "full": "已滿班",
+    "lessonPending": "待上課",
+    "pending": "待確認",
+    "done": "已完成",
+    "conflict": "資源衝突",
+    "attended": "到課",
+    "leave": "請假",
+    "late": "遲到",
+    "absent": "缺勤",
+    "confirmed": "已確認",
+    "canceled": "已取消",
+    "deducted": "已扣課",
+    "revoked": "已撤銷",
+    "recognized": "識別成功",
+    "recognizeFailed": "識別失敗",
+    "checkedIn": "已簽到",
+    "checkedOut": "已簽退",
+    "checkinPending": "待簽到",
+    "abnormal": "異常"
+  },
+  "student": {
+    "title": "學員管理",
+    "tableTitle": "學員列表",
+    "fields": {
+      "id": "編號",
+      "studentName": "學員姓名",
+      "phone": "聯絡方式",
+      "className": "所在班級",
+      "courseName": "報讀課程",
+      "advisor": "所屬顧問",
+      "remainingHours": "剩餘課時",
+      "status": "學員狀態",
+      "enrollTime": "入學時間",
+      "remark": "備註"
+    }
+  },
+  "course": {
+    "title": "課程管理",
+    "tableTitle": "課程列表",
+    "fields": {
+      "id": "編號",
+      "courseName": "課程名稱",
+      "subject": "科目",
+      "teachMode": "授課模式",
+      "chargeType": "收費方式",
+      "deductHours": "扣課課時",
+      "price": "單價(元)",
+      "giftPoints": "贈送積分",
+      "status": "課程狀態"
+    }
+  },
+  "class": {
+    "title": "班級管理",
+    "tableTitle": "班級列表",
+    "fields": {
+      "id": "編號",
+      "className": "班級名稱",
+      "courseName": "課程名稱",
+      "headTeacher": "班主任",
+      "studentCount": "班級人數",
+      "capacity": "滿班人數",
+      "scheduleText": "上課時間",
+      "classroom": "上課教室",
+      "status": "班級狀態"
+    }
+  },
+  "schedule": {
+    "title": "課表管理",
+    "tableTitle": "課表列表",
+    "fields": {
+      "id": "編號",
+      "lessonDate": "上課日期",
+      "timeRange": "上課時間",
+      "className": "班級名稱",
+      "courseName": "課程名稱",
+      "teacher": "授課老師",
+      "assistant": "助教",
+      "classroom": "教室",
+      "status": "排課狀態"
+    }
+  },
+  "lessonRecord": {
+    "title": "上課記錄",
+    "tableTitle": "上課記錄列表",
+    "fields": {
+      "id": "編號",
+      "lessonDate": "上課日期",
+      "className": "上課班級",
+      "courseName": "授課課程",
+      "teacher": "授課老師",
+      "studentName": "學員",
+      "status": "點名狀態",
+      "deductHours": "消耗課時",
+      "operator": "操作人"
+    }
+  },
+  "reservation": {
+    "title": "約課記錄",
+    "tableTitle": "約課記錄列表",
+    "fields": {
+      "id": "編號",
+      "studentName": "學員資訊",
+      "phone": "聯絡方式",
+      "courseName": "課程名稱",
+      "className": "班級名稱",
+      "teacher": "教師姓名",
+      "bookingTime": "約課時間",
+      "lessonTime": "上課時間",
+      "status": "約課狀態"
+    }
+  },
+  "quickDeduction": {
+    "title": "快速扣課",
+    "tableTitle": "扣課記錄列表",
+    "fields": {
+      "id": "編號",
+      "studentName": "學員",
+      "courseName": "課程名稱",
+      "className": "班級",
+      "remainingHours": "剩餘課時",
+      "deductHours": "扣課課時",
+      "teacher": "授課老師",
+      "deductionTime": "扣課時間",
+      "status": "扣課狀態"
+    }
+  },
+  "faceDeduction": {
+    "title": "刷臉扣課",
+    "tableTitle": "識別記錄列表",
+    "fields": {
+      "id": "編號",
+      "studentName": "學員",
+      "phone": "聯絡方式",
+      "courseName": "課程",
+      "teacher": "授課老師",
+      "deductHours": "扣課課時",
+      "matchScore": "匹配度",
+      "status": "匹配狀態"
+    }
+  },
+  "faceCheckin": {
+    "title": "簽到管理",
+    "tableTitle": "簽到記錄列表",
+    "fields": {
+      "id": "編號",
+      "studentName": "學員",
+      "phone": "聯絡方式",
+      "className": "所在班級",
+      "checkinDate": "簽到日期",
+      "checkinTime": "簽到時間",
+      "checkoutTime": "簽退時間",
+      "source": "簽到來源",
+      "deductHours": "扣減課時",
+      "status": "簽到狀態"
+    }
+  }
+}

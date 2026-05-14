@@ -1,0 +1,177 @@
+{
+  "title": "Academic Center",
+  "common": {
+    "action": "Action",
+    "detail": "Detail",
+    "inputPlaceholder": "Enter {0}",
+    "selectPlaceholder": "Select {0}",
+    "exportFileSuffix": "Export Data",
+    "deleteLoading": "Deleting {0}",
+    "deleteBatchLoading": "Deleting selected records",
+    "batchDeleteConfirm": "Delete the selected academic records?"
+  },
+  "status": {
+    "studying": "Active",
+    "renewalPending": "Renewal Due",
+    "paused": "Paused",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "opening": "Running",
+    "schedulePending": "Schedule Pending",
+    "full": "Full",
+    "lessonPending": "Pending",
+    "pending": "Pending",
+    "done": "Completed",
+    "conflict": "Conflict",
+    "attended": "Present",
+    "leave": "Leave",
+    "late": "Late",
+    "absent": "Absent",
+    "confirmed": "Confirmed",
+    "canceled": "Canceled",
+    "deducted": "Deducted",
+    "revoked": "Revoked",
+    "recognized": "Recognized",
+    "recognizeFailed": "Failed",
+    "checkedIn": "Checked In",
+    "checkedOut": "Checked Out",
+    "checkinPending": "Pending Check-in",
+    "abnormal": "Abnormal"
+  },
+  "student": {
+    "title": "Students",
+    "tableTitle": "Student List",
+    "fields": {
+      "id": "ID",
+      "studentName": "Student",
+      "phone": "Phone",
+      "className": "Class",
+      "courseName": "Course",
+      "advisor": "Advisor",
+      "remainingHours": "Remaining Hours",
+      "status": "Status",
+      "enrollTime": "Enrollment Time",
+      "remark": "Remark"
+    }
+  },
+  "course": {
+    "title": "Courses",
+    "tableTitle": "Course List",
+    "fields": {
+      "id": "ID",
+      "courseName": "Course",
+      "subject": "Subject",
+      "teachMode": "Teaching Mode",
+      "chargeType": "Charge Type",
+      "deductHours": "Deduct Hours",
+      "price": "Unit Price",
+      "giftPoints": "Gift Points",
+      "status": "Status"
+    }
+  },
+  "class": {
+    "title": "Classes",
+    "tableTitle": "Class List",
+    "fields": {
+      "id": "ID",
+      "className": "Class",
+      "courseName": "Course",
+      "headTeacher": "Head Teacher",
+      "studentCount": "Students",
+      "capacity": "Capacity",
+      "scheduleText": "Schedule",
+      "classroom": "Classroom",
+      "status": "Status"
+    }
+  },
+  "schedule": {
+    "title": "Schedules",
+    "tableTitle": "Schedule List",
+    "fields": {
+      "id": "ID",
+      "lessonDate": "Lesson Date",
+      "timeRange": "Time",
+      "className": "Class",
+      "courseName": "Course",
+      "teacher": "Teacher",
+      "assistant": "Assistant",
+      "classroom": "Classroom",
+      "status": "Status"
+    }
+  },
+  "lessonRecord": {
+    "title": "Lesson Records",
+    "tableTitle": "Lesson Record List",
+    "fields": {
+      "id": "ID",
+      "lessonDate": "Lesson Date",
+      "className": "Class",
+      "courseName": "Course",
+      "teacher": "Teacher",
+      "studentName": "Student",
+      "status": "Attendance",
+      "deductHours": "Deduct Hours",
+      "operator": "Operator"
+    }
+  },
+  "reservation": {
+    "title": "Reservations",
+    "tableTitle": "Reservation List",
+    "fields": {
+      "id": "ID",
+      "studentName": "Student",
+      "phone": "Phone",
+      "courseName": "Course",
+      "className": "Class",
+      "teacher": "Teacher",
+      "bookingTime": "Booking Time",
+      "lessonTime": "Lesson Time",
+      "status": "Status"
+    }
+  },
+  "quickDeduction": {
+    "title": "Quick Deduction",
+    "tableTitle": "Deduction Record List",
+    "fields": {
+      "id": "ID",
+      "studentName": "Student",
+      "courseName": "Course",
+      "className": "Class",
+      "remainingHours": "Remaining Hours",
+      "deductHours": "Deduct Hours",
+      "teacher": "Teacher",
+      "deductionTime": "Deduction Time",
+      "status": "Status"
+    }
+  },
+  "faceDeduction": {
+    "title": "Face Deduction",
+    "tableTitle": "Recognition Record List",
+    "fields": {
+      "id": "ID",
+      "studentName": "Student",
+      "phone": "Phone",
+      "courseName": "Course",
+      "teacher": "Teacher",
+      "deductHours": "Deduct Hours",
+      "matchScore": "Match Score",
+      "status": "Status"
+    }
+  },
+  "faceCheckin": {
+    "title": "Check-in",
+    "tableTitle": "Check-in Record List",
+    "fields": {
+      "id": "ID",
+      "studentName": "Student",
+      "phone": "Phone",
+      "className": "Class",
+      "checkinDate": "Check-in Date",
+      "checkinTime": "Check-in Time",
+      "checkoutTime": "Check-out Time",
+      "source": "Source",
+      "deductHours": "Deduct Hours",
+      "status": "Status"
+    }
+  }
+}
