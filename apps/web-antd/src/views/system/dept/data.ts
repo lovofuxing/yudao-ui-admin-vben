@@ -98,7 +98,11 @@ export function useFormSchema(): VbenFormSchema[] {
       componentProps: {
         placeholder: $t('system.dept.fields.emailPlaceholder'),
       },
-      rules: z.string().email($t('system.dept.fields.emailValidationMessage')).or(z.literal('')).optional(),
+      rules: z
+        .string()
+        .email($t('system.dept.fields.emailValidationMessage'))
+        .or(z.literal(''))
+        .optional(),
     },
     {
       fieldName: 'status',

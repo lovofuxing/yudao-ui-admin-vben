@@ -7,8 +7,18 @@ const props = defineProps<{ studentId: number }>();
 const [Grid] = useVbenVxeGrid({
   formOptions: {
     schema: () => [
-      { component: 'Input', fieldName: 'courseName', label: '课程', componentProps: { allowClear: true } },
-      { component: 'Input', fieldName: 'type', label: '扣课类型', componentProps: { allowClear: true } },
+      {
+        component: 'Input',
+        fieldName: 'courseName',
+        label: '课程',
+        componentProps: { allowClear: true },
+      },
+      {
+        component: 'Input',
+        fieldName: 'type',
+        label: '扣课类型',
+        componentProps: { allowClear: true },
+      },
     ],
   },
   gridOptions: {
@@ -23,7 +33,12 @@ const [Grid] = useVbenVxeGrid({
     proxyConfig: {
       ajax: {
         query: async ({ page }, formValues) => {
-          return await getStudentDeductionPage({ studentId: props.studentId, pageNo: page.currentPage, pageSize: page.pageSize, ...formValues });
+          return await getStudentDeductionPage({
+            studentId: props.studentId,
+            pageNo: page.currentPage,
+            pageSize: page.pageSize,
+            ...formValues,
+          });
         },
       },
     },

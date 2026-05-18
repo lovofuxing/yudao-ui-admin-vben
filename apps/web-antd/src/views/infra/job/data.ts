@@ -218,14 +218,18 @@ export function useDetailSchema(): DescriptionItemSchema[] {
       label: $t('infra.job.fields.retryInterval'),
       field: 'retryInterval',
       render: (val) => {
-        return val ? `${val} ${$t('infra.common.milliseconds')}` : $t('infra.common.noInterval');
+        return val
+          ? `${val} ${$t('infra.common.milliseconds')}`
+          : $t('infra.common.noInterval');
       },
     },
     {
       label: $t('infra.job.fields.monitorTimeout'),
       field: 'monitorTimeout',
       render: (val) => {
-        return val && val > 0 ? `${val} ${$t('infra.common.milliseconds')}` : $t('infra.common.notEnabled');
+        return val && val > 0
+          ? `${val} ${$t('infra.common.milliseconds')}`
+          : $t('infra.common.notEnabled');
       },
     },
     {

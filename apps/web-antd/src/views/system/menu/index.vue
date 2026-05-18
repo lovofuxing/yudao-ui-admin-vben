@@ -103,7 +103,10 @@ const [Grid, gridApi] = useVbenVxeGrid({
         :title="$t('system.menu.docPermission')"
         url="https://doc.iocoder.cn/resource-permission"
       />
-      <DocAlert :title="$t('system.menu.docRoute')" url="https://doc.iocoder.cn/vue3/route/" />
+      <DocAlert
+        :title="$t('system.menu.docRoute')"
+        url="https://doc.iocoder.cn/vue3/route/"
+      />
     </template>
 
     <FormModal @success="handleRefresh" />
@@ -112,14 +115,18 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('system.menu.entityName')]),
+              label: $t('ui.actionTitle.create', [
+                $t('system.menu.entityName'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:menu:create'],
               onClick: handleCreate,
             },
             {
-              label: isExpanded ? $t('system.menu.action.collapse') : $t('system.menu.action.expand'),
+              label: isExpanded
+                ? $t('system.menu.action.collapse')
+                : $t('system.menu.action.expand'),
               type: 'primary',
               onClick: handleExpand,
             },

@@ -161,7 +161,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('infra.fileConfig.title')]),
+              label: $t('ui.actionTitle.create', [
+                $t('infra.fileConfig.title'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['infra:file-config:create'],

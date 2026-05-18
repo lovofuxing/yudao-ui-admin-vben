@@ -41,7 +41,10 @@ function handleRefresh() {
 /** 导出表格 */
 async function handleExport() {
   const data = await exportDictData(await gridApi.formApi.getValues());
-  downloadFileFromBlobPart({ fileName: $t('system.dict.data.exportFilename'), source: data });
+  downloadFileFromBlobPart({
+    fileName: $t('system.dict.data.exportFilename'),
+    source: data,
+  });
 }
 
 /** 创建字典数据 */
@@ -150,7 +153,9 @@ watch(
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('system.dict.data.entityName')]),
+              label: $t('ui.actionTitle.create', [
+                $t('system.dict.data.entityName'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:dict:create'],

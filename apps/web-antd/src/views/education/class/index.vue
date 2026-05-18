@@ -126,7 +126,8 @@ const [Grid, gridApi] = useVbenVxeGrid({
   gridEvents: {
     checkboxAll: handleRowCheckboxChange,
     checkboxChange: handleRowCheckboxChange,
-    cellDblclick: ({ row }: { row: EducationClassApi.Class }) => handleRowClick(row),
+    cellDblclick: ({ row }: { row: EducationClassApi.Class }) =>
+      handleRowClick(row),
   },
 });
 </script>
@@ -134,10 +135,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <FormModal @success="handleRefresh" />
-    <ClassDetail
-      :class-id="detailClassId"
-      @close="detailClassId = undefined"
-    />
+    <ClassDetail :class-id="detailClassId" @close="detailClassId = undefined" />
     <Grid :table-title="$t('education.class.tableTitle')">
       <template #toolbar-tools>
         <TableAction

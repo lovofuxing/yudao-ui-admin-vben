@@ -154,7 +154,11 @@ const [Grid, gridApi] = useVbenVxeGrid({
       <template #file-content="{ row }">
         <Image v-if="row.type && row.type.includes('image')" :src="row.url" />
         <Button v-else type="link" @click="() => openWindow(row.url!)">
-          {{ row.type && row.type.includes('pdf') ? $t('infra.file.preview') : $t('infra.file.download') }}
+          {{
+            row.type && row.type.includes('pdf')
+              ? $t('infra.file.preview')
+              : $t('infra.file.download')
+          }}
         </Button>
       </template>
       <template #actions="{ row }">

@@ -127,7 +127,8 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     {
       field: 'avatar',
       label: $t('system.social.user.fields.avatar'),
-      render: (val) => (val ? h(Image, { src: val }) : $t('system.social.user.fields.noAvatar')),
+      render: (val) =>
+        val ? h(Image, { src: val }) : $t('system.social.user.fields.noAvatar'),
     },
     {
       field: 'token',

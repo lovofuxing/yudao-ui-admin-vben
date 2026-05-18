@@ -36,7 +36,10 @@ function handleRefresh() {
 /** 导出表格 */
 async function handleExport() {
   const data = await exportDictType(await gridApi.formApi.getValues());
-  downloadFileFromBlobPart({ fileName: $t('system.dict.type.exportFilename'), source: data });
+  downloadFileFromBlobPart({
+    fileName: $t('system.dict.type.exportFilename'),
+    source: data,
+  });
 }
 
 /** 创建字典类型 */
@@ -137,7 +140,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('system.dict.type.entityName')]),
+              label: $t('ui.actionTitle.create', [
+                $t('system.dict.type.entityName'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:dict:create'],

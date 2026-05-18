@@ -43,7 +43,11 @@ function handleDetail(row: InfraApiErrorLogApi.ApiErrorLog) {
 /** 处理已处理 / 已忽略的操作 */
 async function handleProcess(id: number, processStatus: number) {
   await confirm({
-    content: $t('infra.apiErrorLog.actions.markConfirm', [InfraApiErrorLogProcessStatusEnum.DONE ? $t('infra.apiErrorLog.actions.processed') : $t('infra.apiErrorLog.actions.ignored')]),
+    content: $t('infra.apiErrorLog.actions.markConfirm', [
+      InfraApiErrorLogProcessStatusEnum.DONE
+        ? $t('infra.apiErrorLog.actions.processed')
+        : $t('infra.apiErrorLog.actions.ignored'),
+    ]),
   });
   const hideLoading = message.loading({
     content: $t('infra.common.processing'),
@@ -92,7 +96,10 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('infra.apiErrorLog.title')" url="https://doc.iocoder.cn/api-error-log/" />
+      <DocAlert
+        :title="$t('infra.apiErrorLog.title')"
+        url="https://doc.iocoder.cn/api-error-log/"
+      />
     </template>
 
     <DetailModal @success="handleRefresh" />

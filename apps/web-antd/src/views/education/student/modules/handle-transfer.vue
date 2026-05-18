@@ -10,11 +10,29 @@ import { $t } from '#/locales';
 const emit = defineEmits(['success']);
 
 const [Form, formApi] = useVbenForm({
-  commonConfig: { componentProps: { class: 'w-full' }, formItemClass: 'col-span-2', labelWidth: 96 },
+  commonConfig: {
+    componentProps: { class: 'w-full' },
+    formItemClass: 'col-span-2',
+    labelWidth: 96,
+  },
   layout: 'horizontal',
   schema: () => [
-    { component: 'Select', fieldName: 'targetCourseId', label: '转入课程', rules: 'required', componentProps: { class: 'w-full', placeholder: $t('education.common.selectPlaceholder', ['课程']) } },
-    { component: 'InputTextArea', fieldName: 'remark', label: '转课备注', componentProps: { rows: 3 } },
+    {
+      component: 'Select',
+      fieldName: 'targetCourseId',
+      label: '转入课程',
+      rules: 'required',
+      componentProps: {
+        class: 'w-full',
+        placeholder: $t('education.common.selectPlaceholder', ['课程']),
+      },
+    },
+    {
+      component: 'InputTextArea',
+      fieldName: 'remark',
+      label: '转课备注',
+      componentProps: { rows: 3 },
+    },
   ],
   showDefaultActions: false,
 });

@@ -142,7 +142,10 @@ onMounted(async () => {
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('system.mail.docTitle')" url="https://doc.iocoder.cn/mail" />
+      <DocAlert
+        :title="$t('system.mail.docTitle')"
+        url="https://doc.iocoder.cn/mail"
+      />
     </template>
 
     <FormModal @success="handleRefresh" />
@@ -152,7 +155,9 @@ onMounted(async () => {
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('system.mail.template.entityName')]),
+              label: $t('ui.actionTitle.create', [
+                $t('system.mail.template.entityName'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:mail-template:create'],

@@ -140,7 +140,10 @@ async function handleStatusChange(
 ): Promise<boolean | undefined> {
   return new Promise((resolve, reject) => {
     confirm({
-      content: $t('system.user.message.statusChangeConfirm', { username: row.username, status: getDictLabel(DICT_TYPE.COMMON_STATUS, newStatus) }),
+      content: $t('system.user.message.statusChangeConfirm', {
+        username: row.username,
+        status: getDictLabel(DICT_TYPE.COMMON_STATUS, newStatus),
+      }),
     })
       .then(async () => {
         // 更新用户状态
@@ -194,8 +197,14 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('system.user.docTitle')" url="https://doc.iocoder.cn/user-center/" />
-      <DocAlert :title="$t('system.user.docSocialTitle')" url="https://doc.iocoder.cn/social-user/" />
+      <DocAlert
+        :title="$t('system.user.docTitle')"
+        url="https://doc.iocoder.cn/user-center/"
+      />
+      <DocAlert
+        :title="$t('system.user.docSocialTitle')"
+        url="https://doc.iocoder.cn/social-user/"
+      />
       <DocAlert
         title="Excel 导入导出"
         url="https://doc.iocoder.cn/excel-import-and-export/"
@@ -219,7 +228,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
             <TableAction
               :actions="[
                 {
-                  label: $t('ui.actionTitle.create', [$t('system.user.entityName')]),
+                  label: $t('ui.actionTitle.create', [
+                    $t('system.user.entityName'),
+                  ]),
                   type: 'primary',
                   icon: ACTION_ICON.ADD,
                   auth: ['system:user:create'],
@@ -233,7 +244,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
                   onClick: handleExport,
                 },
                 {
-                  label: $t('ui.actionTitle.import', [$t('system.user.entityName')]),
+                  label: $t('ui.actionTitle.import', [
+                    $t('system.user.entityName'),
+                  ]),
                   type: 'primary',
                   icon: ACTION_ICON.UPLOAD,
                   auth: ['system:user:import'],

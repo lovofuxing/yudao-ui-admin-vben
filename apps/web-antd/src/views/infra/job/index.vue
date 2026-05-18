@@ -70,11 +70,17 @@ async function handleUpdateStatus(row: InfraJobApi.Job) {
     row.status === InfraJobStatusEnum.STOP
       ? InfraJobStatusEnum.NORMAL
       : InfraJobStatusEnum.STOP;
-  const statusText = status === InfraJobStatusEnum.NORMAL ? $t('infra.job.actions.enable') : $t('infra.job.actions.disable');
+  const statusText =
+    status === InfraJobStatusEnum.NORMAL
+      ? $t('infra.job.actions.enable')
+      : $t('infra.job.actions.disable');
 
   await confirm($t('infra.job.actions.statusConfirm', [statusText, row.name]));
   const hideLoading = message.loading({
-    content: status === InfraJobStatusEnum.NORMAL ? $t('infra.job.actions.enabling') : $t('infra.job.actions.disabling'),
+    content:
+      status === InfraJobStatusEnum.NORMAL
+        ? $t('infra.job.actions.enabling')
+        : $t('infra.job.actions.disabling'),
     duration: 0,
   });
   try {
@@ -184,7 +190,10 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('infra.job.title')" url="https://doc.iocoder.cn/job/" />
+      <DocAlert
+        :title="$t('infra.job.title')"
+        url="https://doc.iocoder.cn/job/"
+      />
       <DocAlert title="异步任务" url="https://doc.iocoder.cn/async-task/" />
       <DocAlert title="消息队列" url="https://doc.iocoder.cn/message-queue/" />
     </template>

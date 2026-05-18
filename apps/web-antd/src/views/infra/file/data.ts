@@ -2,7 +2,6 @@ import type { VbenFormSchema } from '#/adapter/form';
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 
 import { $t } from '#/locales';
-
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 表单的字段 */

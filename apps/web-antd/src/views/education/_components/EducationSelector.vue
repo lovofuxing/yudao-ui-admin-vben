@@ -26,7 +26,9 @@ export interface EducationSelectorProps<T> {
   /** 表格列定义。组件会自动追加 checkbox 选择列。 */
   columns: VxeTableGridOptions<T>['columns'];
   /** 分页数据获取函数，接收 pageNo/pageSize 和搜索表单值。 */
-  api: (params: { pageNo: number; pageSize: number } & Record<string, any>) => Promise<{ list: T[]; total: number }>;
+  api: (
+    params: { pageNo: number; pageSize: number } & Record<string, any>,
+  ) => Promise<{ list: T[]; total: number }>;
   /** 行标识字段，默认 'id'。 */
   rowKey?: string;
   /** 是否支持多选，默认 false（单选）。 */
@@ -50,7 +52,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
   formOptions: {
     schema: () => props.searchSchema,
     submitOnChange: true,
-      },
+  },
   gridOptions: {
     columns: () => [
       {

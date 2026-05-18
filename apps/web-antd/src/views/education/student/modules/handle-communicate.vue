@@ -9,11 +9,34 @@ import { $t } from '#/locales';
 const emit = defineEmits(['success']);
 
 const [Form, formApi] = useVbenForm({
-  commonConfig: { componentProps: { class: 'w-full' }, formItemClass: 'col-span-2', labelWidth: 96 },
+  commonConfig: {
+    componentProps: { class: 'w-full' },
+    formItemClass: 'col-span-2',
+    labelWidth: 96,
+  },
   layout: 'horizontal',
   schema: () => [
-    { component: 'Select', fieldName: 'type', label: '沟通类型', rules: 'required', componentProps: { class: 'w-full', options: [{ label: '电话沟通', value: '电话沟通' }, { label: '微信沟通', value: '微信沟通' }, { label: '到店沟通', value: '到店沟通' }] } },
-    { component: 'InputTextArea', fieldName: 'content', label: '沟通内容', rules: 'required', componentProps: { rows: 4 } },
+    {
+      component: 'Select',
+      fieldName: 'type',
+      label: '沟通类型',
+      rules: 'required',
+      componentProps: {
+        class: 'w-full',
+        options: [
+          { label: '电话沟通', value: '电话沟通' },
+          { label: '微信沟通', value: '微信沟通' },
+          { label: '到店沟通', value: '到店沟通' },
+        ],
+      },
+    },
+    {
+      component: 'InputTextArea',
+      fieldName: 'content',
+      label: '沟通内容',
+      rules: 'required',
+      componentProps: { rows: 4 },
+    },
   ],
   showDefaultActions: false,
 });

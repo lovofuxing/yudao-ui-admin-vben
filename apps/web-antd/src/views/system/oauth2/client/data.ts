@@ -245,13 +245,15 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
       field: 'accessTokenValiditySeconds',
       title: $t('system.oauth2.client.fields.accessTokenValiditySeconds'),
       minWidth: 150,
-      formatter: ({ cellValue }) => `${cellValue} ${$t('system.common.seconds')}`,
+      formatter: ({ cellValue }) =>
+        `${cellValue} ${$t('system.common.seconds')}`,
     },
     {
       field: 'refreshTokenValiditySeconds',
       title: $t('system.oauth2.client.fields.refreshTokenValiditySeconds'),
       minWidth: 150,
-      formatter: ({ cellValue }) => `${cellValue} ${$t('system.common.seconds')}`,
+      formatter: ({ cellValue }) =>
+        `${cellValue} ${$t('system.common.seconds')}`,
     },
     {
       field: 'authorizedGrantTypes',

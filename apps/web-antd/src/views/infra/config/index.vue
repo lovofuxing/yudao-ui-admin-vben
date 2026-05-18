@@ -34,7 +34,10 @@ function handleRefresh() {
 /** 导出表格 */
 async function handleExport() {
   const data = await exportConfig(await gridApi.formApi.getValues());
-  downloadFileFromBlobPart({ fileName: `${$t('infra.config.title')}.xls`, source: data });
+  downloadFileFromBlobPart({
+    fileName: `${$t('infra.config.title')}.xls`,
+    source: data,
+  });
 }
 
 /** 创建参数 */

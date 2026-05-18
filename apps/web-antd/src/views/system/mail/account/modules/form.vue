@@ -22,7 +22,9 @@ const formData = ref<SystemMailAccountApi.MailAccount>();
 const getTitle = computed(() => {
   return formData.value?.id
     ? $t('ui.actionTitle.edit', [$t('system.mail.account.fields.entityName')])
-    : $t('ui.actionTitle.create', [$t('system.mail.account.fields.entityName')]);
+    : $t('ui.actionTitle.create', [
+        $t('system.mail.account.fields.entityName'),
+      ]);
 });
 
 const [Form, formApi] = useVbenForm({

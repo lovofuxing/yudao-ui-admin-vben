@@ -426,7 +426,10 @@ function processDeptNode(node: any): DeptTreeNode {
           :row-key="(record) => String(record.id)"
           :data-source="transferDataSource"
           v-model:target-keys="selectedUserIds"
-          :titles="[$t('system.user.selectUser.unselected'), $t('system.user.selectUser.selected')]"
+          :titles="[
+            $t('system.user.selectUser.unselected'),
+            $t('system.user.selectUser.selected'),
+          ]"
           :show-search="true"
           :show-select-all="true"
           :filter-option="filterOption"
@@ -444,7 +447,9 @@ function processDeptNode(node: any): DeptTreeNode {
                 v-model:page-size="leftListState.pagination.pageSize"
                 :total="leftListState.pagination.total"
                 :show-size-changer="true"
-                :show-total="(total) => $t('system.user.selectUser.total', { total })"
+                :show-total="
+                  (total) => $t('system.user.selectUser.total', { total })
+                "
                 size="small"
                 @change="handleLeftPaginationChange"
               />
@@ -456,7 +461,9 @@ function processDeptNode(node: any): DeptTreeNode {
                 v-model:page-size="rightListState.pagination.pageSize"
                 :total="rightListState.pagination.total"
                 :show-size-changer="true"
-                :show-total="(total) => $t('system.user.selectUser.total', { total })"
+                :show-total="
+                  (total) => $t('system.user.selectUser.total', { total })
+                "
                 size="small"
                 @change="handleRightPaginationChange"
               />

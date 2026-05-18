@@ -146,7 +146,9 @@ export function useGridFormSchema(): VbenFormSchema[] {
       label: $t('system.social.client.fields.clientId'),
       component: 'Input',
       componentProps: {
-        placeholder: $t('system.social.client.fields.clientIdSearchPlaceholder'),
+        placeholder: $t(
+          'system.social.client.fields.clientIdSearchPlaceholder',
+        ),
         allowClear: true,
       },
     },

@@ -15,7 +15,9 @@ export function useFormSchema(): VbenFormSchema[] {
       componentProps: {
         placeholder: $t('system.area.fields.ipPlaceholder'),
       },
-      rules: z.string().ip({ message: $t('system.area.fields.ipValidationMessage') }),
+      rules: z
+        .string()
+        .ip({ message: $t('system.area.fields.ipValidationMessage') }),
     },
     {
       fieldName: 'result',

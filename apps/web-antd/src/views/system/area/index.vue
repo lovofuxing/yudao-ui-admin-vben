@@ -58,7 +58,10 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('system.area.docTitle')" url="https://doc.iocoder.cn/area-and-ip/" />
+      <DocAlert
+        :title="$t('system.area.docTitle')"
+        url="https://doc.iocoder.cn/area-and-ip/"
+      />
     </template>
 
     <FormModal @success="handleRefresh" />

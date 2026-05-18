@@ -47,7 +47,10 @@ function handleRefresh() {
 /** 导出表格 */
 async function handleExport() {
   const data = await exportRole(await gridApi.formApi.getValues());
-  downloadFileFromBlobPart({ fileName: $t('system.role.exportFilename'), source: data });
+  downloadFileFromBlobPart({
+    fileName: $t('system.role.exportFilename'),
+    source: data,
+  });
 }
 
 /** 创建角色 */
@@ -150,10 +153,13 @@ const [Grid, gridApi] = useVbenVxeGrid({
   <Page auto-content-height>
     <template #doc>
       <DocAlert
-          :title="$t('system.role.docAlert.functionPermission')"
-          url="https://doc.iocoder.cn/resource-permission"
-        />
-        <DocAlert :title="$t('system.role.docAlert.dataPermission')" url="https://doc.iocoder.cn/data-permission" />
+        :title="$t('system.role.docAlert.functionPermission')"
+        url="https://doc.iocoder.cn/resource-permission"
+      />
+      <DocAlert
+        :title="$t('system.role.docAlert.dataPermission')"
+        url="https://doc.iocoder.cn/data-permission"
+      />
     </template>
 
     <FormModal @success="handleRefresh" />
@@ -164,7 +170,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('system.role.entityName')]),
+              label: $t('ui.actionTitle.create', [
+                $t('system.role.entityName'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:role:create'],

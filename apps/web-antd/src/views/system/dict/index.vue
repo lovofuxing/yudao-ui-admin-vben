@@ -17,7 +17,10 @@ function handleDictTypeSelect(dictType: string) {
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('system.dict.docTitle')" url="https://doc.iocoder.cn/dict/" />
+      <DocAlert
+        :title="$t('system.dict.docTitle')"
+        url="https://doc.iocoder.cn/dict/"
+      />
     </template>
 
     <div class="flex h-full">

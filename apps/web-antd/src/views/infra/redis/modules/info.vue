@@ -20,7 +20,10 @@ const [Descriptions] = useDescription({
     {
       field: 'info.redis_mode',
       label: $t('infra.redis.fields.runMode'),
-      render: (val) => (val === 'standalone' ? $t('infra.redis.standalone') : $t('infra.redis.cluster')),
+      render: (val) =>
+        val === 'standalone'
+          ? $t('infra.redis.standalone')
+          : $t('infra.redis.cluster'),
     },
     {
       field: 'info.tcp_port',
@@ -50,7 +53,8 @@ const [Descriptions] = useDescription({
     {
       field: 'info.aof_enabled',
       label: $t('infra.redis.fields.aofEnabled'),
-      render: (val) => (val === '0' ? $t('infra.redis.no') : $t('infra.redis.yes')),
+      render: (val) =>
+        val === '0' ? $t('infra.redis.no') : $t('infra.redis.yes'),
     },
     {
       field: 'info.rdb_last_bgsave_status',

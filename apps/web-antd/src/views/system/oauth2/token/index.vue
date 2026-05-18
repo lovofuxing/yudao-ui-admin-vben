@@ -27,15 +27,17 @@ function handleRefresh() {
 async function handleDelete(row: SystemOAuth2TokenApi.OAuth2Token) {
   const hideLoading = message.loading({
     content: $t('ui.actionMessage.deleting', [
-                $t('system.oauth2.token.entityName'),
-              ]),
+      $t('system.oauth2.token.entityName'),
+    ]),
     duration: 0,
   });
   try {
     await deleteOAuth2Token(row.accessToken);
-    message.success($t('ui.actionMessage.deleteSuccess', [
-                $t('system.oauth2.token.entityName'),
-              ]));
+    message.success(
+      $t('ui.actionMessage.deleteSuccess', [
+        $t('system.oauth2.token.entityName'),
+      ]),
+    );
     handleRefresh();
   } finally {
     hideLoading();
@@ -139,8 +141,8 @@ const [Grid, gridApi] = useVbenVxeGrid({
               auth: ['system:oauth2-token:delete'],
               popConfirm: {
                 title: $t('ui.actionMessage.deleteConfirm', [
-                $t('system.oauth2.token.entityName'),
-              ]),
+                  $t('system.oauth2.token.entityName'),
+                ]),
                 confirm: handleDelete.bind(null, row),
               },
             },

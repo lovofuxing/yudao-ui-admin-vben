@@ -118,7 +118,10 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('system.mail.docTitle')" url="https://doc.iocoder.cn/mail" />
+      <DocAlert
+        :title="$t('system.mail.docTitle')"
+        url="https://doc.iocoder.cn/mail"
+      />
     </template>
 
     <FormModal @success="handleRefresh" />
@@ -127,7 +130,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('system.mail.account.fields.entityName')]),
+              label: $t('ui.actionTitle.create', [
+                $t('system.mail.account.fields.entityName'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:mail-account:create'],

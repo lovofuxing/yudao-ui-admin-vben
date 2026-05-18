@@ -105,13 +105,19 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
       formatter: ({ row }) => {
         const lines: string[] = [];
         if (row.toMails && row.toMails.length > 0) {
-          lines.push(`${$t('system.mail.log.fields.receiveTo')}${row.toMails.join('、')}`);
+          lines.push(
+            `${$t('system.mail.log.fields.receiveTo')}${row.toMails.join('、')}`,
+          );
         }
         if (row.ccMails && row.ccMails.length > 0) {
-          lines.push(`${$t('system.mail.log.fields.receiveCc')}${row.ccMails.join('、')}`);
+          lines.push(
+            `${$t('system.mail.log.fields.receiveCc')}${row.ccMails.join('、')}`,
+          );
         }
         if (row.bccMails && row.bccMails.length > 0) {
-          lines.push(`${$t('system.mail.log.fields.receiveBcc')}${row.bccMails.join('、')}`);
+          lines.push(
+            `${$t('system.mail.log.fields.receiveBcc')}${row.bccMails.join('、')}`,
+          );
         }
         return lines.join('\n');
       },
@@ -194,13 +200,19 @@ export function useDetailSchema(): DescriptionItemSchema[] {
       render: (val, data) => {
         const lines: string[] = [];
         if (val && val.length > 0) {
-          lines.push(`${$t('system.mail.log.fields.receiveTo')}${val.join('、')}`);
+          lines.push(
+            `${$t('system.mail.log.fields.receiveTo')}${val.join('、')}`,
+          );
         }
         if (data?.ccMails && data.ccMails.length > 0) {
-          lines.push(`${$t('system.mail.log.fields.receiveCc')}${data.ccMails.join('、')}`);
+          lines.push(
+            `${$t('system.mail.log.fields.receiveCc')}${data.ccMails.join('、')}`,
+          );
         }
         if (data?.bccMails && data.bccMails.length > 0) {
-          lines.push(`${$t('system.mail.log.fields.receiveBcc')}${data.bccMails.join('、')}`);
+          lines.push(
+            `${$t('system.mail.log.fields.receiveBcc')}${data.bccMails.join('、')}`,
+          );
         }
         return h(
           'div',

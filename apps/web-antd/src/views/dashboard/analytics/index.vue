@@ -78,13 +78,22 @@ const chartTabs: TabOption[] = [
     </AnalysisChartsTabs>
 
     <div class="mt-5 w-full md:flex">
-      <AnalysisChartCard class="mt-5 md:mt-0 md:mr-4 md:w-1/3" :title="$t('dashboard.analytics.charts.visitCount')">
+      <AnalysisChartCard
+        class="mt-5 md:mt-0 md:mr-4 md:w-1/3"
+        :title="$t('dashboard.analytics.charts.visitCount')"
+      >
         <AnalyticsVisitsData />
       </AnalysisChartCard>
-      <AnalysisChartCard class="mt-5 md:mt-0 md:mr-4 md:w-1/3" :title="$t('dashboard.analytics.charts.visitSource')">
+      <AnalysisChartCard
+        class="mt-5 md:mt-0 md:mr-4 md:w-1/3"
+        :title="$t('dashboard.analytics.charts.visitSource')"
+      >
         <AnalyticsVisitsSource />
       </AnalysisChartCard>
-      <AnalysisChartCard class="mt-5 md:mt-0 md:w-1/3" :title="$t('dashboard.analytics.charts.visitSales')">
+      <AnalysisChartCard
+        class="mt-5 md:mt-0 md:w-1/3"
+        :title="$t('dashboard.analytics.charts.visitSales')"
+      >
         <AnalyticsVisitsSales />
       </AnalysisChartCard>
     </div>

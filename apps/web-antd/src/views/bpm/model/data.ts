@@ -2,6 +2,7 @@ import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { BpmModelApi } from '#/api/bpm/model';
 
 import { DICT_TYPE } from '@vben/constants';
+
 import { $t } from '#/locales';
 
 /** 列表的字段 */

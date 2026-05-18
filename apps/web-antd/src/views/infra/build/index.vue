@@ -172,7 +172,9 @@ onMounted(async () => {
     <!-- 弹窗：表单预览 -->
     <Modal :title="dialogTitle" :footer="false" :fullscreen-button="false">
       <div>
-        <Button style="float: right" @click="copy(formData)"> {{ $t('infra.build.copy') }} </Button>
+        <Button style="float: right" @click="copy(formData)">
+          {{ $t('infra.build.copy') }}
+        </Button>
         <div>
           <pre><code v-dompurify-html="highlightedCode(formData)" class="hljs"></code></pre>
         </div>

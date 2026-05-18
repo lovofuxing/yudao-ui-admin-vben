@@ -70,7 +70,10 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('infra.apiAccessLog.title')" url="https://doc.iocoder.cn/system-log/" />
+      <DocAlert
+        :title="$t('infra.apiAccessLog.title')"
+        url="https://doc.iocoder.cn/system-log/"
+      />
     </template>
 
     <DetailModal @success="handleRefresh" />

@@ -19,7 +19,10 @@ const src = ref(
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('report.jmreport.title')" url="https://doc.iocoder.cn/report/" />
+      <DocAlert
+        :title="$t('report.jmreport.title')"
+        url="https://doc.iocoder.cn/report/"
+      />
     </template>
 
     <IFrame :src="src" />

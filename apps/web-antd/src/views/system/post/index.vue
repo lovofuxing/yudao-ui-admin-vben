@@ -33,7 +33,9 @@ function handleRefresh() {
 
 /** 导出表格 */
 async function handleExport() {
-  if (isShow) { return; }
+  if (isShow) {
+    return;
+  }
   const data = await exportPost(await gridApi.formApi.getValues());
   downloadFileFromBlobPart({
     fileName: $t('system.post.exportFilename'),
@@ -134,7 +136,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('system.post.entityName')]),
+              label: $t('ui.actionTitle.create', [
+                $t('system.post.entityName'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:post:create'],

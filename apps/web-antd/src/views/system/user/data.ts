@@ -84,7 +84,11 @@ export function useFormSchema(): VbenFormSchema[] {
       fieldName: 'email',
       label: $t('system.user.fields.email'),
       component: 'Input',
-      rules: z.string().email($t('system.user.fields.emailInvalid')).or(z.literal('')).optional(),
+      rules: z
+        .string()
+        .email($t('system.user.fields.emailInvalid'))
+        .or(z.literal(''))
+        .optional(),
       componentProps: {
         placeholder: $t('system.user.fields.emailPlaceholder'),
       },
@@ -173,7 +177,9 @@ export function useResetPasswordFormSchema(): VbenFormSchema[] {
       dependencies: {
         rules(values) {
           return z
-            .string({ message: $t('system.user.fields.confirmPasswordRequired') })
+            .string({
+              message: $t('system.user.fields.confirmPasswordRequired'),
+            })
             .min(5, $t('system.user.fields.passwordMinLength'))
             .max(20, $t('system.user.fields.passwordMaxLength'))
             .refine(

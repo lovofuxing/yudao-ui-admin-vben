@@ -4,7 +4,10 @@ import type { StudentDetail } from '#/api/education/student/detail';
 import { Descriptions, Tag } from 'ant-design-vue';
 
 import { $t } from '#/locales';
-import { getEducationStatusColor, getEducationStatusText } from '../../../_utils/status';
+import {
+  getEducationStatusColor,
+  getEducationStatusText,
+} from '../../../_utils/status';
 
 defineProps<{ detail: StudentDetail }>();
 </script>

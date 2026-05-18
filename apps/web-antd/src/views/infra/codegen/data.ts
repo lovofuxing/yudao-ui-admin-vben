@@ -58,8 +58,16 @@ export function useImportTableFormSchema(): VbenFormSchema[] {
 export function useImportTableColumns(): VxeTableGridOptions['columns'] {
   return [
     { type: 'checkbox', width: 40 },
-    { field: 'name', title: $t('infra.codegen.fields.tableName'), minWidth: 200 },
-    { field: 'comment', title: $t('infra.codegen.fields.tableComment'), minWidth: 200 },
+    {
+      field: 'name',
+      title: $t('infra.codegen.fields.tableName'),
+      minWidth: 200,
+    },
+    {
+      field: 'comment',
+      title: $t('infra.codegen.fields.tableComment'),
+      minWidth: 200,
+    },
   ];
 }
 
@@ -438,14 +446,22 @@ export function useGridColumns(
 /** 代码生成表格列定义 */
 export function useCodegenColumnTableColumns(): VxeTableGridOptions['columns'] {
   return [
-    { field: 'columnName', title: $t('infra.codegen.fields.columnName'), minWidth: 130 },
+    {
+      field: 'columnName',
+      title: $t('infra.codegen.fields.columnName'),
+      minWidth: 130,
+    },
     {
       field: 'columnComment',
       title: $t('infra.codegen.fields.columnComment'),
       minWidth: 100,
       slots: { default: 'columnComment' },
     },
-    { field: 'dataType', title: $t('infra.codegen.fields.dataType'), minWidth: 100 },
+    {
+      field: 'dataType',
+      title: $t('infra.codegen.fields.dataType'),
+      minWidth: 100,
+    },
     {
       field: 'javaType',
       title: $t('infra.codegen.fields.javaType'),
@@ -525,14 +541,35 @@ export function useCodegenColumnTableColumns(): VxeTableGridOptions['columns'] {
       params: {
         options: [
           { label: $t('infra.codegen.htmlTypeOptions.input'), value: 'input' },
-          { label: $t('infra.codegen.htmlTypeOptions.textarea'), value: 'textarea' },
-          { label: $t('infra.codegen.htmlTypeOptions.select'), value: 'select' },
+          {
+            label: $t('infra.codegen.htmlTypeOptions.textarea'),
+            value: 'textarea',
+          },
+          {
+            label: $t('infra.codegen.htmlTypeOptions.select'),
+            value: 'select',
+          },
           { label: $t('infra.codegen.htmlTypeOptions.radio'), value: 'radio' },
-          { label: $t('infra.codegen.htmlTypeOptions.checkbox'), value: 'checkbox' },
-          { label: $t('infra.codegen.htmlTypeOptions.datetime'), value: 'datetime' },
-          { label: $t('infra.codegen.htmlTypeOptions.imageUpload'), value: 'imageUpload' },
-          { label: $t('infra.codegen.htmlTypeOptions.fileUpload'), value: 'fileUpload' },
-          { label: $t('infra.codegen.htmlTypeOptions.editor'), value: 'editor' },
+          {
+            label: $t('infra.codegen.htmlTypeOptions.checkbox'),
+            value: 'checkbox',
+          },
+          {
+            label: $t('infra.codegen.htmlTypeOptions.datetime'),
+            value: 'datetime',
+          },
+          {
+            label: $t('infra.codegen.htmlTypeOptions.imageUpload'),
+            value: 'imageUpload',
+          },
+          {
+            label: $t('infra.codegen.htmlTypeOptions.fileUpload'),
+            value: 'fileUpload',
+          },
+          {
+            label: $t('infra.codegen.htmlTypeOptions.editor'),
+            value: 'editor',
+          },
         ],
       },
     },

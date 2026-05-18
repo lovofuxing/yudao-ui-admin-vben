@@ -138,7 +138,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('system.notice.entityName')]),
+              label: $t('ui.actionTitle.create', [
+                $t('system.notice.entityName'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:notice:create'],

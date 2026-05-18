@@ -130,7 +130,9 @@ export function useFormSchema(): VbenFormSchema[] {
           );
         },
         rules: (values) => {
-          const schema = z.string().min(1, $t('system.menu.fields.pathRequired'));
+          const schema = z
+            .string()
+            .min(1, $t('system.menu.fields.pathRequired'));
           if (isHttpUrl(values.path)) {
             return schema;
           }

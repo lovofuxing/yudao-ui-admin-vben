@@ -3,15 +3,12 @@ import { resolve } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import {
-  getEducationClassPage,
-  updateEducationClass,
-} from './class';
-import { getEducationCoursePage } from './course';
 import { getEducationFaceCheckinPage } from './checkin';
+import { getEducationClassPage, updateEducationClass } from './class';
+import { getEducationCoursePage } from './course';
 import { getEducationFaceDeductionPage } from './faceDeduction';
-import { getEducationLessonRecordPage } from './record';
 import { getEducationQuickDeductionPage } from './quickDeduction';
+import { getEducationLessonRecordPage } from './record';
 import { getEducationReservationPage } from './reservation';
 import { getEducationSchedulePage } from './schedule';
 import {
@@ -26,8 +23,7 @@ describe('education resource api contract', () => {
     // 扣课菜单权限必须和已确认的菜单资源段一致，避免短横线权限和后端菜单权限对不上。
     const permissionCases = [
       {
-        filePath:
-          'apps/web-antd/src/views/education/quickDeduction/index.vue',
+        filePath: 'apps/web-antd/src/views/education/quickDeduction/index.vue',
         invalidResource: 'quick-deduction',
         resource: 'quickDeduction',
       },
@@ -39,7 +35,10 @@ describe('education resource api contract', () => {
     ];
 
     for (const item of permissionCases) {
-      const source = readFileSync(resolve(process.cwd(), item.filePath), 'utf8');
+      const source = readFileSync(
+        resolve(process.cwd(), item.filePath),
+        'utf8',
+      );
 
       expect(source).toContain(`education:${item.resource}:create`);
       expect(source).toContain(`education:${item.resource}:update`);
@@ -115,7 +114,18 @@ describe('education resource api contract', () => {
   });
 
   it('provides student detail tab pagination for all 10 tabs', async () => {
-    const { getStudentFollowPage, getStudentTrialPage, getStudentCoursePage, getStudentClassRecordPage, getStudentDeductionPage, getStudentSchedulePage, getStudentCommunicationPage, getStudentGrowthPage, getStudentLeavePage, getStudentPointsPage } = await import('./student/detail');
+    const {
+      getStudentFollowPage,
+      getStudentTrialPage,
+      getStudentCoursePage,
+      getStudentClassRecordPage,
+      getStudentDeductionPage,
+      getStudentSchedulePage,
+      getStudentCommunicationPage,
+      getStudentGrowthPage,
+      getStudentLeavePage,
+      getStudentPointsPage,
+    } = await import('./student/detail');
 
     const pages = await Promise.all([
       getStudentFollowPage({ studentId: 1, pageNo: 1, pageSize: 5 }),
@@ -135,7 +145,13 @@ describe('education resource api contract', () => {
   });
 
   it('provides class detail tab pagination for all 5 tabs', async () => {
-    const { getClassStudentPage, getClassSchedulePage, getClassRecordPage, getClassScheduleConfigPage, getClassOrderPage } = await import('./class/detail');
+    const {
+      getClassStudentPage,
+      getClassSchedulePage,
+      getClassRecordPage,
+      getClassScheduleConfigPage,
+      getClassOrderPage,
+    } = await import('./class/detail');
 
     const pages = await Promise.all([
       getClassStudentPage({ classId: 1, pageNo: 1, pageSize: 5 }),

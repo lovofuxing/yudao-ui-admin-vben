@@ -55,7 +55,10 @@ const [Grid] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('system.social.docTitle')" url="https://doc.iocoder.cn/social-user/" />
+      <DocAlert
+        :title="$t('system.social.docTitle')"
+        url="https://doc.iocoder.cn/social-user/"
+      />
     </template>
 
     <DetailModal />

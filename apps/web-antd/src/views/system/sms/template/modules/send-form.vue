@@ -93,7 +93,9 @@ function buildFormSchema() {
         label: $t('system.sms.template.fields.paramLabel', [param]),
         component: 'Input',
         componentProps: {
-          placeholder: $t('system.sms.template.fields.paramPlaceholder', [param]),
+          placeholder: $t('system.sms.template.fields.paramPlaceholder', [
+            param,
+          ]),
         },
         rules: 'required',
       });

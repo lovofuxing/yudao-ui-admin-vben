@@ -157,10 +157,7 @@ getDetail();
         <Button :disabled="currentStep === 0" @click="prevStep">
           {{ $t('infra.codegen.prevStep') }}
         </Button>
-        <Button
-          :disabled="currentStep === steps.length - 1"
-          @click="nextStep"
-        >
+        <Button :disabled="currentStep === steps.length - 1" @click="nextStep">
           {{ $t('infra.codegen.nextStep') }}
         </Button>
         <Button type="primary" :loading="loading" @click="submitForm">

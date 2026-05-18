@@ -128,7 +128,10 @@ export function useFormSchema(): VbenFormSchema[] {
       componentProps: {
         options: [
           { label: $t('infra.fileConfig.modeOptions.active'), value: 'Active' },
-          { label: $t('infra.fileConfig.modeOptions.passive'), value: 'Passive' },
+          {
+            label: $t('infra.fileConfig.modeOptions.passive'),
+            value: 'Passive',
+          },
         ],
         buttonStyle: 'solid',
         optionType: 'button',
@@ -198,8 +201,14 @@ export function useFormSchema(): VbenFormSchema[] {
       component: 'RadioGroup',
       componentProps: {
         options: [
-          { label: $t('infra.fileConfig.pathStyleOptions.enabled'), value: true },
-          { label: $t('infra.fileConfig.pathStyleOptions.disabled'), value: false },
+          {
+            label: $t('infra.fileConfig.pathStyleOptions.enabled'),
+            value: true,
+          },
+          {
+            label: $t('infra.fileConfig.pathStyleOptions.disabled'),
+            value: false,
+          },
         ],
         buttonStyle: 'solid',
         optionType: 'button',
@@ -217,8 +226,14 @@ export function useFormSchema(): VbenFormSchema[] {
       component: 'RadioGroup',
       componentProps: {
         options: [
-          { label: $t('infra.fileConfig.publicAccessOptions.public'), value: true },
-          { label: $t('infra.fileConfig.publicAccessOptions.private'), value: false },
+          {
+            label: $t('infra.fileConfig.publicAccessOptions.public'),
+            value: true,
+          },
+          {
+            label: $t('infra.fileConfig.publicAccessOptions.private'),
+            value: false,
+          },
         ],
         buttonStyle: 'solid',
         optionType: 'button',

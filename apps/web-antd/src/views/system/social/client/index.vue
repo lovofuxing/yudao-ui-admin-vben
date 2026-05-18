@@ -119,7 +119,10 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('system.social.docTitle')" url="https://doc.iocoder.cn/social-user/" />
+      <DocAlert
+        :title="$t('system.social.docTitle')"
+        url="https://doc.iocoder.cn/social-user/"
+      />
     </template>
 
     <FormModal @success="handleRefresh" />
@@ -128,7 +131,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('system.social.client.entityName')]),
+              label: $t('ui.actionTitle.create', [
+                $t('system.social.client.entityName'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:social-client:create'],

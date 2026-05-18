@@ -199,7 +199,9 @@ export function useSendNotifyFormSchema(): VbenFormSchema[] {
         api: getSimpleUserList,
         labelField: 'nickname',
         valueField: 'id',
-        placeholder: $t('system.notify.template.fields.userNicknamePlaceholder'),
+        placeholder: $t(
+          'system.notify.template.fields.userNicknamePlaceholder',
+        ),
       },
       dependencies: {
         show(values) {

@@ -128,7 +128,9 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
       title: $t('infra.apiAccessLog.fields.resultCode'),
       minWidth: 150,
       formatter: ({ row }) => {
-        return row.resultCode === 0 ? $t('infra.apiAccessLog.success') : `${$t('infra.apiAccessLog.failure')}(${row.resultMsg})`;
+        return row.resultCode === 0
+          ? $t('infra.apiAccessLog.success')
+          : `${$t('infra.apiAccessLog.failure')}(${row.resultMsg})`;
       },
     },
     {

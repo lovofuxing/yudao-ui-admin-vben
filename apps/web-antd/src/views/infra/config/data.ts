@@ -1,11 +1,10 @@
 import type { VbenFormSchema } from '#/adapter/form';
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 
-import { $t } from '#/locales';
-
 import { DICT_TYPE } from '@vben/constants';
 import { getDictOptions } from '@vben/hooks';
 
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 新增/修改的表单 */

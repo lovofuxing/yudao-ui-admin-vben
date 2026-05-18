@@ -54,7 +54,10 @@ function beforeUpload(file: FileType) {
 /** 下载模版 */
 async function handleDownload() {
   const data = await importUserTemplate();
-  downloadFileFromBlobPart({ fileName: $t('system.user.importTemplateFilename'), source: data });
+  downloadFileFromBlobPart({
+    fileName: $t('system.user.importTemplateFilename'),
+    source: data,
+  });
 }
 </script>
 
@@ -68,14 +71,18 @@ async function handleDownload() {
             accept=".xls,.xlsx"
             :before-upload="beforeUpload"
           >
-            <Button type="primary"> {{ $t('system.user.import.selectFile') }} </Button>
+            <Button type="primary">
+              {{ $t('system.user.import.selectFile') }}
+            </Button>
           </Upload>
         </div>
       </template>
     </Form>
     <template #prepend-footer>
       <div class="flex flex-auto items-center">
-        <Button @click="handleDownload"> {{ $t('system.user.import.downloadTemplate') }} </Button>
+        <Button @click="handleDownload">
+          {{ $t('system.user.import.downloadTemplate') }}
+        </Button>
       </div>
     </template>
   </Modal>

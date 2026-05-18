@@ -27,7 +27,10 @@ onMounted(async () => {
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('infra.server.docTitle')" url="https://doc.iocoder.cn/server-monitor/" />
+      <DocAlert
+        :title="$t('infra.server.docTitle')"
+        url="https://doc.iocoder.cn/server-monitor/"
+      />
     </template>
 
     <IFrame v-if="!loading" v-loading="loading" :src="src" />

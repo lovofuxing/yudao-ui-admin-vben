@@ -24,7 +24,10 @@ onMounted(async () => {
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('infra.druid.docMybatis')" url="https://doc.iocoder.cn/mybatis/" />
+      <DocAlert
+        :title="$t('infra.druid.docMybatis')"
+        url="https://doc.iocoder.cn/mybatis/"
+      />
       <DocAlert
         :title="$t('infra.druid.docDynamicDatasource')"
         url="https://doc.iocoder.cn/dynamic-datasource/"

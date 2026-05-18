@@ -32,8 +32,14 @@ onMounted(() => {
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('infra.redis.docRedisCache')" url="https://doc.iocoder.cn/redis-cache/" />
-      <DocAlert :title="$t('infra.redis.docLocalCache')" url="https://doc.iocoder.cn/local-cache/" />
+      <DocAlert
+        :title="$t('infra.redis.docRedisCache')"
+        url="https://doc.iocoder.cn/redis-cache/"
+      />
+      <DocAlert
+        :title="$t('infra.redis.docLocalCache')"
+        url="https://doc.iocoder.cn/local-cache/"
+      />
     </template>
 
     <Card :title="$t('infra.redis.overview')">

@@ -74,16 +74,28 @@ watch(
         <Tabs.TabPane key="course" :tab="$t('education.student.tab.course')">
           <TabCourse :student-id="props.studentId!" />
         </Tabs.TabPane>
-        <Tabs.TabPane key="class-record" :tab="$t('education.student.tab.classRecord')">
+        <Tabs.TabPane
+          key="class-record"
+          :tab="$t('education.student.tab.classRecord')"
+        >
           <TabClassRecord :student-id="props.studentId!" />
         </Tabs.TabPane>
-        <Tabs.TabPane key="deduction" :tab="$t('education.student.tab.deduction')">
+        <Tabs.TabPane
+          key="deduction"
+          :tab="$t('education.student.tab.deduction')"
+        >
           <TabDeduction :student-id="props.studentId!" />
         </Tabs.TabPane>
-        <Tabs.TabPane key="schedule" :tab="$t('education.student.tab.schedule')">
+        <Tabs.TabPane
+          key="schedule"
+          :tab="$t('education.student.tab.schedule')"
+        >
           <TabSchedule :student-id="props.studentId!" />
         </Tabs.TabPane>
-        <Tabs.TabPane key="communication" :tab="$t('education.student.tab.communication')">
+        <Tabs.TabPane
+          key="communication"
+          :tab="$t('education.student.tab.communication')"
+        >
           <TabCommunication :student-id="props.studentId!" />
         </Tabs.TabPane>
         <Tabs.TabPane key="growth" :tab="$t('education.student.tab.growth')">

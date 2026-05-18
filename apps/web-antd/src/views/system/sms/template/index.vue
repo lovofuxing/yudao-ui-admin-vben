@@ -137,7 +137,10 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert :title="$t('system.sms.docTitle')" url="https://doc.iocoder.cn/sms/" />
+      <DocAlert
+        :title="$t('system.sms.docTitle')"
+        url="https://doc.iocoder.cn/sms/"
+      />
     </template>
 
     <FormModal @success="handleRefresh" />
@@ -147,7 +150,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [$t('system.sms.template.entityName')]),
+              label: $t('ui.actionTitle.create', [
+                $t('system.sms.template.entityName'),
+              ]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:sms-template:create'],

@@ -12,12 +12,32 @@ import { $t } from '#/locales';
 const emit = defineEmits(['success']);
 
 const [Form, formApi] = useVbenForm({
-  commonConfig: { componentProps: { class: 'w-full' }, formItemClass: 'col-span-2', labelWidth: 96 },
+  commonConfig: {
+    componentProps: { class: 'w-full' },
+    formItemClass: 'col-span-2',
+    labelWidth: 96,
+  },
   layout: 'horizontal',
   schema: () => [
-    { component: 'DatePicker', fieldName: 'suspendDate', label: '停课日期', rules: 'required', componentProps: { class: 'w-full' } },
-    { component: 'DatePicker', fieldName: 'resumeDate', label: '复课日期', componentProps: { class: 'w-full' } },
-    { component: 'InputTextArea', fieldName: 'remark', label: '停课备注', componentProps: { rows: 3 } },
+    {
+      component: 'DatePicker',
+      fieldName: 'suspendDate',
+      label: '停课日期',
+      rules: 'required',
+      componentProps: { class: 'w-full' },
+    },
+    {
+      component: 'DatePicker',
+      fieldName: 'resumeDate',
+      label: '复课日期',
+      componentProps: { class: 'w-full' },
+    },
+    {
+      component: 'InputTextArea',
+      fieldName: 'remark',
+      label: '停课备注',
+      componentProps: { rows: 3 },
+    },
   ],
   showDefaultActions: false,
 });

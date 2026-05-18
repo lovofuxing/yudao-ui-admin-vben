@@ -36,7 +36,11 @@ const server = ref(
 ); // WebSocket 服务地址
 const getIsOpen = computed(() => status.value === 'OPEN'); // WebSocket 连接是否打开
 const getTagColor = computed(() => (getIsOpen.value ? 'success' : 'red')); // WebSocket 连接的展示颜色
-const getStatusText = computed(() => (getIsOpen.value ? $t('infra.webSocket.connected') : $t('infra.webSocket.disconnected'))); // 连接状态文本
+const getStatusText = computed(() =>
+  getIsOpen.value
+    ? $t('infra.webSocket.connected')
+    : $t('infra.webSocket.disconnected'),
+); // 连接状态文本
 
 /** 发起 WebSocket 连接 */
 const { status, data, send, close, open } = useWebSocket(server.value, {
@@ -189,11 +193,15 @@ onMounted(async () => {
         <template #title>
           <div class="flex items-center">
             <Badge :status="getIsOpen ? 'success' : 'error'" />
-            <span class="ml-2 text-lg font-medium">{{ $t('infra.webSocket.connectionManagement') }}</span>
+            <span class="ml-2 text-lg font-medium">{{
+              $t('infra.webSocket.connectionManagement')
+            }}</span>
           </div>
         </template>
         <div class="mb-4 flex items-center rounded-lg p-3">
-          <span class="mr-4 font-medium">{{ $t('infra.webSocket.connectionStatus') }}:</span>
+          <span class="mr-4 font-medium"
+            >{{ $t('infra.webSocket.connectionStatus') }}:</span
+          >
           <Tag :color="getTagColor" class="px-3 py-1">{{ getStatusText }}</Tag>
         </div>
         <div class="mb-6 flex space-x-2">
@@ -204,7 +212,9 @@ onMounted(async () => {
             size="large"
           >
             <template #addonBefore>
-              <span class="text-gray-600">{{ $t('infra.webSocket.serverAddress') }}</span>
+              <span class="text-gray-600">{{
+                $t('infra.webSocket.serverAddress')
+              }}</span>
             </template>
           </Input>
           <Button
@@ -214,12 +224,18 @@ onMounted(async () => {
             class="flex-shrink-0"
             @click="toggleConnectStatus"
           >
-            {{ getIsOpen ? $t('infra.webSocket.closeConnection') : $t('infra.webSocket.openConnection') }}
+            {{
+              getIsOpen
+                ? $t('infra.webSocket.closeConnection')
+                : $t('infra.webSocket.openConnection')
+            }}
           </Button>
         </div>
 
         <Divider>
-          <span class="text-gray-500">{{ $t('infra.webSocket.sendMessage') }}</span>
+          <span class="text-gray-500">{{
+            $t('infra.webSocket.sendMessage')
+          }}</span>
         </Divider>
 
         <Select
@@ -282,14 +298,19 @@ onMounted(async () => {
               icon="lucide:message-circle-more"
               class="mr-2 text-lg"
             />
-            <span class="text-lg font-medium">{{ $t('infra.webSocket.messageRecord') }}</span>
+            <span class="text-lg font-medium">{{
+              $t('infra.webSocket.messageRecord')
+            }}</span>
             <Tag v-if="messageList.length > 0" class="ml-2">
               {{ messageList.length }} 条
             </Tag>
           </div>
         </template>
         <div class="h-96 overflow-auto rounded-lg p-2">
-          <Empty v-if="messageList.length === 0" :description="$t('infra.webSocket.noMessages')" />
+          <Empty
+            v-if="messageList.length === 0"
+            :description="$t('infra.webSocket.noMessages')"
+          />
           <div v-else class="space-y-3">
             <div
               v-for="msg in messageReverseList"
