@@ -15,6 +15,7 @@ import {
   updateAllNotifyMessageRead,
   updateNotifyMessageRead,
 } from '#/api/system/notify/message';
+import { $t } from '#/locales';
 
 import { useGridColumns, useGridFormSchema } from './data';
 import Detail from './modules/detail.vue';
@@ -37,12 +38,12 @@ function handleDetail(row: SystemNotifyMessageApi.NotifyMessage) {
 /** 标记一条站内信已读 */
 async function handleRead(row: SystemNotifyMessageApi.NotifyMessage) {
   const hideLoading = message.loading({
-    content: '正在标记已读...',
+    content: $t('system.notify.my.message.markingRead'),
     duration: 0,
   });
   try {
     await updateNotifyMessageRead([row.id]);
-    message.success('标记已读成功');
+    message.success($t('system.notify.my.message.markReadSuccess'));
     handleRefresh();
     // 打开详情
     handleDetail(row);
@@ -55,19 +56,19 @@ async function handleRead(row: SystemNotifyMessageApi.NotifyMessage) {
 async function handleMarkRead() {
   const rows = gridApi.grid.getCheckboxRecords();
   if (!rows || rows.length === 0) {
-    message.warning('请选择需要标记的站内信');
+    message.warning($t('system.notify.my.message.selectRequired'));
     return;
   }
 
   const ids = rows.map((row: SystemNotifyMessageApi.NotifyMessage) => row.id);
   const hideLoading = message.loading({
-    content: '正在标记已读...',
+    content: $t('system.notify.my.message.markingRead'),
     duration: 0,
   });
   try {
     await updateNotifyMessageRead(ids);
     checkedIds.value = [];
-    message.success('标记已读成功');
+    message.success($t('system.notify.my.message.markReadSuccess'));
     await gridApi.grid.setAllCheckboxRow(false);
     handleRefresh();
   } finally {
@@ -87,12 +88,12 @@ function handleRowCheckboxChange({
 /** 标记所有站内信为已读 */
 async function handleMarkAllRead() {
   const hideLoading = message.loading({
-    content: '正在标记全部已读...',
+    content: $t('system.notify.my.message.markingAllRead'),
     duration: 0,
   });
   try {
     await updateAllNotifyMessageRead();
-    message.success('全部标记已读成功');
+    message.success($t('system.notify.my.message.markAllReadSuccess'));
     checkedIds.value = [];
     await gridApi.grid.setAllCheckboxRow(false);
     handleRefresh();
@@ -143,23 +144,23 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="站内信配置" url="https://doc.iocoder.cn/notify/" />
+      <DocAlert :title="$t('system.notify.docTitle')" url="https://doc.iocoder.cn/notify/" />
     </template>
 
     <DetailModal @success="handleRefresh" />
-    <Grid table-title="我的站内信">
+    <Grid :table-title="$t('system.notify.my.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: '标记已读',
+              label: $t('system.notify.my.action.markRead'),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               disabled: isEmpty(checkedIds),
               onClick: handleMarkRead,
             },
             {
-              label: '全部已读',
+              label: $t('system.notify.my.action.markAllRead'),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               onClick: handleMarkAllRead,
@@ -171,14 +172,14 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: '查看',
+              label: $t('system.notify.my.action.view'),
               type: 'link',
               ifShow: row.readStatus,
               icon: ACTION_ICON.VIEW,
               onClick: handleDetail.bind(null, row),
             },
             {
-              label: '已读',
+              label: $t('system.notify.my.action.read'),
               type: 'link',
               ifShow: !row.readStatus,
               icon: ACTION_ICON.ADD,

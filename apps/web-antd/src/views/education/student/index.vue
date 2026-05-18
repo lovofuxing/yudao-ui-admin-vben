@@ -2,7 +2,7 @@
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { EducationStudentApi } from '#/api/education/student';
 
-import { ref } from 'vue';
+import { ref, shallowRef } from 'vue';
 
 import { confirm, Page, useVbenModal } from '@vben/common-ui';
 import { downloadFileFromBlobPart } from '@vben/utils';
@@ -24,6 +24,15 @@ import {
 } from '../_utils/status';
 import { useGridColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
+import StudentDetail from './detail/index.vue';
+
+const detailOpen = ref(false);
+const detailStudentId = shallowRef<number>();
+
+function handleRowClick(row: EducationStudentApi.Student) {
+  detailStudentId.value = row.id;
+  detailOpen.value = true;
+}
 
 const [FormModal, formModalApi] = useVbenModal({
   connectedComponent: Form,
@@ -128,6 +137,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
   gridEvents: {
     checkboxAll: handleRowCheckboxChange,
     checkboxChange: handleRowCheckboxChange,
+    cellDblclick: ({ row }: { row: EducationStudentApi.Student }) => handleRowClick(row),
   },
 });
 </script>
@@ -135,6 +145,10 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <FormModal @success="handleRefresh" />
+    <StudentDetail
+      :student-id="detailStudentId"
+      @close="detailOpen = false"
+    />
     <Grid :table-title="$t('education.student.tableTitle')">
       <template #toolbar-tools>
         <TableAction

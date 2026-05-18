@@ -1,0 +1,434 @@
+{
+  "common": {
+    "action": "操作",
+    "inputPlaceholder": "請輸入{0}",
+    "selectPlaceholder": "請選擇{0}",
+    "uploadPlaceholder": "請上傳{0}",
+    "createTime": "創建時間",
+    "status": "狀態",
+    "sort": "排序",
+    "remark": "備註",
+    "id": "編號"
+  },
+  "product": {
+    "brand": {
+      "title": "品牌管理",
+      "tableTitle": "品牌列表",
+      "fields": {
+        "id": "品牌編號",
+        "name": "品牌名稱",
+        "picUrl": "品牌圖片",
+        "sort": "品牌排序",
+        "status": "品牌狀態",
+        "description": "品牌描述",
+        "createTime": "創建時間"
+      }
+    },
+    "category": {
+      "title": "分類管理",
+      "tableTitle": "分類列表",
+      "fields": {
+        "id": "分類編號",
+        "parentId": "上級分類",
+        "name": "分類名稱",
+        "picUrl": "移動端分類圖",
+        "sort": "分類排序",
+        "status": "分類狀態",
+        "createTime": "創建時間"
+      },
+      "topLevel": "頂級分類",
+      "expand": "展開",
+      "collapse": "收縮",
+      "addChild": "新增下級",
+      "viewSpu": "檢視商品"
+    },
+    "comment": {
+      "title": "評論管理",
+      "tableTitle": "評論列表",
+      "fields": {
+        "id": "評論編號",
+        "spuId": "商品",
+        "skuId": "商品規格",
+        "userAvatar": "使用者頭像",
+        "userNickname": "使用者名稱",
+        "content": "評論內容",
+        "descriptionScores": "描述星級",
+        "benefitScores": "服務星級",
+        "picUrls": "評論圖片",
+        "replyStatus": "回覆狀態",
+        "spuName": "商品名稱",
+        "orderId": "訂單編號",
+        "createTime": "評論時間",
+        "skuPicUrl": "商品圖片",
+        "skuProperties": "商品屬性",
+        "replyContent": "回覆內容",
+        "visible": "是否展示",
+        "descriptionScoresTitle": "商品評分",
+        "benefitScoresTitle": "服務評分"
+      },
+      "replied": "已回覆",
+      "unreplied": "未回覆",
+      "selectSku": "選擇規格",
+      "selected": "已選："
+    },
+    "property": {
+      "title": "屬性管理",
+      "tableTitle": "屬性列表",
+      "fields": {
+        "id": "屬性編號",
+        "name": "屬性名稱",
+        "remark": "備註",
+        "createTime": "創建時間"
+      },
+      "value": {
+        "title": "屬性值管理",
+        "tableTitle": "屬性值列表",
+        "fields": {
+          "id": "屬性值編號",
+          "propertyId": "屬性",
+          "name": "屬性值名稱",
+          "remark": "備註",
+          "createTime": "創建時間",
+          "propertyItem": "屬性項"
+        }
+      }
+    },
+    "spu": {
+      "title": "商品管理",
+      "tableTitle": "商品列表",
+      "fields": {
+        "id": "商品編號",
+        "name": "商品名稱",
+        "categoryId": "商品分類",
+        "picUrl": "商品圖片",
+        "status": "銷售狀態",
+        "price": "價格(元)",
+        "marketPrice": "市場價(元)",
+        "costPrice": "成本價(元)",
+        "salesCount": "銷量",
+        "virtualSalesCount": "虛擬銷量",
+        "stock": "庫存",
+        "browseCount": "瀏覽量",
+        "sort": "排序",
+        "createTime": "創建時間"
+      },
+      "listed": "上架",
+      "unlisted": "下架",
+      "form": {
+        "infoTab": "基礎資訊",
+        "skuTab": "價格庫存",
+        "deliveryTab": "物流設定",
+        "descriptionTab": "商品詳情",
+        "otherTab": "其它設定",
+        "fields": {
+          "name": "商品名稱",
+          "categoryId": "分類名稱",
+          "brandId": "商品品牌",
+          "keyword": "商品關鍵字",
+          "introduction": "商品簡介",
+          "picUrl": "商品封面圖",
+          "sliderPicUrls": "商品輪播圖",
+          "subCommissionType": "分銷類型",
+          "specType": "商品規格",
+          "productAttributes": "商品屬性",
+          "batchSkuList": "批次設定",
+          "multiSkuList": "規格列表",
+          "deliveryTypes": "配送方式",
+          "deliveryTemplateId": "運費模板",
+          "description": "商品詳情",
+          "sort": "商品排序",
+          "giveIntegral": "贈送積分",
+          "virtualSalesCount": "虛擬銷量"
+        },
+        "singleSpec": "單規格",
+        "multiSpec": "多規格",
+        "defaultSetting": "預設設定",
+        "separateSetting": "單獨設定"
+      }
+    }
+  },
+  "promotion": {
+    "article": {
+      "title": "文章管理",
+      "tableTitle": "文章列表",
+      "fields": {
+        "id": "編號",
+        "title": "標題",
+        "categoryId": "文章分類",
+        "author": "文章作者",
+        "introduction": "文章簡介",
+        "picUrl": "文章封面",
+        "recommendHot": "是否熱門",
+        "recommendBanner": "是否輪播圖",
+        "spuId": "商品關聯",
+        "sort": "排序",
+        "status": "狀態",
+        "content": "文章內容",
+        "createTime": "創建時間"
+      }
+    },
+    "articleCategory": {
+      "title": "文章分類",
+      "tableTitle": "文章分類列表",
+      "fields": {
+        "id": "編號",
+        "name": "分類名稱",
+        "picUrl": "分類圖片",
+        "sort": "顯示順序",
+        "status": "狀態",
+        "createTime": "創建時間"
+      }
+    },
+    "banner": {
+      "title": "Banner管理",
+      "tableTitle": "Banner列表",
+      "fields": {
+        "id": "編號",
+        "title": "Banner 標題",
+        "picUrl": "圖片地址",
+        "position": "定位",
+        "url": "跳轉地址",
+        "sort": "排序",
+        "status": "活動狀態",
+        "memo": "描述",
+        "createTime": "創建時間"
+      }
+    },
+    "bargain": {
+      "activity": {
+        "title": "砍價活動",
+        "tableTitle": "砍價活動列表",
+        "fields": {
+          "id": "活動編號",
+          "name": "活動名稱",
+          "startTime": "開始時間",
+          "endTime": "結束時間",
+          "helpMaxCount": "助力人數",
+          "bargainCount": "砍價次數",
+          "totalLimitCount": "購買限制",
+          "randomMinPrice": "最小砍價金額(元)",
+          "randomMaxPrice": "最大砍價金額(元)",
+          "spuId": "砍價商品",
+          "activityTime": "活動時間",
+          "picUrl": "商品圖片",
+          "spuName": "商品標題",
+          "bargainFirstPrice": "起始價格",
+          "bargainMinPrice": "砍價底價",
+          "recordUserCount": "總砍價人數",
+          "recordSuccessUserCount": "成功砍價人數",
+          "helpUserCount": "助力人數",
+          "status": "活動狀態",
+          "stock": "庫存",
+          "totalStock": "總庫存",
+          "createTime": "創建時間"
+        }
+      },
+      "record": {
+        "title": "砍價記錄",
+        "tableTitle": "砍價記錄列表",
+        "fields": {
+          "id": "編號",
+          "status": "砍價狀態",
+          "avatar": "使用者頭像",
+          "nickname": "使用者暱稱",
+          "createTime": "發起時間",
+          "activityName": "砍價活動",
+          "bargainMinPrice": "最低價",
+          "bargainPrice": "當前價",
+          "totalBargainCount": "總砍價次數",
+          "remainingBargainCount": "剩餘砍價次數",
+          "endTime": "結束時間",
+          "orderId": "訂單編號"
+        },
+        "help": {
+          "userId": "使用者編號",
+          "avatar": "使用者頭像",
+          "nickname": "使用者暱稱",
+          "reducePrice": "砍價金額",
+          "createTime": "助力時間"
+        }
+      }
+    },
+    "combination": {
+      "activity": {
+        "title": "拼團活動",
+        "tableTitle": "拼團活動列表",
+        "fields": {
+          "id": "活動編號",
+          "name": "活動名稱",
+          "startTime": "開始時間",
+          "endTime": "結束時間",
+          "userSize": "拼團人數",
+          "limitDuration": "限制時長",
+          "totalLimitCount": "總限購數量",
+          "singleLimitCount": "單次限購數量",
+          "virtualGroup": "虛擬成團",
+          "spuId": "拼團商品",
+          "activityTime": "活動時間",
+          "picUrl": "商品圖片",
+          "spuName": "商品標題",
+          "marketPrice": "原價",
+          "combinationPrice": "拼團價",
+          "groupCount": "開團組數",
+          "groupSuccessCount": "成團組數",
+          "status": "活動狀態",
+          "stock": "庫存",
+          "totalStock": "總庫存",
+          "createTime": "創建時間"
+        }
+      },
+      "record": {
+        "title": "拼團記錄",
+        "tableTitle": "拼團記錄列表",
+        "fields": {
+          "id": "拼團編號",
+          "status": "拼團狀態",
+          "avatar": "頭像",
+          "nickname": "暱稱",
+          "headId": "開團團長",
+          "picUrl": "拼團商品圖",
+          "spuName": "拼團商品",
+          "activityName": "拼團活動",
+          "userSize": "幾人團",
+          "userCount": "參與人數",
+          "createTime": "參團時間",
+          "endTime": "結束時間"
+        },
+        "user": {
+          "id": "編號",
+          "avatar": "使用者頭像",
+          "nickname": "使用者暱稱",
+          "headId": "開團團長",
+          "createTime": "參團時間",
+          "endTime": "結束時間",
+          "status": "拼團狀態"
+        },
+        "leader": "團長",
+        "member": "團員"
+      }
+    },
+    "coupon": {
+      "title": "優惠券管理",
+      "tableTitle": "優惠券列表",
+      "fields": {
+        "nickname": "會員暱稱",
+        "name": "優惠券名稱",
+        "productScope": "類型",
+        "discountType": "優惠",
+        "discountPrice": "優惠力度",
+        "takeType": "領取方式",
+        "status": "狀態",
+        "createTime": "領取時間",
+        "useTime": "使用時間"
+      },
+      "template": {
+        "title": "優惠券模板",
+        "tableTitle": "優惠券模板列表",
+        "fields": {
+          "id": "編號",
+          "name": "優惠券名稱",
+          "description": "優惠券描述",
+          "productScope": "優惠劵類型",
+          "productSpuIds": "商品",
+          "productCategoryIds": "商品分類",
+          "discountType": "優惠類型",
+          "discountPrice": "優惠券面額",
+          "discountPercent": "優惠券折扣",
+          "discountLimitPrice": "最多優惠",
+          "usePrice": "滿多少元可以使用",
+          "takeType": "領取方式",
+          "totalCount": "發放數量",
+          "takeLimitCount": "每人限領",
+          "validityType": "使用有效期",
+          "fixedStartTime": "固定開始時間",
+          "fixedEndTime": "固定結束時間",
+          "validEndTime": "領取後有效天數",
+          "status": "狀態",
+          "createTime": "創建時間"
+        }
+      }
+    },
+    "discountActivity": {
+      "title": "限時折扣",
+      "tableTitle": "限時折扣列表",
+      "fields": {
+        "id": "活動編號",
+        "name": "活動名稱",
+        "status": "活動狀態",
+        "startTime": "開始時間",
+        "endTime": "結束時間",
+        "remark": "備註",
+        "spuIds": "活動商品",
+        "activeTime": "活動時間",
+        "createTime": "創建時間"
+      }
+    },
+    "seckill": {
+      "activity": {
+        "title": "秒殺活動",
+        "tableTitle": "秒殺活動列表",
+        "fields": {
+          "id": "活動編號",
+          "name": "活動名稱",
+          "startTime": "活動開始時間",
+          "endTime": "活動結束時間",
+          "configIds": "秒殺時段",
+          "totalLimitCount": "總限購數量",
+          "singleLimitCount": "單次限購數量",
+          "sort": "排序",
+          "remark": "備註",
+          "spuId": "秒殺商品",
+          "activityTime": "活動時間",
+          "picUrl": "商品圖片",
+          "spuName": "商品標題",
+          "marketPrice": "原價",
+          "seckillPrice": "秒殺價",
+          "status": "活動狀態",
+          "stock": "庫存",
+          "totalStock": "總庫存",
+          "createTime": "創建時間"
+        }
+      },
+      "config": {
+        "title": "秒殺時段",
+        "tableTitle": "秒殺時段列表",
+        "fields": {
+          "id": "編號",
+          "name": "秒殺時段名稱",
+          "startTime": "開始時間點",
+          "endTime": "結束時間點",
+          "sliderPicUrls": "秒殺輪播圖",
+          "status": "活動狀態",
+          "createTime": "創建時間"
+        },
+        "enabled": "啟用",
+        "disabled": "禁用"
+      }
+    }
+  },
+  "trade": {
+    "order": {
+      "title": "訂單管理",
+      "tableTitle": "訂單列表",
+      "fields": {
+        "id": "訂單編號",
+        "no": "訂單號",
+        "spuName": "商品標題",
+        "userNickname": "使用者暱稱",
+        "payStatus": "支付狀態",
+        "deliveryStatus": "發貨狀態",
+        "afterSaleStatus": "售後狀態",
+        "price": "價格(元)",
+        "payPrice": "支付金額(元)",
+        "deliveryType": "配送方式",
+        "receiverName": "收貨人",
+        "userRemark": "使用者備註",
+        "remark": "商家備註",
+        "createTime": "下單時間"
+      }
+    }
+  },
+  "home": {
+    "title": "商城概覽"
+  }
+}

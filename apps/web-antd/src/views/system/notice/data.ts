@@ -5,6 +5,7 @@ import { CommonStatusEnum, DICT_TYPE } from '@vben/constants';
 import { getDictOptions } from '@vben/hooks';
 
 import { z } from '#/adapter/form';
+import { $t } from '#/locales';
 
 /** 新增/修改的表单 */
 export function useFormSchema(): VbenFormSchema[] {
@@ -19,16 +20,16 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'title',
-      label: '公告标题',
+      label: $t('system.notice.fields.title'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入公告标题',
+        placeholder: $t('system.notice.fields.titlePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'type',
-      label: '公告类型',
+      label: $t('system.notice.fields.type'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.SYSTEM_NOTICE_TYPE, 'number'),
@@ -39,13 +40,13 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'content',
-      label: '公告内容',
+      label: $t('system.notice.fields.content'),
       component: 'RichTextarea',
       rules: 'required',
     },
     {
       fieldName: 'status',
-      label: '公告状态',
+      label: $t('system.notice.fields.status'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
@@ -56,10 +57,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'remark',
-      label: '备注',
+      label: $t('system.notice.fields.remark'),
       component: 'Textarea',
       componentProps: {
-        placeholder: '请输入备注',
+        placeholder: $t('system.notice.fields.remarkPlaceholder'),
       },
     },
   ];
@@ -70,20 +71,20 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'title',
-      label: '公告标题',
+      label: $t('system.notice.fields.title'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入公告标题',
+        placeholder: $t('system.notice.fields.titlePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'status',
-      label: '公告状态',
+      label: $t('system.notice.fields.status'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
-        placeholder: '请选择公告状态',
+        placeholder: $t('system.notice.fields.statusPlaceholder'),
         allowClear: true,
       },
     },
@@ -96,17 +97,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'id',
-      title: '公告编号',
+      title: $t('system.notice.fields.gridId'),
       minWidth: 100,
     },
     {
       field: 'title',
-      title: '公告标题',
+      title: $t('system.notice.fields.gridTitle'),
       minWidth: 200,
     },
     {
       field: 'type',
-      title: '公告类型',
+      title: $t('system.notice.fields.gridType'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -115,7 +116,7 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'status',
-      title: '公告状态',
+      title: $t('system.notice.fields.gridStatus'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -124,12 +125,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.notice.fields.gridCreateTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.notice.fields.gridActions'),
       width: 220,
       fixed: 'right',
       slots: { default: 'actions' },

@@ -8,6 +8,7 @@ import { DICT_TYPE } from '@vben/constants';
 import { formatDateTime } from '@vben/utils';
 
 import { DictTag } from '#/components/dict-tag';
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 列表的搜索表单 */
@@ -15,25 +16,25 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'username',
-      label: '用户名称',
+      label: $t('system.loginlog.fields.username'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入用户名称',
+        placeholder: $t('system.loginlog.fields.usernamePlaceholder'),
       },
     },
     {
       fieldName: 'userIp',
-      label: '登录地址',
+      label: $t('system.loginlog.fields.userIp'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入登录地址',
+        placeholder: $t('system.loginlog.fields.userIpPlaceholder'),
       },
     },
     {
       fieldName: 'createTime',
-      label: '登录时间',
+      label: $t('system.loginlog.fields.createTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -48,12 +49,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
   return [
     {
       field: 'id',
-      title: '日志编号',
+      title: $t('system.loginlog.fields.id'),
       minWidth: 100,
     },
     {
       field: 'logType',
-      title: '登录类型',
+      title: $t('system.loginlog.fields.logType'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -62,22 +63,22 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'username',
-      title: '用户名称',
+      title: $t('system.loginlog.fields.username'),
       minWidth: 180,
     },
     {
       field: 'userIp',
-      title: '登录地址',
+      title: $t('system.loginlog.fields.userIp'),
       minWidth: 180,
     },
     {
       field: 'userAgent',
-      title: '浏览器',
+      title: $t('system.loginlog.fields.userAgent'),
       minWidth: 200,
     },
     {
       field: 'result',
-      title: '登录结果',
+      title: $t('system.loginlog.fields.result'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -86,12 +87,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'createTime',
-      title: '登录日期',
+      title: $t('system.loginlog.fields.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.loginlog.fields.actions'),
       width: 120,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -104,11 +105,11 @@ export function useDetailSchema(): DescriptionItemSchema[] {
   return [
     {
       field: 'id',
-      label: '日志编号',
+      label: $t('system.loginlog.fields.id'),
     },
     {
       field: 'logType',
-      label: '登录类型',
+      label: $t('system.loginlog.fields.logType'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.SYSTEM_LOGIN_TYPE,
@@ -118,19 +119,19 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'username',
-      label: '用户名称',
+      label: $t('system.loginlog.fields.username'),
     },
     {
       field: 'userIp',
-      label: '登录地址',
+      label: $t('system.loginlog.fields.userIp'),
     },
     {
       field: 'userAgent',
-      label: '浏览器',
+      label: $t('system.loginlog.fields.userAgent'),
     },
     {
       field: 'result',
-      label: '登录结果',
+      label: $t('system.loginlog.fields.result'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.SYSTEM_LOGIN_RESULT,
@@ -140,7 +141,7 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'createTime',
-      label: '登录日期',
+      label: $t('system.loginlog.fields.createTime'),
       render: (val) => formatDateTime(val) as string,
     },
   ];

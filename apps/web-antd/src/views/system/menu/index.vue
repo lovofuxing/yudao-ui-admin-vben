@@ -100,26 +100,26 @@ const [Grid, gridApi] = useVbenVxeGrid({
   <Page auto-content-height>
     <template #doc>
       <DocAlert
-        title="功能权限"
+        :title="$t('system.menu.docPermission')"
         url="https://doc.iocoder.cn/resource-permission"
       />
-      <DocAlert title="菜单路由" url="https://doc.iocoder.cn/vue3/route/" />
+      <DocAlert :title="$t('system.menu.docRoute')" url="https://doc.iocoder.cn/vue3/route/" />
     </template>
 
     <FormModal @success="handleRefresh" />
-    <Grid table-title="菜单列表">
+    <Grid :table-title="$t('system.menu.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['菜单']),
+              label: $t('ui.actionTitle.create', [$t('system.menu.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:menu:create'],
               onClick: handleCreate,
             },
             {
-              label: isExpanded ? '收缩' : '展开',
+              label: isExpanded ? $t('system.menu.action.collapse') : $t('system.menu.action.expand'),
               type: 'primary',
               onClick: handleExpand,
             },
@@ -148,7 +148,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: '新增下级',
+              label: $t('system.menu.action.append'),
               type: 'link',
               icon: ACTION_ICON.ADD,
               auth: ['system:menu:create'],

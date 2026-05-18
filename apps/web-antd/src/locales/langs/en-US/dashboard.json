@@ -1,0 +1,31 @@
+{
+  "analytics": {
+    "overview": {
+      "users": "Users",
+      "totalUsers": "Total Users",
+      "visits": "Visits",
+      "totalVisits": "Total Visits",
+      "downloads": "Downloads",
+      "totalDownloads": "Total Downloads",
+      "usage": "Usage",
+      "totalUsage": "Total Usage"
+    },
+    "charts": {
+      "trends": "Traffic Trends",
+      "monthlyVisits": "Monthly Visits",
+      "visitCount": "Visit Count",
+      "visitSource": "Visit Source",
+      "visitSales": "Visit Sales"
+    }
+  },
+  "workspace": {
+    "quickNav": {
+      "home": "Home",
+      "mall": "Mall Center",
+      "ai": "AI Models",
+      "erp": "ERP System",
+      "crm": "CRM System",
+      "iot": "IoT Platform"
+    }
+  }
+}

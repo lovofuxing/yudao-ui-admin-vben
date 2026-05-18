@@ -43,7 +43,7 @@ const [Modal, modalApi] = useVbenModal({
 
 <template>
   <Modal
-    title="社交用户详情"
+    :title="$t('system.social.user.detailTitle')"
     class="w-1/2"
     :show-cancel-button="false"
     :show-confirm-button="false"

@@ -131,7 +131,7 @@ function getAllNodeIds(nodes: any[], ids: number[] = []): number[] {
 </script>
 
 <template>
-  <Modal title="数据权限" class="w-2/5">
+  <Modal :title="$t('system.role.action.assignDataPermission')" class="w-2/5">
     <Form class="mx-4">
       <template #dataScopeDeptIds="slotProps">
         <Spin :spinning="deptLoading" wrapper-class-name="w-full">

@@ -7,6 +7,7 @@ import type { SystemUserApi } from '#/api/system/user';
 import { computed, ref } from 'vue';
 
 import { useVbenModal } from '@vben/common-ui';
+import { $t } from '@vben/locales';
 import { handleTree } from '@vben/utils';
 
 import {
@@ -42,11 +43,11 @@ interface Props {
 defineOptions({ name: 'UserSelectModal' });
 
 withDefaults(defineProps<Props>(), {
-  title: '选择用户',
+  title: $t('system.user.selectUser.title'),
   multiple: true,
   value: () => [],
-  confirmText: '确定',
-  cancelText: '取消',
+  confirmText: $t('system.user.selectUser.confirm'),
+  cancelText: $t('system.user.selectUser.cancel'),
 });
 
 const emit = defineEmits<{
@@ -359,7 +360,7 @@ async function handleDeptSelect(selectedKeys: Key[], _info: any) {
 /** 确认选择 */
 function handleConfirm() {
   if (selectedUserIds.value.length === 0) {
-    message.warning('请选择用户');
+    message.warning($t('system.user.selectUser.pleaseSelect'));
     return;
   }
   emit(
@@ -425,7 +426,7 @@ function processDeptNode(node: any): DeptTreeNode {
           :row-key="(record) => String(record.id)"
           :data-source="transferDataSource"
           v-model:target-keys="selectedUserIds"
-          :titles="['未选', '已选']"
+          :titles="[$t('system.user.selectUser.unselected'), $t('system.user.selectUser.selected')]"
           :show-search="true"
           :show-select-all="true"
           :filter-option="filterOption"
@@ -443,7 +444,7 @@ function processDeptNode(node: any): DeptTreeNode {
                 v-model:page-size="leftListState.pagination.pageSize"
                 :total="leftListState.pagination.total"
                 :show-size-changer="true"
-                :show-total="(total) => `共 ${total} 条`"
+                :show-total="(total) => $t('system.user.selectUser.total', { total })"
                 size="small"
                 @change="handleLeftPaginationChange"
               />
@@ -455,7 +456,7 @@ function processDeptNode(node: any): DeptTreeNode {
                 v-model:page-size="rightListState.pagination.pageSize"
                 :total="rightListState.pagination.total"
                 :show-size-changer="true"
-                :show-total="(total) => `共 ${total} 条`"
+                :show-total="(total) => $t('system.user.selectUser.total', { total })"
                 size="small"
                 @change="handleRightPaginationChange"
               />

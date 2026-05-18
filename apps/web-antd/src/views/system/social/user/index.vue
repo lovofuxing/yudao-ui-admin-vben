@@ -55,11 +55,11 @@ const [Grid] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="三方登录" url="https://doc.iocoder.cn/social-user/" />
+      <DocAlert :title="$t('system.social.docTitle')" url="https://doc.iocoder.cn/social-user/" />
     </template>
 
     <DetailModal />
-    <Grid table-title="社交用户列表">
+    <Grid :table-title="$t('system.social.user.tableTitle')">
       <template #actions="{ row }">
         <TableAction
           :actions="[

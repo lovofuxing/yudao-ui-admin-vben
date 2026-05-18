@@ -1,0 +1,434 @@
+{
+  "common": {
+    "action": "操作",
+    "inputPlaceholder": "请输入{0}",
+    "selectPlaceholder": "请选择{0}",
+    "uploadPlaceholder": "请上传{0}",
+    "createTime": "创建时间",
+    "status": "状态",
+    "sort": "排序",
+    "remark": "备注",
+    "id": "编号"
+  },
+  "product": {
+    "brand": {
+      "title": "品牌管理",
+      "tableTitle": "品牌列表",
+      "fields": {
+        "id": "品牌编号",
+        "name": "品牌名称",
+        "picUrl": "品牌图片",
+        "sort": "品牌排序",
+        "status": "品牌状态",
+        "description": "品牌描述",
+        "createTime": "创建时间"
+      }
+    },
+    "category": {
+      "title": "分类管理",
+      "tableTitle": "分类列表",
+      "fields": {
+        "id": "分类编号",
+        "parentId": "上级分类",
+        "name": "分类名称",
+        "picUrl": "移动端分类图",
+        "sort": "分类排序",
+        "status": "分类状态",
+        "createTime": "创建时间"
+      },
+      "topLevel": "顶级分类",
+      "expand": "展开",
+      "collapse": "收缩",
+      "addChild": "新增下级",
+      "viewSpu": "查看商品"
+    },
+    "comment": {
+      "title": "评论管理",
+      "tableTitle": "评论列表",
+      "fields": {
+        "id": "评论编号",
+        "spuId": "商品",
+        "skuId": "商品规格",
+        "userAvatar": "用户头像",
+        "userNickname": "用户名称",
+        "content": "评论内容",
+        "descriptionScores": "描述星级",
+        "benefitScores": "服务星级",
+        "picUrls": "评论图片",
+        "replyStatus": "回复状态",
+        "spuName": "商品名称",
+        "orderId": "订单编号",
+        "createTime": "评论时间",
+        "skuPicUrl": "商品图片",
+        "skuProperties": "商品属性",
+        "replyContent": "回复内容",
+        "visible": "是否展示",
+        "descriptionScoresTitle": "商品评分",
+        "benefitScoresTitle": "服务评分"
+      },
+      "replied": "已回复",
+      "unreplied": "未回复",
+      "selectSku": "选择规格",
+      "selected": "已选："
+    },
+    "property": {
+      "title": "属性管理",
+      "tableTitle": "属性列表",
+      "fields": {
+        "id": "属性编号",
+        "name": "属性名称",
+        "remark": "备注",
+        "createTime": "创建时间"
+      },
+      "value": {
+        "title": "属性值管理",
+        "tableTitle": "属性值列表",
+        "fields": {
+          "id": "属性值编号",
+          "propertyId": "属性",
+          "name": "属性值名称",
+          "remark": "备注",
+          "createTime": "创建时间",
+          "propertyItem": "属性项"
+        }
+      }
+    },
+    "spu": {
+      "title": "商品管理",
+      "tableTitle": "商品列表",
+      "fields": {
+        "id": "商品编号",
+        "name": "商品名称",
+        "categoryId": "商品分类",
+        "picUrl": "商品图片",
+        "status": "销售状态",
+        "price": "价格(元)",
+        "marketPrice": "市场价(元)",
+        "costPrice": "成本价(元)",
+        "salesCount": "销量",
+        "virtualSalesCount": "虚拟销量",
+        "stock": "库存",
+        "browseCount": "浏览量",
+        "sort": "排序",
+        "createTime": "创建时间"
+      },
+      "listed": "上架",
+      "unlisted": "下架",
+      "form": {
+        "infoTab": "基础信息",
+        "skuTab": "价格库存",
+        "deliveryTab": "物流设置",
+        "descriptionTab": "商品详情",
+        "otherTab": "其它设置",
+        "fields": {
+          "name": "商品名称",
+          "categoryId": "分类名称",
+          "brandId": "商品品牌",
+          "keyword": "商品关键字",
+          "introduction": "商品简介",
+          "picUrl": "商品封面图",
+          "sliderPicUrls": "商品轮播图",
+          "subCommissionType": "分销类型",
+          "specType": "商品规格",
+          "productAttributes": "商品属性",
+          "batchSkuList": "批量设置",
+          "multiSkuList": "规格列表",
+          "deliveryTypes": "配送方式",
+          "deliveryTemplateId": "运费模板",
+          "description": "商品详情",
+          "sort": "商品排序",
+          "giveIntegral": "赠送积分",
+          "virtualSalesCount": "虚拟销量"
+        },
+        "singleSpec": "单规格",
+        "multiSpec": "多规格",
+        "defaultSetting": "默认设置",
+        "separateSetting": "单独设置"
+      }
+    }
+  },
+  "promotion": {
+    "article": {
+      "title": "文章管理",
+      "tableTitle": "文章列表",
+      "fields": {
+        "id": "编号",
+        "title": "标题",
+        "categoryId": "文章分类",
+        "author": "文章作者",
+        "introduction": "文章简介",
+        "picUrl": "文章封面",
+        "recommendHot": "是否热门",
+        "recommendBanner": "是否轮播图",
+        "spuId": "商品关联",
+        "sort": "排序",
+        "status": "状态",
+        "content": "文章内容",
+        "createTime": "创建时间"
+      }
+    },
+    "articleCategory": {
+      "title": "文章分类",
+      "tableTitle": "文章分类列表",
+      "fields": {
+        "id": "编号",
+        "name": "分类名称",
+        "picUrl": "分类图片",
+        "sort": "显示顺序",
+        "status": "状态",
+        "createTime": "创建时间"
+      }
+    },
+    "banner": {
+      "title": "Banner管理",
+      "tableTitle": "Banner列表",
+      "fields": {
+        "id": "编号",
+        "title": "Banner 标题",
+        "picUrl": "图片地址",
+        "position": "定位",
+        "url": "跳转地址",
+        "sort": "排序",
+        "status": "活动状态",
+        "memo": "描述",
+        "createTime": "创建时间"
+      }
+    },
+    "bargain": {
+      "activity": {
+        "title": "砍价活动",
+        "tableTitle": "砍价活动列表",
+        "fields": {
+          "id": "活动编号",
+          "name": "活动名称",
+          "startTime": "开始时间",
+          "endTime": "结束时间",
+          "helpMaxCount": "助力人数",
+          "bargainCount": "砍价次数",
+          "totalLimitCount": "购买限制",
+          "randomMinPrice": "最小砍价金额(元)",
+          "randomMaxPrice": "最大砍价金额(元)",
+          "spuId": "砍价商品",
+          "activityTime": "活动时间",
+          "picUrl": "商品图片",
+          "spuName": "商品标题",
+          "bargainFirstPrice": "起始价格",
+          "bargainMinPrice": "砍价底价",
+          "recordUserCount": "总砍价人数",
+          "recordSuccessUserCount": "成功砍价人数",
+          "helpUserCount": "助力人数",
+          "status": "活动状态",
+          "stock": "库存",
+          "totalStock": "总库存",
+          "createTime": "创建时间"
+        }
+      },
+      "record": {
+        "title": "砍价记录",
+        "tableTitle": "砍价记录列表",
+        "fields": {
+          "id": "编号",
+          "status": "砍价状态",
+          "avatar": "用户头像",
+          "nickname": "用户昵称",
+          "createTime": "发起时间",
+          "activityName": "砍价活动",
+          "bargainMinPrice": "最低价",
+          "bargainPrice": "当前价",
+          "totalBargainCount": "总砍价次数",
+          "remainingBargainCount": "剩余砍价次数",
+          "endTime": "结束时间",
+          "orderId": "订单编号"
+        },
+        "help": {
+          "userId": "用户编号",
+          "avatar": "用户头像",
+          "nickname": "用户昵称",
+          "reducePrice": "砍价金额",
+          "createTime": "助力时间"
+        }
+      }
+    },
+    "combination": {
+      "activity": {
+        "title": "拼团活动",
+        "tableTitle": "拼团活动列表",
+        "fields": {
+          "id": "活动编号",
+          "name": "活动名称",
+          "startTime": "开始时间",
+          "endTime": "结束时间",
+          "userSize": "拼团人数",
+          "limitDuration": "限制时长",
+          "totalLimitCount": "总限购数量",
+          "singleLimitCount": "单次限购数量",
+          "virtualGroup": "虚拟成团",
+          "spuId": "拼团商品",
+          "activityTime": "活动时间",
+          "picUrl": "商品图片",
+          "spuName": "商品标题",
+          "marketPrice": "原价",
+          "combinationPrice": "拼团价",
+          "groupCount": "开团组数",
+          "groupSuccessCount": "成团组数",
+          "status": "活动状态",
+          "stock": "库存",
+          "totalStock": "总库存",
+          "createTime": "创建时间"
+        }
+      },
+      "record": {
+        "title": "拼团记录",
+        "tableTitle": "拼团记录列表",
+        "fields": {
+          "id": "拼团编号",
+          "status": "拼团状态",
+          "avatar": "头像",
+          "nickname": "昵称",
+          "headId": "开团团长",
+          "picUrl": "拼团商品图",
+          "spuName": "拼团商品",
+          "activityName": "拼团活动",
+          "userSize": "几人团",
+          "userCount": "参与人数",
+          "createTime": "参团时间",
+          "endTime": "结束时间"
+        },
+        "user": {
+          "id": "编号",
+          "avatar": "用户头像",
+          "nickname": "用户昵称",
+          "headId": "开团团长",
+          "createTime": "参团时间",
+          "endTime": "结束时间",
+          "status": "拼团状态"
+        },
+        "leader": "团长",
+        "member": "团员"
+      }
+    },
+    "coupon": {
+      "title": "优惠券管理",
+      "tableTitle": "优惠券列表",
+      "fields": {
+        "nickname": "会员昵称",
+        "name": "优惠券名称",
+        "productScope": "类型",
+        "discountType": "优惠",
+        "discountPrice": "优惠力度",
+        "takeType": "领取方式",
+        "status": "状态",
+        "createTime": "领取时间",
+        "useTime": "使用时间"
+      },
+      "template": {
+        "title": "优惠券模板",
+        "tableTitle": "优惠券模板列表",
+        "fields": {
+          "id": "编号",
+          "name": "优惠券名称",
+          "description": "优惠券描述",
+          "productScope": "优惠劵类型",
+          "productSpuIds": "商品",
+          "productCategoryIds": "商品分类",
+          "discountType": "优惠类型",
+          "discountPrice": "优惠券面额",
+          "discountPercent": "优惠券折扣",
+          "discountLimitPrice": "最多优惠",
+          "usePrice": "满多少元可以使用",
+          "takeType": "领取方式",
+          "totalCount": "发放数量",
+          "takeLimitCount": "每人限领",
+          "validityType": "使用有效期",
+          "fixedStartTime": "固定开始时间",
+          "fixedEndTime": "固定结束时间",
+          "validEndTime": "领取后有效天数",
+          "status": "状态",
+          "createTime": "创建时间"
+        }
+      }
+    },
+    "discountActivity": {
+      "title": "限时折扣",
+      "tableTitle": "限时折扣列表",
+      "fields": {
+        "id": "活动编号",
+        "name": "活动名称",
+        "status": "活动状态",
+        "startTime": "开始时间",
+        "endTime": "结束时间",
+        "remark": "备注",
+        "spuIds": "活动商品",
+        "activeTime": "活动时间",
+        "createTime": "创建时间"
+      }
+    },
+    "seckill": {
+      "activity": {
+        "title": "秒杀活动",
+        "tableTitle": "秒杀活动列表",
+        "fields": {
+          "id": "活动编号",
+          "name": "活动名称",
+          "startTime": "活动开始时间",
+          "endTime": "活动结束时间",
+          "configIds": "秒杀时段",
+          "totalLimitCount": "总限购数量",
+          "singleLimitCount": "单次限购数量",
+          "sort": "排序",
+          "remark": "备注",
+          "spuId": "秒杀商品",
+          "activityTime": "活动时间",
+          "picUrl": "商品图片",
+          "spuName": "商品标题",
+          "marketPrice": "原价",
+          "seckillPrice": "秒杀价",
+          "status": "活动状态",
+          "stock": "库存",
+          "totalStock": "总库存",
+          "createTime": "创建时间"
+        }
+      },
+      "config": {
+        "title": "秒杀时段",
+        "tableTitle": "秒杀时段列表",
+        "fields": {
+          "id": "编号",
+          "name": "秒杀时段名称",
+          "startTime": "开始时间点",
+          "endTime": "结束时间点",
+          "sliderPicUrls": "秒杀轮播图",
+          "status": "活动状态",
+          "createTime": "创建时间"
+        },
+        "enabled": "启用",
+        "disabled": "禁用"
+      }
+    }
+  },
+  "trade": {
+    "order": {
+      "title": "订单管理",
+      "tableTitle": "订单列表",
+      "fields": {
+        "id": "订单编号",
+        "no": "订单号",
+        "spuName": "商品标题",
+        "userNickname": "用户昵称",
+        "payStatus": "支付状态",
+        "deliveryStatus": "发货状态",
+        "afterSaleStatus": "售后状态",
+        "price": "价格(元)",
+        "payPrice": "支付金额(元)",
+        "deliveryType": "配送方式",
+        "receiverName": "收货人",
+        "userRemark": "用户备注",
+        "remark": "商家备注",
+        "createTime": "下单时间"
+      }
+    }
+  },
+  "home": {
+    "title": "商城概览"
+  }
+}

@@ -40,7 +40,7 @@ function handleRefresh() {
 /** 导出表格 */
 async function handleExport() {
   const data = await exportNotifyTemplate(await gridApi.formApi.getValues());
-  downloadFileFromBlobPart({ fileName: '站内信模板.xls', source: data });
+  downloadFileFromBlobPart({ fileName: $t('system.notify.template.exportFilename'), source: data });
 }
 
 /** 创建站内信模板 */
@@ -137,17 +137,17 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="站内信" url="https://doc.iocoder.cn/notify/" />
+      <DocAlert :title="$t('system.notify.docTitle')" url="https://doc.iocoder.cn/notify/" />
     </template>
 
     <FormModal @success="handleRefresh" />
     <SendModal />
-    <Grid table-title="站内信模板列表">
+    <Grid :table-title="$t('system.notify.template.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['站内信模板']),
+              label: $t('ui.actionTitle.create', [$t('system.notify.template.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:notify-template:create'],
@@ -183,7 +183,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               onClick: handleEdit.bind(null, row),
             },
             {
-              label: '测试',
+              label: $t('system.notify.template.action.test'),
               type: 'link',
               icon: ACTION_ICON.VIEW,
               auth: ['system:notify-template:send-notify'],

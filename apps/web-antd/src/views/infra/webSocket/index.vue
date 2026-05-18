@@ -23,6 +23,7 @@ import {
 } from 'ant-design-vue';
 
 import { getSimpleUserList } from '#/api/system/user';
+import { $t } from '#/locales';
 
 const accessStore = useAccessStore();
 const refreshToken = accessStore.refreshToken as string;
@@ -35,7 +36,7 @@ const server = ref(
 ); // WebSocket 服务地址
 const getIsOpen = computed(() => status.value === 'OPEN'); // WebSocket 连接是否打开
 const getTagColor = computed(() => (getIsOpen.value ? 'success' : 'red')); // WebSocket 连接的展示颜色
-const getStatusText = computed(() => (getIsOpen.value ? '已连接' : '未连接')); // 连接状态文本
+const getStatusText = computed(() => (getIsOpen.value ? $t('infra.webSocket.connected') : $t('infra.webSocket.disconnected'))); // 连接状态文本
 
 /** 发起 WebSocket 连接 */
 const { status, data, send, close, open } = useWebSocket(server.value, {
@@ -102,7 +103,7 @@ const sendText = ref(''); // 发送内容
 const sendUserId = ref('all'); // 发送人
 function handlerSend() {
   if (!sendText.value.trim()) {
-    message.warning('消息内容不能为空');
+    message.warning($t('infra.webSocket.messageEmpty'));
     return;
   }
 
@@ -152,16 +153,16 @@ function getMessageBadgeColor(type?: string) {
 function getMessageTypeText(type?: string) {
   switch (type) {
     case 'group': {
-      return '群发';
+      return $t('infra.webSocket.broadcast');
     }
     case 'single': {
-      return '单发';
+      return $t('infra.webSocket.unicast');
     }
     case 'system': {
-      return '系统';
+      return $t('infra.webSocket.system');
     }
     default: {
-      return '未知';
+      return $t('infra.webSocket.unknown');
     }
   }
 }
@@ -177,7 +178,7 @@ onMounted(async () => {
   <Page>
     <template #doc>
       <DocAlert
-        title="WebSocket 实时通信"
+        :title="$t('infra.webSocket.title')"
         url="https://doc.iocoder.cn/websocket/"
       />
     </template>
@@ -188,11 +189,11 @@ onMounted(async () => {
         <template #title>
           <div class="flex items-center">
             <Badge :status="getIsOpen ? 'success' : 'error'" />
-            <span class="ml-2 text-lg font-medium">连接管理</span>
+            <span class="ml-2 text-lg font-medium">{{ $t('infra.webSocket.connectionManagement') }}</span>
           </div>
         </template>
         <div class="mb-4 flex items-center rounded-lg p-3">
-          <span class="mr-4 font-medium">连接状态:</span>
+          <span class="mr-4 font-medium">{{ $t('infra.webSocket.connectionStatus') }}:</span>
           <Tag :color="getTagColor" class="px-3 py-1">{{ getStatusText }}</Tag>
         </div>
         <div class="mb-6 flex space-x-2">
@@ -203,7 +204,7 @@ onMounted(async () => {
             size="large"
           >
             <template #addonBefore>
-              <span class="text-gray-600">服务地址</span>
+              <span class="text-gray-600">{{ $t('infra.webSocket.serverAddress') }}</span>
             </template>
           </Input>
           <Button
@@ -213,25 +214,25 @@ onMounted(async () => {
             class="flex-shrink-0"
             @click="toggleConnectStatus"
           >
-            {{ getIsOpen ? '关闭连接' : '开启连接' }}
+            {{ getIsOpen ? $t('infra.webSocket.closeConnection') : $t('infra.webSocket.openConnection') }}
           </Button>
         </div>
 
         <Divider>
-          <span class="text-gray-500">消息发送</span>
+          <span class="text-gray-500">{{ $t('infra.webSocket.sendMessage') }}</span>
         </Divider>
 
         <Select
           v-model:value="sendUserId"
           class="mb-3 w-full"
           size="large"
-          placeholder="请选择接收人"
+          :placeholder="$t('infra.webSocket.selectRecipient')"
           :disabled="!getIsOpen"
         >
           <Select.Option key="" value="" label="所有人">
             <div class="flex items-center">
               <Avatar size="small" class="mr-2">全</Avatar>
-              <span>所有人</span>
+              <span>{{ $t('infra.webSocket.allUsers') }}</span>
             </div>
           </Select.Option>
           <Select.Option
@@ -255,7 +256,7 @@ onMounted(async () => {
           :disabled="!getIsOpen"
           class="border-1 rounded-lg"
           allow-clear
-          placeholder="请输入你要发送的消息..."
+          :placeholder="$t('infra.webSocket.enterMessage')"
         />
 
         <Button
@@ -269,7 +270,7 @@ onMounted(async () => {
           <template #icon>
             <IconifyIcon icon="lucide:send-horizontal" />
           </template>
-          发送消息
+          {{ $t('infra.webSocket.sendBtn') }}
         </Button>
       </Card>
 
@@ -281,14 +282,14 @@ onMounted(async () => {
               icon="lucide:message-circle-more"
               class="mr-2 text-lg"
             />
-            <span class="text-lg font-medium">消息记录</span>
+            <span class="text-lg font-medium">{{ $t('infra.webSocket.messageRecord') }}</span>
             <Tag v-if="messageList.length > 0" class="ml-2">
               {{ messageList.length }} 条
             </Tag>
           </div>
         </template>
         <div class="h-96 overflow-auto rounded-lg p-2">
-          <Empty v-if="messageList.length === 0" description="暂无消息记录" />
+          <Empty v-if="messageList.length === 0" :description="$t('infra.webSocket.noMessages')" />
           <div v-else class="space-y-3">
             <div
               v-for="msg in messageReverseList"

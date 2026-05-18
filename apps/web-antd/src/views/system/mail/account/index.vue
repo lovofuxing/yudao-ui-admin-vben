@@ -118,16 +118,16 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="邮件配置" url="https://doc.iocoder.cn/mail" />
+      <DocAlert :title="$t('system.mail.docTitle')" url="https://doc.iocoder.cn/mail" />
     </template>
 
     <FormModal @success="handleRefresh" />
-    <Grid table-title="邮箱账号列表">
+    <Grid :table-title="$t('system.mail.account.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['邮箱账号']),
+              label: $t('ui.actionTitle.create', [$t('system.mail.account.fields.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:mail-account:create'],

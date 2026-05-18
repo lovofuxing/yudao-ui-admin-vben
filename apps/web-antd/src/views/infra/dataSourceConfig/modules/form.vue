@@ -21,8 +21,8 @@ const emit = defineEmits(['success']);
 const formData = ref<InfraDataSourceConfigApi.DataSourceConfig>();
 const getTitle = computed(() => {
   return formData.value?.id
-    ? $t('ui.actionTitle.edit', ['数据源'])
-    : $t('ui.actionTitle.create', ['数据源']);
+    ? $t('ui.actionTitle.edit', [$t('infra.dataSourceConfig.title')])
+    : $t('ui.actionTitle.create', [$t('infra.dataSourceConfig.title')]);
 });
 
 const [Form, formApi] = useVbenForm({

@@ -26,12 +26,16 @@ function handleRefresh() {
 /** 删除 OAuth2 令牌 */
 async function handleDelete(row: SystemOAuth2TokenApi.OAuth2Token) {
   const hideLoading = message.loading({
-    content: $t('ui.actionMessage.deleting', ['令牌']),
+    content: $t('ui.actionMessage.deleting', [
+                $t('system.oauth2.token.entityName'),
+              ]),
     duration: 0,
   });
   try {
     await deleteOAuth2Token(row.accessToken);
-    message.success($t('ui.actionMessage.deleteSuccess', ['令牌']));
+    message.success($t('ui.actionMessage.deleteSuccess', [
+                $t('system.oauth2.token.entityName'),
+              ]));
     handleRefresh();
   } finally {
     hideLoading();
@@ -103,12 +107,12 @@ const [Grid, gridApi] = useVbenVxeGrid({
   <Page auto-content-height>
     <template #doc>
       <DocAlert
-        title="OAuth 2.0（SSO 单点登录）"
+        :title="$t('system.oauth2.docAlert.title')"
         url="https://doc.iocoder.cn/oauth2/"
       />
     </template>
 
-    <Grid table-title="令牌列表">
+    <Grid :table-title="$t('system.oauth2.token.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
@@ -134,7 +138,9 @@ const [Grid, gridApi] = useVbenVxeGrid({
               icon: ACTION_ICON.DELETE,
               auth: ['system:oauth2-token:delete'],
               popConfirm: {
-                title: $t('ui.actionMessage.deleteConfirm', ['令牌']),
+                title: $t('ui.actionMessage.deleteConfirm', [
+                $t('system.oauth2.token.entityName'),
+              ]),
                 confirm: handleDelete.bind(null, row),
               },
             },

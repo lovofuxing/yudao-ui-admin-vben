@@ -4,6 +4,8 @@ import { ref } from 'vue';
 import { DocAlert, IFrame, Page } from '@vben/common-ui';
 import { useAccessStore } from '@vben/stores';
 
+import { $t } from '#/locales';
+
 defineOptions({ name: 'GoView' });
 
 const accessStore = useAccessStore();
@@ -17,7 +19,7 @@ const src = ref(
   <Page auto-content-height>
     <template #doc>
       <DocAlert
-        title="大屏设计器"
+        :title="$t('report.goview.title')"
         url="https://doc.iocoder.cn/report/screen/"
       />
     </template>

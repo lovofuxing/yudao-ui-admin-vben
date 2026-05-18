@@ -11,6 +11,7 @@ import { handleTree } from '@vben/utils';
 import { Card, Col, Row, Tree } from 'ant-design-vue';
 
 import { getSimpleDeptList } from '#/api/system/dept';
+import { $t } from '#/locales';
 
 defineOptions({ name: 'DeptSelectModal' });
 
@@ -23,11 +24,11 @@ const props = withDefaults(
     title?: string; // 标题
   }>(),
   {
-    cancelText: '取消',
+    cancelText: $t('system.dept.selectModal.cancelText'),
     checkStrictly: false,
-    confirmText: '确认',
+    confirmText: $t('system.dept.selectModal.confirmText'),
     multiple: true,
-    title: '部门选择',
+    title: $t('system.dept.selectModal.title'),
   },
 );
 

@@ -22,33 +22,33 @@ export function useImportTableFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'dataSourceConfigId',
-      label: '数据源',
+      label: $t('infra.codegen.fields.dataSource'),
       component: 'ApiSelect',
       componentProps: {
         api: getDataSourceConfigList,
         labelField: 'name',
         valueField: 'id',
         autoSelect: 'first',
-        placeholder: '请选择数据源',
+        placeholder: $t('infra.codegen.placeholder.dataSource'),
       },
       rules: 'selectRequired',
     },
     {
       fieldName: 'name',
-      label: '表名称',
+      label: $t('infra.codegen.fields.tableName'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入表名称',
+        placeholder: $t('infra.codegen.placeholder.tableName'),
       },
     },
     {
       fieldName: 'comment',
-      label: '表描述',
+      label: $t('infra.codegen.fields.tableComment'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入表描述',
+        placeholder: $t('infra.codegen.placeholder.tableComment'),
       },
     },
   ];
@@ -58,8 +58,8 @@ export function useImportTableFormSchema(): VbenFormSchema[] {
 export function useImportTableColumns(): VxeTableGridOptions['columns'] {
   return [
     { type: 'checkbox', width: 40 },
-    { field: 'name', title: '表名称', minWidth: 200 },
-    { field: 'comment', title: '表描述', minWidth: 200 },
+    { field: 'name', title: $t('infra.codegen.fields.tableName'), minWidth: 200 },
+    { field: 'comment', title: $t('infra.codegen.fields.tableComment'), minWidth: 200 },
   ];
 }
 
@@ -68,48 +68,48 @@ export function useBasicInfoFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'tableName',
-      label: '表名称',
+      label: $t('infra.codegen.fields.tableName'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入仓库名称',
+        placeholder: $t('infra.codegen.placeholder.tableName'),
       },
       rules: 'required',
     },
     {
       fieldName: 'tableComment',
-      label: '表描述',
+      label: $t('infra.codegen.fields.tableComment'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入表描述',
+        placeholder: $t('infra.codegen.placeholder.tableComment'),
       },
       rules: 'required',
     },
     {
       fieldName: 'className',
-      label: '实体类名称',
+      label: $t('infra.codegen.fields.className'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入实体类名称',
+        placeholder: $t('infra.codegen.placeholder.className'),
       },
       rules: 'required',
-      help: '默认去除表名的前缀。如果存在重复，则需要手动添加前缀，避免 MyBatis 报 Alias 重复的问题。',
+      help: $t('infra.codegen.helps.className'),
     },
     {
       fieldName: 'author',
-      label: '作者',
+      label: $t('infra.codegen.fields.author'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入作者',
+        placeholder: $t('infra.codegen.placeholder.author'),
       },
       rules: 'required',
     },
     {
       fieldName: 'remark',
-      label: '备注',
+      label: $t('infra.codegen.fields.remark'),
       component: 'Textarea',
       componentProps: {
         rows: 3,
-        placeholder: '请输入备注',
+        placeholder: $t('infra.codegen.placeholder.remark'),
       },
       formItemClass: 'md:col-span-2',
     },
@@ -122,7 +122,7 @@ export function useGenerationInfoBaseFormSchema(): VbenFormSchema[] {
     {
       component: 'Select',
       fieldName: 'templateType',
-      label: '生成模板',
+      label: $t('infra.codegen.fields.templateType'),
       componentProps: {
         options: getDictOptions(
           DICT_TYPE.INFRA_CODEGEN_TEMPLATE_TYPE,
@@ -135,7 +135,7 @@ export function useGenerationInfoBaseFormSchema(): VbenFormSchema[] {
     {
       component: 'Select',
       fieldName: 'frontType',
-      label: '前端类型',
+      label: $t('infra.codegen.fields.frontType'),
       componentProps: {
         options: getDictOptions(DICT_TYPE.INFRA_CODEGEN_FRONT_TYPE, 'number'),
         class: 'w-full',
@@ -145,7 +145,7 @@ export function useGenerationInfoBaseFormSchema(): VbenFormSchema[] {
     {
       component: 'Select',
       fieldName: 'scene',
-      label: '生成场景',
+      label: $t('infra.codegen.fields.scene'),
       componentProps: {
         options: getDictOptions(DICT_TYPE.INFRA_CODEGEN_SCENE, 'number'),
         class: 'w-full',
@@ -154,8 +154,8 @@ export function useGenerationInfoBaseFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'parentMenuId',
-      label: '上级菜单',
-      help: '分配到指定菜单下，例如 系统管理',
+      label: $t('infra.codegen.fields.parentMenuId'),
+      help: $t('infra.codegen.helps.parentMenuId'),
       component: 'ApiTreeSelect',
       componentProps: {
         allowClear: true,
@@ -163,7 +163,7 @@ export function useGenerationInfoBaseFormSchema(): VbenFormSchema[] {
           const data = await getMenuList();
           data.unshift({
             id: 0,
-            name: '顶级菜单',
+            name: $t('infra.codegen.topMenu'),
           } as SystemMenuApi.Menu);
           return handleTree(data);
         },
@@ -171,7 +171,7 @@ export function useGenerationInfoBaseFormSchema(): VbenFormSchema[] {
         labelField: 'name',
         valueField: 'id',
         childrenField: 'children',
-        placeholder: '请选择上级菜单',
+        placeholder: $t('infra.codegen.placeholder.parentMenuId'),
         filterTreeNode(input: string, node: Recordable<any>) {
           if (!input || input.length === 0) {
             return true;
@@ -201,29 +201,29 @@ export function useGenerationInfoBaseFormSchema(): VbenFormSchema[] {
     {
       component: 'Input',
       fieldName: 'moduleName',
-      label: '模块名',
-      help: '模块名，即一级目录，例如 system、infra、tool 等等',
+      label: $t('infra.codegen.fields.moduleName'),
+      help: $t('infra.codegen.helps.moduleName'),
       rules: 'required',
     },
     {
       component: 'Input',
       fieldName: 'businessName',
-      label: '业务名',
-      help: '业务名，即二级目录，例如 user、permission、dict 等等',
+      label: $t('infra.codegen.fields.businessName'),
+      help: $t('infra.codegen.helps.businessName'),
       rules: 'required',
     },
     {
       component: 'Input',
       fieldName: 'className',
-      label: '类名称',
-      help: '类名称（首字母大写），例如SysUser、SysMenu、SysDictData 等等',
+      label: $t('infra.codegen.fields.className'),
+      help: $t('infra.codegen.helps.classNameHelp'),
       rules: 'required',
     },
     {
       component: 'Input',
       fieldName: 'classComment',
-      label: '类描述',
-      help: '用作类描述，例如 用户',
+      label: $t('infra.codegen.fields.classComment'),
+      help: $t('infra.codegen.helps.classComment'),
       rules: 'required',
     },
   ];
@@ -240,7 +240,7 @@ export function useGenerationInfoTreeFormSchema(
       label: '',
       renderComponentContent: () => {
         return {
-          default: () => ['树表信息'],
+          default: () => [$t('infra.codegen.treeInfo')],
         };
       },
       formItemClass: 'md:col-span-2',
@@ -248,12 +248,12 @@ export function useGenerationInfoTreeFormSchema(
     {
       component: 'Select',
       fieldName: 'treeParentColumnId',
-      label: '父编号字段',
-      help: '树显示的父编码字段名，例如 parent_Id',
+      label: $t('infra.codegen.fields.treeParentColumnId'),
+      help: $t('infra.codegen.helps.treeParentColumnId'),
       componentProps: {
         class: 'w-full',
         allowClear: true,
-        placeholder: '请选择',
+        placeholder: $t('infra.codegen.placeholder.select'),
         options: columns.map((column) => ({
           label: column.columnName,
           value: column.id,
@@ -264,12 +264,12 @@ export function useGenerationInfoTreeFormSchema(
     {
       component: 'Select',
       fieldName: 'treeNameColumnId',
-      label: '名称字段',
-      help: '树节点显示的名称字段，一般是 name',
+      label: $t('infra.codegen.fields.treeNameColumnId'),
+      help: $t('infra.codegen.helps.treeNameColumnId'),
       componentProps: {
         class: 'w-full',
         allowClear: true,
-        placeholder: '请选择名称字段',
+        placeholder: $t('infra.codegen.placeholder.treeNameColumnId'),
         options: columns.map((column) => ({
           label: column.columnName,
           value: column.id,
@@ -292,7 +292,7 @@ export function useGenerationInfoSubTableFormSchema(
       label: '',
       renderComponentContent: () => {
         return {
-          default: () => ['主子表信息'],
+          default: () => [$t('infra.codegen.subTableInfo')],
         };
       },
       formItemClass: 'md:col-span-2',
@@ -300,12 +300,12 @@ export function useGenerationInfoSubTableFormSchema(
     {
       component: 'Select',
       fieldName: 'masterTableId',
-      label: '关联的主表',
-      help: '关联主表（父表）的表名， 如：system_user',
+      label: $t('infra.codegen.fields.masterTableId'),
+      help: $t('infra.codegen.helps.masterTableId'),
       componentProps: {
         class: 'w-full',
         allowClear: true,
-        placeholder: '请选择',
+        placeholder: $t('infra.codegen.placeholder.select'),
         options: tables.map((table) => ({
           label: `${table.tableName}：${table.tableComment}`,
           value: table.id,
@@ -316,12 +316,12 @@ export function useGenerationInfoSubTableFormSchema(
     {
       component: 'Select',
       fieldName: 'subJoinColumnId',
-      label: '子表关联的字段',
-      help: '子表关联的字段， 如：user_id',
+      label: $t('infra.codegen.fields.subJoinColumnId'),
+      help: $t('infra.codegen.helps.subJoinColumnId'),
       componentProps: {
         class: 'w-full',
         allowClear: true,
-        placeholder: '请选择',
+        placeholder: $t('infra.codegen.placeholder.select'),
         options: columns.map((column) => ({
           label: `${column.columnName}:${column.columnComment}`,
           value: column.id,
@@ -332,19 +332,19 @@ export function useGenerationInfoSubTableFormSchema(
     {
       component: 'RadioGroup',
       fieldName: 'subJoinMany',
-      label: '关联关系',
-      help: '主表与子表的关联关系',
+      label: $t('infra.codegen.fields.subJoinMany'),
+      help: $t('infra.codegen.helps.subJoinMany'),
       componentProps: {
         class: 'w-full',
         allowClear: true,
-        placeholder: '请选择',
+        placeholder: $t('infra.codegen.placeholder.select'),
         options: [
           {
-            label: '一对多',
+            label: $t('infra.codegen.relationOptions.oneToMany'),
             value: true,
           },
           {
-            label: '一对一',
+            label: $t('infra.codegen.relationOptions.oneToOne'),
             value: false,
           },
         ],
@@ -359,25 +359,25 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'tableName',
-      label: '表名称',
+      label: $t('infra.codegen.fields.tableName'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入表名称',
+        placeholder: $t('infra.codegen.placeholder.tableName'),
       },
     },
     {
       fieldName: 'tableComment',
-      label: '表描述',
+      label: $t('infra.codegen.fields.tableComment'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入表描述',
+        placeholder: $t('infra.codegen.placeholder.tableComment'),
       },
     },
     {
       fieldName: 'createTime',
-      label: '创建时间',
+      label: $t('infra.common.createTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -395,39 +395,39 @@ export function useGridColumns(
     { type: 'checkbox', width: 40 },
     {
       field: 'dataSourceConfigId',
-      title: '数据源',
+      title: $t('infra.codegen.fields.dataSource'),
       minWidth: 120,
       formatter: ({ cellValue }) => getDataSourceConfigName?.(cellValue) || '-',
     },
     {
       field: 'tableName',
-      title: '表名称',
+      title: $t('infra.codegen.fields.tableName'),
       minWidth: 200,
     },
     {
       field: 'tableComment',
-      title: '表描述',
+      title: $t('infra.codegen.fields.tableComment'),
       minWidth: 200,
     },
     {
       field: 'className',
-      title: '实体',
+      title: $t('infra.codegen.fields.className'),
       minWidth: 200,
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('infra.common.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
       field: 'updateTime',
-      title: '更新时间',
+      title: $t('infra.codegen.fields.updateTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('infra.common.action'),
       width: 280,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -438,17 +438,17 @@ export function useGridColumns(
 /** 代码生成表格列定义 */
 export function useCodegenColumnTableColumns(): VxeTableGridOptions['columns'] {
   return [
-    { field: 'columnName', title: '字段列名', minWidth: 130 },
+    { field: 'columnName', title: $t('infra.codegen.fields.columnName'), minWidth: 130 },
     {
       field: 'columnComment',
-      title: '字段描述',
+      title: $t('infra.codegen.fields.columnComment'),
       minWidth: 100,
       slots: { default: 'columnComment' },
     },
-    { field: 'dataType', title: '物理类型', minWidth: 100 },
+    { field: 'dataType', title: $t('infra.codegen.fields.dataType'), minWidth: 100 },
     {
       field: 'javaType',
-      title: 'Java 类型',
+      title: $t('infra.codegen.fields.javaType'),
       minWidth: 130,
       slots: { default: 'javaType' },
       params: {
@@ -465,37 +465,37 @@ export function useCodegenColumnTableColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'javaField',
-      title: 'Java 属性',
+      title: $t('infra.codegen.fields.javaField'),
       minWidth: 100,
       slots: { default: 'javaField' },
     },
     {
       field: 'createOperation',
-      title: '插入',
+      title: $t('infra.codegen.fields.createOperation'),
       width: 40,
       slots: { default: 'createOperation' },
     },
     {
       field: 'updateOperation',
-      title: '编辑',
+      title: $t('infra.codegen.fields.updateOperation'),
       width: 40,
       slots: { default: 'updateOperation' },
     },
     {
       field: 'listOperationResult',
-      title: '列表',
+      title: $t('infra.codegen.fields.listOperationResult'),
       width: 40,
       slots: { default: 'listOperationResult' },
     },
     {
       field: 'listOperation',
-      title: '查询',
+      title: $t('infra.codegen.fields.listOperation'),
       width: 40,
       slots: { default: 'listOperation' },
     },
     {
       field: 'listOperationCondition',
-      title: '查询方式',
+      title: $t('infra.codegen.fields.listOperationCondition'),
       minWidth: 100,
       slots: { default: 'listOperationCondition' },
       params: {
@@ -513,38 +513,38 @@ export function useCodegenColumnTableColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'nullable',
-      title: '允许空',
+      title: $t('infra.codegen.fields.nullable'),
       width: 60,
       slots: { default: 'nullable' },
     },
     {
       field: 'htmlType',
-      title: '显示类型',
+      title: $t('infra.codegen.fields.htmlType'),
       width: 130,
       slots: { default: 'htmlType' },
       params: {
         options: [
-          { label: '文本框', value: 'input' },
-          { label: '文本域', value: 'textarea' },
-          { label: '下拉框', value: 'select' },
-          { label: '单选框', value: 'radio' },
-          { label: '复选框', value: 'checkbox' },
-          { label: '日期控件', value: 'datetime' },
-          { label: '图片上传', value: 'imageUpload' },
-          { label: '文件上传', value: 'fileUpload' },
-          { label: '富文本控件', value: 'editor' },
+          { label: $t('infra.codegen.htmlTypeOptions.input'), value: 'input' },
+          { label: $t('infra.codegen.htmlTypeOptions.textarea'), value: 'textarea' },
+          { label: $t('infra.codegen.htmlTypeOptions.select'), value: 'select' },
+          { label: $t('infra.codegen.htmlTypeOptions.radio'), value: 'radio' },
+          { label: $t('infra.codegen.htmlTypeOptions.checkbox'), value: 'checkbox' },
+          { label: $t('infra.codegen.htmlTypeOptions.datetime'), value: 'datetime' },
+          { label: $t('infra.codegen.htmlTypeOptions.imageUpload'), value: 'imageUpload' },
+          { label: $t('infra.codegen.htmlTypeOptions.fileUpload'), value: 'fileUpload' },
+          { label: $t('infra.codegen.htmlTypeOptions.editor'), value: 'editor' },
         ],
       },
     },
     {
       field: 'dictType',
-      title: '字典类型',
+      title: $t('infra.codegen.fields.dictType'),
       width: 120,
       slots: { default: 'dictType' },
     },
     {
       field: 'example',
-      title: '示例',
+      title: $t('infra.codegen.fields.example'),
       minWidth: 100,
       slots: { default: 'example' },
     },

@@ -10,6 +10,7 @@ import { formatDateTime } from '@vben/utils';
 
 import { getSimpleMailAccountList } from '#/api/system/mail/account';
 import { DictTag } from '#/components/dict-tag';
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 列表的搜索表单 */
@@ -17,7 +18,7 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'sendTime',
-      label: '发送时间',
+      label: $t('system.mail.log.fields.sendTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -26,52 +27,52 @@ export function useGridFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'userId',
-      label: '用户编号',
+      label: $t('system.mail.log.fields.userId'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入用户编号',
+        placeholder: $t('system.mail.log.fields.userIdPlaceholder'),
       },
     },
     {
       fieldName: 'userType',
-      label: '用户类型',
+      label: $t('system.mail.log.fields.userType'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.USER_TYPE, 'number'),
         allowClear: true,
-        placeholder: '请选择用户类型',
+        placeholder: $t('system.mail.log.fields.userTypePlaceholder'),
       },
     },
     {
       fieldName: 'sendStatus',
-      label: '发送状态',
+      label: $t('system.mail.log.fields.sendStatus'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.SYSTEM_MAIL_SEND_STATUS, 'number'),
         allowClear: true,
-        placeholder: '请选择发送状态',
+        placeholder: $t('system.mail.log.fields.sendStatusPlaceholder'),
       },
     },
     {
       fieldName: 'accountId',
-      label: '邮箱账号',
+      label: $t('system.mail.log.fields.accountId'),
       component: 'ApiSelect',
       componentProps: {
         api: getSimpleMailAccountList,
         labelField: 'mail',
         valueField: 'id',
         allowClear: true,
-        placeholder: '请选择邮箱账号',
+        placeholder: $t('system.mail.log.fields.accountIdPlaceholder'),
       },
     },
     {
       fieldName: 'templateId',
-      label: '模板编号',
+      label: $t('system.mail.log.fields.templateId'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入模板编号',
+        placeholder: $t('system.mail.log.fields.templateIdPlaceholder'),
       },
     },
   ];
@@ -82,57 +83,57 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
   return [
     {
       field: 'id',
-      title: '编号',
+      title: $t('system.mail.log.fields.gridId'),
       minWidth: 100,
     },
     {
       field: 'sendTime',
-      title: '发送时间',
+      title: $t('system.mail.log.fields.gridSendTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
       field: 'userType',
-      title: '接收用户',
+      title: $t('system.mail.log.fields.receiveUser'),
       minWidth: 150,
       slots: { default: 'userInfo' },
     },
     {
       field: 'toMails',
-      title: '接收信息',
+      title: $t('system.mail.log.fields.receiveInfo'),
       minWidth: 300,
       formatter: ({ row }) => {
         const lines: string[] = [];
         if (row.toMails && row.toMails.length > 0) {
-          lines.push(`收件：${row.toMails.join('、')}`);
+          lines.push(`${$t('system.mail.log.fields.receiveTo')}${row.toMails.join('、')}`);
         }
         if (row.ccMails && row.ccMails.length > 0) {
-          lines.push(`抄送：${row.ccMails.join('、')}`);
+          lines.push(`${$t('system.mail.log.fields.receiveCc')}${row.ccMails.join('、')}`);
         }
         if (row.bccMails && row.bccMails.length > 0) {
-          lines.push(`密送：${row.bccMails.join('、')}`);
+          lines.push(`${$t('system.mail.log.fields.receiveBcc')}${row.bccMails.join('、')}`);
         }
         return lines.join('\n');
       },
     },
     {
       field: 'templateTitle',
-      title: '邮件标题',
+      title: $t('system.mail.log.fields.gridTemplateTitle'),
       minWidth: 120,
     },
     {
       field: 'templateContent',
-      title: '邮件内容',
+      title: $t('system.mail.log.fields.gridTemplateContent'),
       minWidth: 300,
     },
     {
       field: 'fromMail',
-      title: '发送邮箱',
+      title: $t('system.mail.log.fields.fromMail'),
       minWidth: 120,
     },
     {
       field: 'sendStatus',
-      title: '发送状态',
+      title: $t('system.mail.log.fields.gridSendStatus'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -141,11 +142,11 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'templateCode',
-      title: '模板编码',
+      title: $t('system.mail.log.fields.templateCode'),
       minWidth: 120,
     },
     {
-      title: '操作',
+      title: $t('system.mail.log.fields.gridActions'),
       width: 80,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -158,22 +159,22 @@ export function useDetailSchema(): DescriptionItemSchema[] {
   return [
     {
       field: 'id',
-      label: '编号',
+      label: $t('system.mail.log.fields.gridId'),
     },
     {
       field: 'createTime',
-      label: '创建时间',
+      label: $t('system.mail.log.fields.gridCreateTime'),
       render: (val) => {
         return formatDateTime(val) as string;
       },
     },
     {
       field: 'fromMail',
-      label: '发送邮箱',
+      label: $t('system.mail.log.fields.fromMail'),
     },
     {
       field: 'userId',
-      label: '接收用户',
+      label: $t('system.mail.log.fields.receiveUser'),
       render: (val, data) => {
         if (data?.userType && val) {
           return h('div', [
@@ -184,22 +185,22 @@ export function useDetailSchema(): DescriptionItemSchema[] {
             ` (${val})`,
           ]);
         }
-        return '无';
+        return $t('system.mail.log.fields.noUser');
       },
     },
     {
       field: 'toMails',
-      label: '接收信息',
+      label: $t('system.mail.log.fields.receiveInfo'),
       render: (val, data) => {
         const lines: string[] = [];
         if (val && val.length > 0) {
-          lines.push(`收件：${val.join('、')}`);
+          lines.push(`${$t('system.mail.log.fields.receiveTo')}${val.join('、')}`);
         }
         if (data?.ccMails && data.ccMails.length > 0) {
-          lines.push(`抄送：${data.ccMails.join('、')}`);
+          lines.push(`${$t('system.mail.log.fields.receiveCc')}${data.ccMails.join('、')}`);
         }
         if (data?.bccMails && data.bccMails.length > 0) {
-          lines.push(`密送：${data.bccMails.join('、')}`);
+          lines.push(`${$t('system.mail.log.fields.receiveBcc')}${data.bccMails.join('、')}`);
         }
         return h(
           'div',
@@ -212,19 +213,19 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'templateId',
-      label: '模板编号',
+      label: $t('system.mail.log.fields.templateId'),
     },
     {
       field: 'templateCode',
-      label: '模板编码',
+      label: $t('system.mail.log.fields.templateCode'),
     },
     {
       field: 'templateTitle',
-      label: '邮件标题',
+      label: $t('system.mail.log.fields.templateTitle'),
     },
     {
       field: 'templateContent',
-      label: '邮件内容',
+      label: $t('system.mail.log.fields.templateContent'),
       span: 2,
       render: (val) => {
         return h('div', {
@@ -234,7 +235,7 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'sendStatus',
-      label: '发送状态',
+      label: $t('system.mail.log.fields.sendStatus'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.SYSTEM_MAIL_SEND_STATUS,
@@ -244,16 +245,16 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'sendTime',
-      label: '发送时间',
+      label: $t('system.mail.log.fields.sendTime'),
       render: (val) => formatDateTime(val) as string,
     },
     {
       field: 'sendMessageId',
-      label: '发送消息编号',
+      label: $t('system.mail.log.fields.sendMessageId'),
     },
     {
       field: 'sendException',
-      label: '发送异常',
+      label: $t('system.mail.log.fields.sendException'),
     },
   ];
 }

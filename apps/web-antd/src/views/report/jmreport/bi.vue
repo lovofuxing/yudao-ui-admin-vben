@@ -4,6 +4,8 @@ import { ref } from 'vue';
 import { DocAlert, IFrame, Page } from '@vben/common-ui';
 import { useAccessStore } from '@vben/stores';
 
+import { $t } from '#/locales';
+
 defineOptions({ name: 'JimuBI' });
 const accessStore = useAccessStore();
 
@@ -17,7 +19,7 @@ const src = ref(
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="大屏设计器" url="https://doc.iocoder.cn/screen/" />
+      <DocAlert :title="$t('report.bi.title')" url="https://doc.iocoder.cn/screen/" />
     </template>
 
     <IFrame :src="src" />

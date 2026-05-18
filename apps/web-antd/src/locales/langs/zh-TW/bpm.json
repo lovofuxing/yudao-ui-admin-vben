@@ -1,0 +1,415 @@
+{
+  "common": {
+    "action": "操作",
+    "detail": "詳情",
+    "copy": "複製",
+    "edit": "編輯",
+    "delete": "刪除",
+    "cancel": "取消",
+    "restart": "重新發起",
+    "history": "歷史",
+    "report": "報表",
+    "more": "更多",
+    "clean": "清理",
+    "deploy": "發布",
+    "save": "保存",
+    "recover": "恢復",
+    "rename": "重新命名",
+    "sort": "排序",
+    "sortCancel": "取消",
+    "sortSave": "儲存排序",
+    "dragSort": "拖曳排序",
+    "approvalProgress": "審批進度",
+    "withdraw": "撤回",
+    "audit": "辦理",
+    "allVisible": "全部可見",
+    "noForm": "暫無表單",
+    "undeployed": "未部署",
+    "disabled": "已停用"
+  },
+  "category": {
+    "title": "流程分類",
+    "tableTitle": "流程分類",
+    "renameTitle": "重新命名流程分類",
+    "fields": {
+      "id": "分類編號",
+      "name": "分類名",
+      "code": "分類標誌",
+      "description": "分類描述",
+      "status": "分類狀態",
+      "sort": "分類排序",
+      "createTime": "建立時間"
+    },
+    "placeholder": {
+      "name": "請輸入分類名",
+      "code": "請輸入分類標誌",
+      "description": "請輸入分類描述",
+      "status": "請選擇分類狀態",
+      "sort": "請輸入分類排序"
+    }
+  },
+  "model": {
+    "title": "流程模型",
+    "tableTitle": "流程模型",
+    "searchPlaceholder": "搜尋流程",
+    "newModel": "新建模型",
+    "newCategory": "新建分類",
+    "sortCategory": "分類排序",
+    "cannotDeleteCategory": "該分類下仍有流程定義,不允許刪除",
+    "deleteCategoryConfirm": "確定要刪除[{0}]嗎？",
+    "deletingCategory": "正在刪除分類: \"{0}\"...",
+    "sortCategorySuccess": "分類排序成功",
+    "deployConfirm": "確認要發布[{0}]流程嗎？",
+    "deploying": "正在發布流程: \"{0}\"...",
+    "deploySuccess": "發布[{0}]流程成功",
+    "cleanConfirm": "確認要清理流程: \"{0}\" 嗎？",
+    "cleaning": "正在清理流程: \"{0}\"...",
+    "cleanSuccess": "清理流程: \"{0}\" 成功",
+    "deleteConfirm": "確認要刪除流程: \"{0}\" 嗎？",
+    "deleteSuccess": "刪除流程: \"{0}\" 成功",
+    "sortModelSuccess": "排序模型成功",
+    "sortModelError": "排序資料異常，請重試",
+    "sortSaving": "正在儲存排序...",
+    "stateEnable": "啟用",
+    "stateDisable": "停用",
+    "stateChangeConfirm": "確認要{0}流程: \"{1}\" 嗎？",
+    "stateChanging": "正在{0}流程: \"{1}\"...",
+    "stateChangeSuccess": "{0} 流程: \"{1}\" 成功",
+    "visiblePeople": "{0}等 {1} 人可見",
+    "visibleDept": "{0}等 {1} 個部門可見",
+    "fields": {
+      "name": "流程名稱",
+      "visibleRange": "可見範圍",
+      "type": "流程類型",
+      "formInfo": "表單資訊",
+      "lastDeploy": "最後發布"
+    },
+    "definition": {
+      "title": "流程定義列表",
+      "fields": {
+        "id": "定義編號",
+        "name": "流程名稱",
+        "icon": "流程圖示",
+        "visibleRange": "可見範圍",
+        "type": "流程類型",
+        "formInfo": "表單資訊",
+        "version": "流程版本",
+        "deploymentTime": "部署時間"
+      }
+    },
+    "edit": {
+      "title": "建立流程",
+      "stepBasic": "基本資訊",
+      "stepForm": "表單設計",
+      "stepProcess": "流程設計",
+      "stepExtra": "更多設定",
+      "save": "儲存",
+      "deploy": "發布",
+      "recover": "恢復",
+      "copySuccess": "複製成功，可點選【發布】按鈕，進行發布模型",
+      "recoverSuccess": "恢復成功，可點選【發布】按鈕，進行發布模型",
+      "updateSuccess": "修改成功，可點選【發布】按鈕，進行發布模型",
+      "createSuccess": "新建成功，可點選【發布】按鈕，進行發布模型",
+      "deploySuccess": "發布成功",
+      "deployFail": "發布失敗",
+      "deployConfirm": "是否確認發布該流程？",
+      "pleaseCompleteBasicInfo": "請完善基本資訊",
+      "pleaseCompleteFormInfo": "請完善自訂表單資訊",
+      "pleaseCompleteStepInfo": "請先完善目前步驟必填資訊"
+    },
+    "basicInfo": {
+      "title": "基本資訊",
+      "name": "流程名稱",
+      "namePlaceholder": "請輸入流程名稱",
+      "nameRequired": "流程名稱不能為空",
+      "key": "流程標識",
+      "keyPlaceholder": "請輸入流程標識",
+      "keyRequired": "流程標識不能為空",
+      "keyInvalid": "只能包含字母、數字、底線、連字元和點號，且必須以字母或底線開頭",
+      "category": "流程分類",
+      "categoryPlaceholder": "請選擇流程分類",
+      "categoryRequired": "流程分類不能為空",
+      "icon": "流程圖示",
+      "description": "描述",
+      "descriptionPlaceholder": "請輸入描述",
+      "type": "流程類型",
+      "typeRequired": "流程類型不能為空",
+      "formType": "表單類型",
+      "visible": "是否可見",
+      "visibleRequired": "是否可見不能為空",
+      "startUserType": "可見範圍",
+      "startUserTypeAll": "全員可見",
+      "startUserTypeUser": "指定使用者可見",
+      "startUserTypeDept": "指定部門可見",
+      "startUserPlaceholder": "請選擇使用者",
+      "startDeptPlaceholder": "請選擇部門",
+      "managerUsers": "流程管理員",
+      "managerUsersPlaceholder": "請選擇流程管理員",
+      "managerUsersRequired": "流程管理員不能為空",
+      "form": "流程表單",
+      "formPlaceholder": "請選擇流程表單",
+      "formRequired": "流程表單不能為空",
+      "formCustomCreatePath": "自訂表單路由",
+      "formCustomCreatePathPlaceholder": "請輸入自訂表單路由",
+      "formCustomViewPath": "自訂表單檢視路由",
+      "formCustomViewPathPlaceholder": "請輸入自訂表單檢視路由",
+      "simpleModel": "簡易模型",
+      "flowNode": "流程節點"
+    },
+    "extraSetting": {
+      "title": "更多設定",
+      "allowCancelRunningProcess": "允許取消正在執行的流程",
+      "allowCancelRunningProcessHelp": "開啟後，發起人可以在流程執行中取消流程",
+      "processIdRule": "流程編號規則",
+      "processIdRuleEnable": "啟用",
+      "processIdRulePrefix": "前綴",
+      "processIdRuleInfix": "中間部分",
+      "processIdRulePostfix": "後綴",
+      "processIdRuleLength": "編號長度",
+      "processIdRulePrefixPlaceholder": "前綴（可選）",
+      "processIdRuleInfixPlaceholder": "中間部分（可選）",
+      "processIdRulePostfixPlaceholder": "後綴（可選）",
+      "processIdRuleLengthPlaceholder": "請輸入編號長度",
+      "autoApprovalType": "自動審批類型",
+      "titleSetting": "標題設定",
+      "titleSettingEnable": "啟用",
+      "titleSettingTitle": "標題",
+      "titleSettingTitlePlaceholder": "請輸入流程標題",
+      "summarySetting": "摘要設定",
+      "summarySettingEnable": "啟用",
+      "summarySettingSummary": "摘要欄位",
+      "summarySettingSummaryPlaceholder": "請選擇摘要欄位",
+      "allowWithdrawTask": "允許審批人撤回已審批的任務",
+      "allowWithdrawTaskHelp": "開啟後，審批人可以在下一節點審批前撤回已審批的任務"
+    },
+    "formDesign": {
+      "title": "流程表單配置"
+    },
+    "processDesign": {
+      "title": "流程設計"
+    }
+  },
+  "form": {
+    "title": "流程表單",
+    "tableTitle": "流程表單",
+    "detailTitle": "流程表單詳情",
+    "fields": {
+      "id": "編號",
+      "name": "表單名稱",
+      "status": "狀態",
+      "remark": "備註",
+      "createTime": "建立時間"
+    },
+    "placeholder": {
+      "name": "請輸入表單名稱"
+    }
+  },
+  "group": {
+    "title": "使用者分組",
+    "tableTitle": "使用者分組",
+    "fields": {
+      "id": "編號",
+      "name": "組名",
+      "description": "描述",
+      "members": "成員",
+      "status": "狀態",
+      "createTime": "建立時間"
+    },
+    "placeholder": {
+      "name": "請輸入組名",
+      "description": "請輸入描述",
+      "members": "請選擇成員",
+      "status": "請選擇狀態"
+    }
+  },
+  "oa": {
+    "leave": {
+      "title": "請假列表",
+      "create": "發起請假",
+      "recreate": "重新發起請假",
+      "cancel": "取消流程",
+      "cancelReason": "請輸入取消原因",
+      "cancelling": "正在取消中...",
+      "cancelSuccess": "取消成功",
+      "cancelReasonRequired": "請輸入取消原因",
+      "fields": {
+        "id": "申請編號",
+        "type": "請假類型",
+        "startTime": "開始時間",
+        "endTime": "結束時間",
+        "reason": "原因",
+        "status": "狀態",
+        "createTime": "申請時間",
+        "approvalResult": "審批結果"
+      },
+      "placeholder": {
+        "type": "請選擇請假類型",
+        "startTime": "請選擇開始時間",
+        "endTime": "請選擇結束時間",
+        "reason": "請輸入原因",
+        "approvalResult": "請選擇審批結果"
+      },
+      "detail": {
+        "loading": "載入中..."
+      },
+      "backConfirm": "確定要返回上一頁嗎？請先儲存您填寫的資訊！",
+      "noApprovalDetail": "查詢不到審批詳情資訊！",
+      "selectApprover": "請選擇{0}的審批人",
+      "recreateFailed": "重新發起請假失敗，原因：請假資料不存在"
+    }
+  },
+  "processExpression": {
+    "title": "流程表達式",
+    "tableTitle": "流程表達式",
+    "fields": {
+      "id": "編號",
+      "name": "名字",
+      "status": "狀態",
+      "expression": "表達式",
+      "createTime": "建立時間"
+    },
+    "placeholder": {
+      "name": "請輸入名字",
+      "status": "請選擇狀態",
+      "expression": "請輸入表達式"
+    }
+  },
+  "processInstance": {
+    "title": "流程實例",
+    "tableTitle": "流程狀態",
+    "managerTitle": "流程實例",
+    "reportTitle": "流程實例列表",
+    "definitionTitle": "流程定義列表",
+    "cancelTitle": "取消流程",
+    "cancelReason": "請輸入取消原因",
+    "cancelSuccess": "取消成功",
+    "createTitle": "發起流程",
+    "createFailed": "重新發起流程失敗，原因：流程實例不存在",
+    "createDefFailed": "重新發起流程失敗，原因：流程定義不存在",
+    "noBpmFormRoute": "未配置業務表單的提交路由，無法重新發起",
+    "approving": "審批中",
+    "multiApproving": "等 {0} 人 ({1})審批中",
+    "fields": {
+      "id": "流程編號",
+      "name": "流程名稱",
+      "summary": "摘要",
+      "categoryName": "流程分類",
+      "status": "流程狀態",
+      "startTime": "發起時間",
+      "endTime": "結束時間",
+      "startUser": "發起人",
+      "deptName": "發起部門",
+      "duration": "流程耗時",
+      "currentTask": "目前審批任務",
+      "definitionName": "所屬流程"
+    },
+    "placeholder": {
+      "name": "請輸入流程名稱",
+      "definition": "請選擇流程定義",
+      "category": "請輸入流程分類",
+      "status": "請選擇流程狀態",
+      "startUser": "請選擇發起人"
+    },
+    "detail": {
+      "loading": "載入中...",
+      "noApprovalDetail": "查詢不到審批詳情資訊！",
+      "noProcessInfo": "查詢不到流程資訊！",
+      "getApprovalDetailFailed": "取得審批詳情失敗！",
+      "form": "表單",
+      "history": "審批記錄",
+      "task": "審批任務列表",
+      "processImage": "流程圖",
+      "startUser": "發起人",
+      "department": "所在部門",
+      "startTime": "發起時間",
+      "endTime": "結束時間",
+      "duration": "流程耗時",
+      "status": "流程狀態",
+      "category": "流程分類"
+    }
+  },
+  "processListener": {
+    "title": "流程監聽器",
+    "tableTitle": "流程監聽器",
+    "event": {
+      "start": "開始",
+      "end": "結束",
+      "create": "建立",
+      "assignment": "指派",
+      "complete": "完成",
+      "delete": "刪除",
+      "update": "更新",
+      "timeout": "超時"
+    },
+    "fields": {
+      "id": "編號",
+      "name": "名字",
+      "status": "狀態",
+      "type": "類型",
+      "event": "事件",
+      "valueType": "值類型",
+      "value": "值",
+      "createTime": "建立時間"
+    },
+    "placeholder": {
+      "name": "請輸入名字",
+      "status": "請選擇狀態",
+      "type": "請選擇類型",
+      "event": "請選擇事件",
+      "valueType": "請選擇值類型",
+      "valueClass": "請輸入類路徑",
+      "valueExpression": "請輸入表達式"
+    }
+  },
+  "task": {
+    "todo": {
+      "title": "待辦任務",
+      "audit": "辦理"
+    },
+    "done": {
+      "title": "已辦任務",
+      "withdraw": "撤回",
+      "history": "歷史",
+      "withdrawConfirm": "確定要撤回該任務嗎？",
+      "withdrawing": "正在撤回中...",
+      "withdrawSuccess": "撤回成功"
+    },
+    "copy": {
+      "title": "抄送任務"
+    },
+    "manager": {
+      "title": "流程任務",
+      "history": "歷史"
+    },
+    "fields": {
+      "process": "流程",
+      "summary": "摘要",
+      "startUser": "發起人",
+      "startTime": "發起時間",
+      "currentTask": "目前任務",
+      "taskTime": "任務時間",
+      "taskStartTime": "任務開始時間",
+      "taskEndTime": "任務結束時間",
+      "processId": "流程編號",
+      "taskId": "任務編號",
+      "approvalStatus": "審批狀態",
+      "approvalSuggestion": "審批建議",
+      "duration": "耗時",
+      "approver": "審批人",
+      "processName": "流程名稱",
+      "processStartUser": "流程發起人",
+      "processStartTime": "流程發起時間",
+      "copyNode": "抄送節點",
+      "copyUser": "抄送人",
+      "copySuggestion": "抄送意見",
+      "copyTime": "抄送時間"
+    },
+    "placeholder": {
+      "taskName": "請輸入任務名稱",
+      "processDefinition": "請選擇流程定義",
+      "category": "請輸入流程分類",
+      "status": "請選擇流程狀態",
+      "approvalStatus": "請選擇審批狀態"
+    }
+  }
+}

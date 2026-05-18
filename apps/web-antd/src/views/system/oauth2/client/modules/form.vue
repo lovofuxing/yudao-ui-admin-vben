@@ -21,8 +21,8 @@ const emit = defineEmits(['success']);
 const formData = ref<SystemOAuth2ClientApi.OAuth2Client>();
 const getTitle = computed(() => {
   return formData.value?.id
-    ? $t('ui.actionTitle.edit', [' OAuth2.0 客户端'])
-    : $t('ui.actionTitle.create', [' OAuth2.0 客户端']);
+    ? $t('ui.actionTitle.edit', [$t('system.oauth2.client.entityName')])
+    : $t('ui.actionTitle.create', [$t('system.oauth2.client.entityName')]);
 });
 
 const [Form, formApi] = useVbenForm({

@@ -9,6 +9,7 @@ import { getDictOptions } from '@vben/hooks';
 import { formatDateTime } from '@vben/utils';
 
 import { DictTag } from '#/components/dict-tag';
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 列表的搜索表单 */
@@ -16,17 +17,17 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'readStatus',
-      label: '是否已读',
+      label: $t('system.notify.my.fields.readStatus'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.INFRA_BOOLEAN_STRING, 'boolean'),
         allowClear: true,
-        placeholder: '请选择是否已读',
+        placeholder: $t('system.notify.my.fields.readStatusPlaceholder'),
       },
     },
     {
       fieldName: 'createTime',
-      label: '发送时间',
+      label: $t('system.notify.my.fields.sendTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -46,18 +47,18 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'templateNickname',
-      title: '发送人',
+      title: $t('system.notify.my.fields.gridNickname'),
       minWidth: 180,
     },
     {
       field: 'createTime',
-      title: '发送时间',
+      title: $t('system.notify.my.fields.gridSendTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
       field: 'templateType',
-      title: '类型',
+      title: $t('system.notify.my.fields.gridType'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -66,12 +67,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'templateContent',
-      title: '消息内容',
+      title: $t('system.notify.my.fields.gridContent'),
       minWidth: 300,
     },
     {
       field: 'readStatus',
-      title: '是否已读',
+      title: $t('system.notify.my.fields.gridReadStatus'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -80,12 +81,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'readTime',
-      title: '阅读时间',
+      title: $t('system.notify.my.fields.gridReadTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.notify.my.fields.gridActions'),
       width: 130,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -97,16 +98,16 @@ export function useDetailSchema(): DescriptionItemSchema[] {
   return [
     {
       field: 'templateNickname',
-      label: '发送人',
+      label: $t('system.notify.my.fields.gridNickname'),
     },
     {
       field: 'createTime',
-      label: '发送时间',
+      label: $t('system.notify.my.fields.gridSendTime'),
       render: (val) => formatDateTime(val) as string,
     },
     {
       field: 'templateType',
-      label: '消息类型',
+      label: $t('system.notify.my.fields.gridType'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.SYSTEM_NOTIFY_TEMPLATE_TYPE,
@@ -116,7 +117,7 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'readStatus',
-      label: '是否已读',
+      label: $t('system.notify.my.fields.gridReadStatus'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.INFRA_BOOLEAN_STRING,
@@ -126,12 +127,12 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'readTime',
-      label: '阅读时间',
+      label: $t('system.notify.my.fields.gridReadTime'),
       render: (val) => formatDateTime(val) as string,
     },
     {
       field: 'templateContent',
-      label: '消息内容',
+      label: $t('system.notify.my.fields.gridContent'),
     },
   ];
 }

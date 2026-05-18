@@ -6,6 +6,8 @@ import { getDictOptions } from '@vben/hooks';
 
 import { z } from '#/adapter/form';
 
+import { $t } from '#/locales';
+
 /** 新增/修改的表单 */
 export function useFormSchema(): VbenFormSchema[] {
   return [
@@ -20,34 +22,34 @@ export function useFormSchema(): VbenFormSchema[] {
     {
       component: 'Input',
       fieldName: 'name',
-      label: '岗位名称',
+      label: $t('system.post.fields.name'),
       componentProps: {
-        placeholder: '请输入岗位名称',
+        placeholder: $t('system.post.fields.namePlaceholder'),
       },
       rules: 'required',
     },
     {
       component: 'Input',
       fieldName: 'code',
-      label: '岗位编码',
+      label: $t('system.post.fields.code'),
       componentProps: {
-        placeholder: '请输入岗位编码',
+        placeholder: $t('system.post.fields.codePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'sort',
-      label: '显示顺序',
+      label: $t('system.post.fields.sort'),
       component: 'InputNumber',
       componentProps: {
         min: 0,
-        placeholder: '请输入显示顺序',
+        placeholder: $t('system.post.fields.sortPlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'status',
-      label: '岗位状态',
+      label: $t('system.post.fields.status'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
@@ -58,10 +60,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'remark',
-      label: '岗位备注',
+      label: $t('system.post.fields.remark'),
       component: 'Textarea',
       componentProps: {
-        placeholder: '请输入岗位备注',
+        placeholder: $t('system.post.fields.remarkPlaceholder'),
       },
     },
   ];
@@ -72,29 +74,29 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'name',
-      label: '岗位名称',
+      label: $t('system.post.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入岗位名称',
+        placeholder: $t('system.post.fields.namePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'code',
-      label: '岗位编码',
+      label: $t('system.post.fields.code'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入岗位编码',
+        placeholder: $t('system.post.fields.codePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'status',
-      label: '岗位状态',
+      label: $t('system.post.fields.status'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
-        placeholder: '请选择岗位状态',
+        placeholder: $t('system.post.fields.statusPlaceholder'),
         allowClear: true,
       },
     },
@@ -107,32 +109,32 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'id',
-      title: '岗位编号',
+      title: $t('system.post.fields.id'),
       minWidth: 200,
     },
     {
       field: 'name',
-      title: '岗位名称',
+      title: $t('system.post.fields.name'),
       minWidth: 200,
     },
     {
       field: 'code',
-      title: '岗位编码',
+      title: $t('system.post.fields.code'),
       minWidth: 200,
     },
     {
       field: 'sort',
-      title: '显示顺序',
+      title: $t('system.post.fields.sort'),
       minWidth: 100,
     },
     {
       field: 'remark',
-      title: '岗位备注',
+      title: $t('system.post.fields.remark'),
       minWidth: 200,
     },
     {
       field: 'status',
-      title: '岗位状态',
+      title: $t('system.post.fields.status'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -141,12 +143,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.common.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.common.actions'),
       width: 130,
       fixed: 'right',
       slots: { default: 'actions' },

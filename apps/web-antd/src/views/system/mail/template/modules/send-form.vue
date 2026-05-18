@@ -9,6 +9,7 @@ import { message } from 'ant-design-vue';
 
 import { useVbenForm } from '#/adapter/form';
 import { sendMail } from '#/api/system/mail/template';
+import { $t } from '#/locales';
 
 import { useSendMailFormSchema } from '../data';
 
@@ -56,7 +57,7 @@ const [Modal, modalApi] = useVbenModal({
       // 关闭并提示
       await modalApi.close();
       emit('success');
-      message.success('邮件发送成功');
+      message.success($t('system.mail.template.message.sendSuccess'));
     } finally {
       modalApi.unlock();
     }
@@ -103,7 +104,7 @@ function buildFormSchema() {
 </script>
 
 <template>
-  <Modal title="测试发送邮件" class="w-1/3">
+  <Modal :title="$t('system.mail.template.sendTestTitle')" class="w-1/3">
     <Form class="mx-4" />
   </Modal>
 </template>

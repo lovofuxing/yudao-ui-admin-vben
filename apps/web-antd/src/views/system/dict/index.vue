@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 
 import { DocAlert, Page } from '@vben/common-ui';
+import { $t } from '#/locales';
 
 import DataGrid from './modules/data-grid.vue';
 import TypeGrid from './modules/type-grid.vue';
@@ -16,7 +17,7 @@ function handleDictTypeSelect(dictType: string) {
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="字典管理" url="https://doc.iocoder.cn/system-dict/" />
+      <DocAlert :title="$t('system.dict.docTitle')" url="https://doc.iocoder.cn/dict/" />
     </template>
 
     <div class="flex h-full">

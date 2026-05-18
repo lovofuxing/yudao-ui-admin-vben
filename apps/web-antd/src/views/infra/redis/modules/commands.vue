@@ -6,6 +6,7 @@ import type { InfraRedisApi } from '#/api/infra/redis';
 import { onMounted, ref, watch } from 'vue';
 
 import { EchartsUI, useEcharts } from '@vben/plugins/echarts';
+import { $t } from '#/locales';
 
 const props = defineProps<{
   redisData?: InfraRedisApi.RedisMonitorInfo;
@@ -34,7 +35,7 @@ function renderCommandStats() {
   // 渲染图表
   renderEcharts({
     title: {
-      text: '命令统计',
+      text: $t('infra.redis.chart.commandStats'),
       left: 'center',
     },
     tooltip: {
@@ -54,7 +55,7 @@ function renderCommandStats() {
     },
     series: [
       {
-        name: '命令',
+        name: $t('infra.redis.chart.command'),
         type: 'pie',
         radius: [20, 120],
         center: ['40%', '60%'],

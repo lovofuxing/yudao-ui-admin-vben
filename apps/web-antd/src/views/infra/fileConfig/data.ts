@@ -4,6 +4,7 @@ import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 import { DICT_TYPE } from '@vben/constants';
 import { getDictOptions } from '@vben/hooks';
 
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 新增/修改的表单 */
@@ -19,20 +20,20 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'name',
-      label: '配置名',
+      label: $t('infra.fileConfig.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入配置名',
+        placeholder: $t('infra.fileConfig.placeholder.name'),
       },
       rules: 'required',
     },
     {
       fieldName: 'storage',
-      label: '存储器',
+      label: $t('infra.fileConfig.fields.storage'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.INFRA_FILE_STORAGE, 'number'),
-        placeholder: '请选择存储器',
+        placeholder: $t('infra.fileConfig.placeholder.storage'),
       },
       rules: 'required',
       dependencies: {
@@ -42,19 +43,19 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'remark',
-      label: '备注',
+      label: $t('infra.fileConfig.fields.remark'),
       component: 'Textarea',
       componentProps: {
-        placeholder: '请输入备注',
+        placeholder: $t('infra.fileConfig.placeholder.remark'),
       },
     },
     // DB / Local / FTP / SFTP
     {
       fieldName: 'config.basePath',
-      label: '基础路径',
+      label: $t('infra.fileConfig.fields.basePath'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入基础路径',
+        placeholder: $t('infra.fileConfig.placeholder.basePath'),
       },
       rules: 'required',
       dependencies: {
@@ -65,10 +66,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.host',
-      label: '主机地址',
+      label: $t('infra.fileConfig.fields.host'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入主机地址',
+        placeholder: $t('infra.fileConfig.placeholder.host'),
       },
       rules: 'required',
       dependencies: {
@@ -79,11 +80,11 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.port',
-      label: '主机端口',
+      label: $t('infra.fileConfig.fields.port'),
       component: 'InputNumber',
       componentProps: {
         min: 0,
-        placeholder: '请输入主机端口',
+        placeholder: $t('infra.fileConfig.placeholder.port'),
       },
       rules: 'required',
       dependencies: {
@@ -94,10 +95,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.username',
-      label: '用户名',
+      label: $t('infra.fileConfig.fields.username'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入用户名',
+        placeholder: $t('infra.fileConfig.placeholder.username'),
       },
       rules: 'required',
       dependencies: {
@@ -108,10 +109,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.password',
-      label: '密码',
+      label: $t('infra.fileConfig.fields.password'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入密码',
+        placeholder: $t('infra.fileConfig.placeholder.password'),
       },
       rules: 'required',
       dependencies: {
@@ -122,12 +123,12 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.mode',
-      label: '连接模式',
+      label: $t('infra.fileConfig.fields.mode'),
       component: 'RadioGroup',
       componentProps: {
         options: [
-          { label: '主动模式', value: 'Active' },
-          { label: '被动模式', value: 'Passive' },
+          { label: $t('infra.fileConfig.modeOptions.active'), value: 'Active' },
+          { label: $t('infra.fileConfig.modeOptions.passive'), value: 'Passive' },
         ],
         buttonStyle: 'solid',
         optionType: 'button',
@@ -141,10 +142,10 @@ export function useFormSchema(): VbenFormSchema[] {
     // S3
     {
       fieldName: 'config.endpoint',
-      label: '节点地址',
+      label: $t('infra.fileConfig.fields.endpoint'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入节点地址',
+        placeholder: $t('infra.fileConfig.placeholder.endpoint'),
       },
       rules: 'required',
       dependencies: {
@@ -154,10 +155,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.bucket',
-      label: '存储 bucket',
+      label: $t('infra.fileConfig.fields.bucket'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入 bucket',
+        placeholder: $t('infra.fileConfig.placeholder.bucket'),
       },
       rules: 'required',
       dependencies: {
@@ -167,10 +168,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.accessKey',
-      label: 'accessKey',
+      label: $t('infra.fileConfig.fields.accessKey'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入 accessKey',
+        placeholder: $t('infra.fileConfig.placeholder.accessKey'),
       },
       rules: 'required',
       dependencies: {
@@ -180,10 +181,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.accessSecret',
-      label: 'accessSecret',
+      label: $t('infra.fileConfig.fields.accessSecret'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入 accessSecret',
+        placeholder: $t('infra.fileConfig.placeholder.accessSecret'),
       },
       rules: 'required',
       dependencies: {
@@ -193,12 +194,12 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.enablePathStyleAccess',
-      label: '是否 Path Style',
+      label: $t('infra.fileConfig.fields.pathStyle'),
       component: 'RadioGroup',
       componentProps: {
         options: [
-          { label: '启用', value: true },
-          { label: '禁用', value: false },
+          { label: $t('infra.fileConfig.pathStyleOptions.enabled'), value: true },
+          { label: $t('infra.fileConfig.pathStyleOptions.disabled'), value: false },
         ],
         buttonStyle: 'solid',
         optionType: 'button',
@@ -212,12 +213,12 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.enablePublicAccess',
-      label: '公开访问',
+      label: $t('infra.fileConfig.fields.publicAccess'),
       component: 'RadioGroup',
       componentProps: {
         options: [
-          { label: '公开', value: true },
-          { label: '私有', value: false },
+          { label: $t('infra.fileConfig.publicAccessOptions.public'), value: true },
+          { label: $t('infra.fileConfig.publicAccessOptions.private'), value: false },
         ],
         buttonStyle: 'solid',
         optionType: 'button',
@@ -231,10 +232,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'config.region',
-      label: '区域',
+      label: $t('infra.fileConfig.fields.region'),
       component: 'Input',
       componentProps: {
-        placeholder: '请填写区域，一般仅 AWS 需要填写',
+        placeholder: $t('infra.fileConfig.placeholder.region'),
       },
       dependencies: {
         triggerFields: ['storage'],
@@ -244,10 +245,10 @@ export function useFormSchema(): VbenFormSchema[] {
     // 通用
     {
       fieldName: 'config.domain',
-      label: '自定义域名',
+      label: $t('infra.fileConfig.fields.domain'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入自定义域名',
+        placeholder: $t('infra.fileConfig.placeholder.domain'),
       },
       rules: 'required',
       dependencies: {
@@ -263,26 +264,26 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'name',
-      label: '配置名',
+      label: $t('infra.fileConfig.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入配置名',
+        placeholder: $t('infra.fileConfig.placeholder.name'),
         allowClear: true,
       },
     },
     {
       fieldName: 'storage',
-      label: '存储器',
+      label: $t('infra.fileConfig.fields.storage'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.INFRA_FILE_STORAGE, 'number'),
-        placeholder: '请选择存储器',
+        placeholder: $t('infra.fileConfig.placeholder.storage'),
         allowClear: true,
       },
     },
     {
       fieldName: 'createTime',
-      label: '创建时间',
+      label: $t('infra.common.createTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -298,17 +299,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'id',
-      title: '编号',
+      title: $t('infra.fileConfig.fields.id'),
       minWidth: 100,
     },
     {
       field: 'name',
-      title: '配置名',
+      title: $t('infra.fileConfig.fields.name'),
       minWidth: 120,
     },
     {
       field: 'storage',
-      title: '存储器',
+      title: $t('infra.fileConfig.fields.storage'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -317,12 +318,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'remark',
-      title: '备注',
+      title: $t('infra.fileConfig.fields.remark'),
       minWidth: 150,
     },
     {
       field: 'master',
-      title: '主配置',
+      title: $t('infra.fileConfig.fields.master'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -331,12 +332,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('infra.common.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('infra.common.action'),
       width: 240,
       fixed: 'right',
       slots: { default: 'actions' },

@@ -12,6 +12,7 @@ import { Timeline } from 'ant-design-vue';
 
 import { CronTab } from '#/components/cron-tab';
 import { DictTag } from '#/components/dict-tag';
+import { $t } from '#/locales';
 
 /** 新增/修改的表单 */
 export function useFormSchema(): VbenFormSchema[] {
@@ -26,19 +27,19 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'name',
-      label: '任务名称',
+      label: $t('infra.job.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入任务名称',
+        placeholder: $t('infra.job.placeholder.name'),
       },
       rules: 'required',
     },
     {
       fieldName: 'handlerName',
-      label: '处理器的名字',
+      label: $t('infra.job.fields.handlerName'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入处理器的名字',
+        placeholder: $t('infra.job.placeholder.handlerName'),
       },
       dependencies: {
         triggerFields: ['id'],
@@ -48,47 +49,47 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'handlerParam',
-      label: '处理器的参数',
+      label: $t('infra.job.fields.handlerParam'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入处理器的参数',
+        placeholder: $t('infra.job.placeholder.handlerParam'),
       },
     },
     {
       fieldName: 'cronExpression',
-      label: 'CRON 表达式',
+      label: $t('infra.job.fields.cronExpression'),
       component: markRaw(CronTab),
       componentProps: {
-        placeholder: '请输入 CRON 表达式',
+        placeholder: $t('infra.job.placeholder.cronExpression'),
       },
       rules: 'required',
     },
     {
       fieldName: 'retryCount',
-      label: '重试次数',
+      label: $t('infra.job.fields.retryCount'),
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入重试次数。设置为 0 时，不进行重试',
+        placeholder: $t('infra.job.placeholder.retryCount'),
         min: 0,
       },
       rules: 'required',
     },
     {
       fieldName: 'retryInterval',
-      label: '重试间隔',
+      label: $t('infra.job.fields.retryInterval'),
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入重试间隔，单位：毫秒。设置为 0 时，无需间隔',
+        placeholder: $t('infra.job.placeholder.retryInterval'),
         min: 0,
       },
       rules: 'required',
     },
     {
       fieldName: 'monitorTimeout',
-      label: '监控超时时间',
+      label: $t('infra.job.fields.monitorTimeout'),
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入监控超时时间，单位：毫秒',
+        placeholder: $t('infra.job.placeholder.monitorTimeout'),
         min: 0,
       },
     },
@@ -100,30 +101,30 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'name',
-      label: '任务名称',
+      label: $t('infra.job.fields.name'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入任务名称',
+        placeholder: $t('infra.job.placeholder.name'),
       },
     },
     {
       fieldName: 'status',
-      label: '任务状态',
+      label: $t('infra.job.fields.status'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.INFRA_JOB_STATUS, 'number'),
         allowClear: true,
-        placeholder: '请选择任务状态',
+        placeholder: $t('infra.job.placeholder.status'),
       },
     },
     {
       fieldName: 'handlerName',
-      label: '处理器的名字',
+      label: $t('infra.job.fields.handlerName'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入处理器的名字',
+        placeholder: $t('infra.job.placeholder.handlerName'),
       },
     },
   ];
@@ -135,17 +136,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'id',
-      title: '任务编号',
+      title: $t('infra.job.fields.id'),
       minWidth: 80,
     },
     {
       field: 'name',
-      title: '任务名称',
+      title: $t('infra.job.fields.name'),
       minWidth: 120,
     },
     {
       field: 'status',
-      title: '任务状态',
+      title: $t('infra.job.fields.status'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -154,21 +155,21 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'handlerName',
-      title: '处理器的名字',
+      title: $t('infra.job.fields.handlerName'),
       minWidth: 180,
     },
     {
       field: 'handlerParam',
-      title: '处理器的参数',
+      title: $t('infra.job.fields.handlerParam'),
       minWidth: 140,
     },
     {
       field: 'cronExpression',
-      title: 'CRON 表达式',
+      title: $t('infra.job.fields.cronExpression'),
       minWidth: 120,
     },
     {
-      title: '操作',
+      title: $t('infra.common.action'),
       width: 240,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -181,15 +182,15 @@ export function useDetailSchema(): DescriptionItemSchema[] {
   return [
     {
       field: 'id',
-      label: '任务编号',
+      label: $t('infra.job.fields.id'),
     },
     {
       field: 'name',
-      label: '任务名称',
+      label: $t('infra.job.fields.name'),
     },
     {
       field: 'status',
-      label: '任务状态',
+      label: $t('infra.job.fields.status'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.INFRA_JOB_STATUS,
@@ -199,40 +200,40 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'handlerName',
-      label: '处理器的名字',
+      label: $t('infra.job.fields.handlerName'),
     },
     {
       field: 'handlerParam',
-      label: '处理器的参数',
+      label: $t('infra.job.fields.handlerParam'),
     },
     {
       field: 'cronExpression',
-      label: 'Cron 表达式',
+      label: $t('infra.job.fields.cronExpressionLabel'),
     },
     {
       field: 'retryCount',
-      label: '重试次数',
+      label: $t('infra.job.fields.retryCount'),
     },
     {
-      label: '重试间隔',
+      label: $t('infra.job.fields.retryInterval'),
       field: 'retryInterval',
       render: (val) => {
-        return val ? `${val} 毫秒` : '无间隔';
+        return val ? `${val} ${$t('infra.common.milliseconds')}` : $t('infra.common.noInterval');
       },
     },
     {
-      label: '监控超时时间',
+      label: $t('infra.job.fields.monitorTimeout'),
       field: 'monitorTimeout',
       render: (val) => {
-        return val && val > 0 ? `${val} 毫秒` : '未开启';
+        return val && val > 0 ? `${val} ${$t('infra.common.milliseconds')}` : $t('infra.common.notEnabled');
       },
     },
     {
       field: 'nextTimes',
-      label: '后续执行时间',
+      label: $t('infra.job.fields.nextTimes'),
       render: (val) => {
         if (!val || val.length === 0) {
-          return '无后续执行时间';
+          return $t('infra.common.noNextTimes');
         }
         return h(Timeline, {}, () =>
           val?.map((time: Date) =>

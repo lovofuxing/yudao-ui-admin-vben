@@ -17,8 +17,8 @@ const emit = defineEmits(['success']);
 const formData = ref<SystemPostApi.Post>();
 const getTitle = computed(() => {
   return formData.value?.id
-    ? $t('ui.actionTitle.edit', ['岗位'])
-    : $t('ui.actionTitle.create', ['岗位']);
+    ? $t('ui.actionTitle.edit', [$t('system.post.entityName')])
+    : $t('ui.actionTitle.create', [$t('system.post.entityName')]);
 });
 
 const [Form, formApi] = useVbenForm({

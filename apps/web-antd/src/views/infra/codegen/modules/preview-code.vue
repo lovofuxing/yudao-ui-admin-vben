@@ -7,6 +7,8 @@ import { useVbenModal } from '@vben/common-ui';
 import { IconifyIcon } from '@vben/icons';
 import { CodeEditor } from '@vben/plugins/code-editor';
 
+import { $t } from '#/locales';
+
 import { useClipboard } from '@vueuse/core';
 import { Button, DirectoryTree, message, Tabs } from 'ant-design-vue';
 
@@ -58,7 +60,7 @@ async function copyCode() {
   );
   if (file) {
     await copy(file.code);
-    message.success('复制成功');
+    message.success($t('infra.common.copySuccess'));
   }
 }
 
@@ -208,7 +210,7 @@ const [Modal, modalApi] = useVbenModal({
 </script>
 
 <template>
-  <Modal title="代码预览">
+  <Modal :title="$t('infra.codegen.previewCode')">
     <div class="flex h-full" v-loading="loading">
       <!-- 文件树 -->
       <div
@@ -251,7 +253,7 @@ const [Modal, modalApi] = useVbenModal({
           <template #rightExtra>
             <Button type="primary" ghost @click="copyCode">
               <IconifyIcon icon="lucide:copy" />
-              复制代码
+              {{ $t('infra.common.copyCode') }}
             </Button>
           </template>
         </Tabs>

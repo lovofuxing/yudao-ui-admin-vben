@@ -85,7 +85,7 @@ function handleRowCheckboxChange({
 /** 推送公告 */
 async function handlePush(row: SystemNoticeApi.Notice) {
   const hideLoading = message.loading({
-    content: '正在推送中...',
+    content: $t('system.notice.message.pushing'),
   });
   try {
     await pushNotice(row.id!);
@@ -133,12 +133,12 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <FormModal @success="handleRefresh" />
-    <Grid table-title="公告列表">
+    <Grid :table-title="$t('system.notice.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['公告']),
+              label: $t('ui.actionTitle.create', [$t('system.notice.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:notice:create'],
@@ -167,7 +167,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               onClick: handleEdit.bind(null, row),
             },
             {
-              label: '推送',
+              label: $t('system.notice.action.push'),
               type: 'link',
               icon: ACTION_ICON.ADD,
               auth: ['system:notice:update'],

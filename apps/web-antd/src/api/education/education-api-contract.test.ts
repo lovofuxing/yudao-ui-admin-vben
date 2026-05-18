@@ -113,4 +113,39 @@ describe('education resource api contract', () => {
 
     expect(updatedPage.total).toBe(1);
   });
+
+  it('provides student detail tab pagination for all 10 tabs', async () => {
+    const { getStudentFollowPage, getStudentTrialPage, getStudentCoursePage, getStudentClassRecordPage, getStudentDeductionPage, getStudentSchedulePage, getStudentCommunicationPage, getStudentGrowthPage, getStudentLeavePage, getStudentPointsPage } = await import('./student/detail');
+
+    const pages = await Promise.all([
+      getStudentFollowPage({ studentId: 1, pageNo: 1, pageSize: 5 }),
+      getStudentTrialPage({ studentId: 1, pageNo: 1, pageSize: 5 }),
+      getStudentCoursePage({ studentId: 1, pageNo: 1, pageSize: 5 }),
+      getStudentClassRecordPage({ studentId: 1, pageNo: 1, pageSize: 5 }),
+      getStudentDeductionPage({ studentId: 1, pageNo: 1, pageSize: 5 }),
+      getStudentSchedulePage({ studentId: 1, pageNo: 1, pageSize: 5 }),
+      getStudentCommunicationPage({ studentId: 1, pageNo: 1, pageSize: 5 }),
+      getStudentGrowthPage({ studentId: 1, pageNo: 1, pageSize: 5 }),
+      getStudentLeavePage({ studentId: 1, pageNo: 1, pageSize: 5 }),
+      getStudentPointsPage({ studentId: 1, pageNo: 1, pageSize: 5 }),
+    ]);
+
+    expect(pages.every((page) => page.list.length >= 0)).toBe(true);
+    expect(pages.every((page) => typeof page.total === 'number')).toBe(true);
+  });
+
+  it('provides class detail tab pagination for all 5 tabs', async () => {
+    const { getClassStudentPage, getClassSchedulePage, getClassRecordPage, getClassScheduleConfigPage, getClassOrderPage } = await import('./class/detail');
+
+    const pages = await Promise.all([
+      getClassStudentPage({ classId: 1, pageNo: 1, pageSize: 5 }),
+      getClassSchedulePage({ classId: 1, pageNo: 1, pageSize: 5 }),
+      getClassRecordPage({ classId: 1, pageNo: 1, pageSize: 5 }),
+      getClassScheduleConfigPage({ classId: 1, pageNo: 1, pageSize: 5 }),
+      getClassOrderPage({ classId: 1, pageNo: 1, pageSize: 5 }),
+    ]);
+
+    expect(pages.every((page) => page.list.length >= 0)).toBe(true);
+    expect(pages.every((page) => typeof page.total === 'number')).toBe(true);
+  });
 });

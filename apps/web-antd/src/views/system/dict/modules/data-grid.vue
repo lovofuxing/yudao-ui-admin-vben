@@ -41,7 +41,7 @@ function handleRefresh() {
 /** 导出表格 */
 async function handleExport() {
   const data = await exportDictData(await gridApi.formApi.getValues());
-  downloadFileFromBlobPart({ fileName: '字典数据.xls', source: data });
+  downloadFileFromBlobPart({ fileName: $t('system.dict.data.exportFilename'), source: data });
 }
 
 /** 创建字典数据 */
@@ -145,12 +145,12 @@ watch(
   <div class="flex h-full flex-col">
     <DataFormModal @success="handleRefresh" />
 
-    <Grid table-title="字典数据列表">
+    <Grid :table-title="$t('system.dict.data.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['字典数据']),
+              label: $t('ui.actionTitle.create', [$t('system.dict.data.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:dict:create'],

@@ -6,6 +6,7 @@ import { ref } from 'vue';
 import { useVbenModal } from '@vben/common-ui';
 
 import { useDescription } from '#/components/description';
+import { $t } from '#/locales';
 
 import { useDetailSchema } from '../data';
 
@@ -40,7 +41,7 @@ const [Modal, modalApi] = useVbenModal({
 
 <template>
   <Modal
-    title="登录日志详情"
+    :title="$t('system.loginlog.detailTitle')"
     class="w-1/2"
     :show-cancel-button="false"
     :show-confirm-button="false"

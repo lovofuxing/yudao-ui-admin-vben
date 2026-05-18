@@ -137,17 +137,17 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="短信配置" url="https://doc.iocoder.cn/sms/" />
+      <DocAlert :title="$t('system.sms.docTitle')" url="https://doc.iocoder.cn/sms/" />
     </template>
 
     <FormModal @success="handleRefresh" />
     <SendModal />
-    <Grid table-title="短信模板列表">
+    <Grid :table-title="$t('system.sms.template.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['短信模板']),
+              label: $t('ui.actionTitle.create', [$t('system.sms.template.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:sms-template:create'],
@@ -183,7 +183,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               onClick: handleEdit.bind(null, row),
             },
             {
-              label: '测试',
+              label: $t('system.sms.template.action.testSend'),
               type: 'link',
               icon: ACTION_ICON.VIEW,
               auth: ['system:sms-template:send-sms'],

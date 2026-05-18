@@ -25,7 +25,7 @@ function handleRefresh() {
 /** 导出表格 */
 async function handleExport() {
   const data = await exportLoginLog(await gridApi.formApi.getValues());
-  downloadFileFromBlobPart({ fileName: '登录日志.xls', source: data });
+  downloadFileFromBlobPart({ fileName: String($t('system.loginlog.exportFilename')), source: data });
 }
 
 /** 查看登录日志详情 */
@@ -67,11 +67,11 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="系统日志" url="https://doc.iocoder.cn/system-log/" />
+      <DocAlert :title="$t('system.loginlog.docTitle')" url="https://doc.iocoder.cn/system-log/" />
     </template>
 
     <DetailModal @success="handleRefresh" />
-    <Grid table-title="登录日志列表">
+    <Grid :table-title="$t('system.loginlog.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[

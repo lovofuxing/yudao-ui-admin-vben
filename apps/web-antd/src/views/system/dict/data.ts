@@ -6,6 +6,7 @@ import { getDictOptions } from '@vben/hooks';
 
 import { z } from '#/adapter/form';
 import { getSimpleDictTypeList } from '#/api/system/dict/type';
+import { $t } from '#/locales';
 
 // ============================== 字典类型 ==============================
 
@@ -22,20 +23,20 @@ export function useTypeFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'name',
-      label: '字典名称',
+      label: $t('system.dict.type.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入字典名称',
+        placeholder: $t('system.dict.type.fields.namePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'type',
-      label: '字典类型',
+      label: $t('system.dict.type.fields.type'),
       component: 'Input',
       componentProps: (values) => {
         return {
-          placeholder: '请输入字典类型',
+          placeholder: $t('system.dict.type.fields.typePlaceholder'),
           disabled: !!values.id,
         };
       },
@@ -46,7 +47,7 @@ export function useTypeFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.dict.type.fields.status'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
@@ -57,10 +58,10 @@ export function useTypeFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'remark',
-      label: '备注',
+      label: $t('system.dict.type.fields.remark'),
       component: 'Textarea',
       componentProps: {
-        placeholder: '请输入备注',
+        placeholder: $t('system.dict.type.fields.remarkPlaceholder'),
       },
     },
   ];
@@ -71,29 +72,29 @@ export function useTypeGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'name',
-      label: '字典名称',
+      label: $t('system.dict.type.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入字典名称',
+        placeholder: $t('system.dict.type.fields.namePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'type',
-      label: '字典类型',
+      label: $t('system.dict.type.fields.type'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入字典类型',
+        placeholder: $t('system.dict.type.fields.typePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.dict.type.fields.status'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
-        placeholder: '请选择状态',
+        placeholder: $t('system.dict.type.fields.statusPlaceholder'),
         allowClear: true,
       },
     },
@@ -106,22 +107,22 @@ export function useTypeGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'id',
-      title: '字典编号',
+      title: $t('system.dict.type.fields.id'),
       minWidth: 100,
     },
     {
       field: 'name',
-      title: '字典名称',
+      title: $t('system.dict.type.fields.name'),
       minWidth: 200,
     },
     {
       field: 'type',
-      title: '字典类型',
+      title: $t('system.dict.type.fields.type'),
       minWidth: 220,
     },
     {
       field: 'status',
-      title: '状态',
+      title: $t('system.dict.type.fields.status'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -130,17 +131,17 @@ export function useTypeGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'remark',
-      title: '备注',
+      title: $t('system.dict.type.fields.remark'),
       minWidth: 180,
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.dict.type.fields.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.dict.type.fields.actions'),
       minWidth: 120,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -155,19 +156,19 @@ export function useTypeGridColumns(): VxeTableGridOptions['columns'] {
  * 颜色选项
  */
 const colorOptions = [
-  { value: '', label: '无' },
-  { value: 'processing', label: '主要' },
-  { value: 'success', label: '成功' },
-  { value: 'default', label: '默认' },
-  { value: 'warning', label: '警告' },
-  { value: 'error', label: '危险' },
-  { value: 'pink', label: 'pink' },
-  { value: 'red', label: 'red' },
-  { value: 'orange', label: 'orange' },
-  { value: 'green', label: 'green' },
-  { value: 'cyan', label: 'cyan' },
-  { value: 'blue', label: 'blue' },
-  { value: 'purple', label: 'purple' },
+  { value: '', label: $t('system.dict.data.colorType.none') },
+  { value: 'processing', label: $t('system.dict.data.colorType.primary') },
+  { value: 'success', label: $t('system.dict.data.colorType.success') },
+  { value: 'default', label: $t('system.dict.data.colorType.default') },
+  { value: 'warning', label: $t('system.dict.data.colorType.warning') },
+  { value: 'error', label: $t('system.dict.data.colorType.danger') },
+  { value: 'pink', label: $t('system.dict.data.colorType.pink') },
+  { value: 'red', label: $t('system.dict.data.colorType.red') },
+  { value: 'orange', label: $t('system.dict.data.colorType.orange') },
+  { value: 'green', label: $t('system.dict.data.colorType.green') },
+  { value: 'cyan', label: $t('system.dict.data.colorType.cyan') },
+  { value: 'blue', label: $t('system.dict.data.colorType.blue') },
+  { value: 'purple', label: $t('system.dict.data.colorType.purple') },
 ];
 
 /** 数据新增/修改的表单 */
@@ -183,12 +184,12 @@ export function useDataFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'dictType',
-      label: '字典类型',
+      label: $t('system.dict.data.fields.dictType'),
       component: 'ApiSelect',
       componentProps: (values) => {
         return {
           api: getSimpleDictTypeList,
-          placeholder: '请输入字典类型',
+          placeholder: $t('system.dict.data.fields.dictTypePlaceholder'),
           labelField: 'name',
           valueField: 'type',
           disabled: !!values.id,
@@ -201,38 +202,38 @@ export function useDataFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'label',
-      label: '数据标签',
+      label: $t('system.dict.data.fields.label'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入数据标签',
+        placeholder: $t('system.dict.data.fields.labelPlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'value',
-      label: '数据键值',
+      label: $t('system.dict.data.fields.value'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入数据键值',
+        placeholder: $t('system.dict.data.fields.valuePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'sort',
-      label: '显示排序',
+      label: $t('system.dict.data.fields.sort'),
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入显示排序',
+        placeholder: $t('system.dict.data.fields.sortPlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.dict.data.fields.status'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
-        placeholder: '请选择状态',
+        placeholder: $t('system.dict.data.fields.statusPlaceholder'),
         buttonStyle: 'solid',
         optionType: 'button',
       },
@@ -240,28 +241,28 @@ export function useDataFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'colorType',
-      label: '颜色类型',
+      label: $t('system.dict.data.fields.colorType'),
       component: 'Select',
       componentProps: {
         options: colorOptions,
-        placeholder: '请选择颜色类型',
+        placeholder: $t('system.dict.data.fields.colorTypePlaceholder'),
       },
     },
     {
       fieldName: 'cssClass',
-      label: 'CSS Class',
+      label: $t('system.dict.data.fields.cssClass'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入 CSS Class',
+        placeholder: $t('system.dict.data.fields.cssClassPlaceholder'),
       },
-      help: '输入 hex 模式的颜色, 例如 #108ee9',
+      help: $t('system.dict.data.fields.cssClassHelp'),
     },
     {
       fieldName: 'remark',
-      label: '备注',
+      label: $t('system.dict.data.fields.remark'),
       component: 'Textarea',
       componentProps: {
-        placeholder: '请输入备注',
+        placeholder: $t('system.dict.data.fields.remarkPlaceholder'),
       },
     },
   ];
@@ -272,20 +273,20 @@ export function useDataGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'label',
-      label: '字典标签',
+      label: $t('system.dict.data.fields.label'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入字典标签',
+        placeholder: $t('system.dict.data.fields.labelPlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.dict.data.fields.status'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
-        placeholder: '请选择状态',
+        placeholder: $t('system.dict.data.fields.statusPlaceholder'),
         allowClear: true,
       },
     },
@@ -298,27 +299,27 @@ export function useDataGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'id',
-      title: '字典编码',
+      title: $t('system.dict.data.fields.id'),
       minWidth: 100,
     },
     {
       field: 'label',
-      title: '字典标签',
+      title: $t('system.dict.data.fields.label'),
       minWidth: 180,
     },
     {
       field: 'value',
-      title: '字典键值',
+      title: $t('system.dict.data.fields.value'),
       minWidth: 100,
     },
     {
       field: 'sort',
-      title: '字典排序',
+      title: $t('system.dict.data.fields.sort'),
       minWidth: 100,
     },
     {
       field: 'status',
-      title: '状态',
+      title: $t('system.dict.data.fields.status'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -327,24 +328,24 @@ export function useDataGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'colorType',
-      title: '颜色类型',
+      title: $t('system.dict.data.fields.colorType'),
       minWidth: 120,
       slots: { default: 'colorType' },
     },
     {
       field: 'cssClass',
-      title: 'CSS Class',
+      title: $t('system.dict.data.fields.cssClass'),
       minWidth: 120,
       slots: { default: 'cssClass' },
     },
     {
-      title: '创建时间',
+      title: $t('system.dict.data.fields.createTime'),
       field: 'createTime',
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.dict.data.fields.actions'),
       minWidth: 120,
       fixed: 'right',
       slots: { default: 'actions' },

@@ -2,16 +2,17 @@ import type { VbenFormSchema } from '#/adapter/form';
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 
 import { DICT_TYPE } from '@vben/constants';
+import { $t } from '#/locales';
 
 /** 列表的搜索表单 */
 export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'name',
-      label: '表单名称',
+      label: $t('bpm.form.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入表单名称',
+        placeholder: $t('bpm.form.placeholder.name'),
         allowClear: true,
       },
     },
@@ -23,17 +24,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
   return [
     {
       field: 'id',
-      title: '编号',
+      title: $t('bpm.form.fields.id'),
       minWidth: 100,
     },
     {
       field: 'name',
-      title: '表单名称',
+      title: $t('bpm.form.fields.name'),
       minWidth: 200,
     },
     {
       field: 'status',
-      title: '状态',
+      title: $t('bpm.form.fields.status'),
       minWidth: 200,
       cellRender: {
         name: 'CellDict',
@@ -42,17 +43,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'remark',
-      title: '备注',
+      title: $t('bpm.form.fields.remark'),
       minWidth: 200,
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('bpm.form.fields.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('bpm.common.action'),
       width: 240,
       fixed: 'right',
       slots: { default: 'actions' },

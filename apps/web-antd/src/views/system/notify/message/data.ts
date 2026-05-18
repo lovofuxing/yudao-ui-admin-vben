@@ -9,6 +9,7 @@ import { getDictOptions } from '@vben/hooks';
 import { formatDateTime } from '@vben/utils';
 
 import { DictTag } from '#/components/dict-tag';
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 列表的搜索表单 */
@@ -16,35 +17,35 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'userId',
-      label: '用户编号',
+      label: $t('system.notify.message.fields.userId'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入用户编号',
+        placeholder: $t('system.notify.message.fields.userIdPlaceholder'),
       },
     },
     {
       fieldName: 'userType',
-      label: '用户类型',
+      label: $t('system.notify.message.fields.userType'),
       component: 'Select',
       componentProps: {
         allowClear: true,
         options: getDictOptions(DICT_TYPE.USER_TYPE, 'number'),
-        placeholder: '请选择用户类型',
+        placeholder: $t('system.notify.message.fields.userTypePlaceholder'),
       },
     },
     {
       fieldName: 'templateCode',
-      label: '模板编码',
+      label: $t('system.notify.message.fields.templateCode'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入模板编码',
+        placeholder: $t('system.notify.message.fields.templateCodePlaceholder'),
       },
     },
     {
       fieldName: 'templateType',
-      label: '模版类型',
+      label: $t('system.notify.message.fields.templateType'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(
@@ -52,12 +53,12 @@ export function useGridFormSchema(): VbenFormSchema[] {
           'number',
         ),
         allowClear: true,
-        placeholder: '请选择模版类型',
+        placeholder: $t('system.notify.message.fields.templateTypePlaceholder'),
       },
     },
     {
       fieldName: 'createTime',
-      label: '创建时间',
+      label: $t('system.notify.message.fields.createTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -72,12 +73,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
   return [
     {
       field: 'id',
-      title: '编号',
+      title: $t('system.notify.message.fields.gridId'),
       minWidth: 100,
     },
     {
       field: 'userType',
-      title: '用户类型',
+      title: $t('system.notify.message.fields.gridUserType'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -86,27 +87,27 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'userId',
-      title: '用户编号',
+      title: $t('system.notify.message.fields.gridUserId'),
       minWidth: 100,
     },
     {
       field: 'templateCode',
-      title: '模板编码',
+      title: $t('system.notify.message.fields.gridTemplateCode'),
       minWidth: 120,
     },
     {
       field: 'templateNickname',
-      title: '发送人名称',
+      title: $t('system.notify.message.fields.gridTemplateNickname'),
       minWidth: 180,
     },
     {
       field: 'templateContent',
-      title: '模版内容',
+      title: $t('system.notify.message.fields.gridTemplateContent'),
       minWidth: 200,
     },
     {
       field: 'templateParams',
-      title: '模版参数',
+      title: $t('system.notify.message.fields.templateParams'),
       minWidth: 180,
       formatter: ({ cellValue }) => {
         try {
@@ -118,7 +119,7 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'templateType',
-      title: '模版类型',
+      title: $t('system.notify.message.fields.gridTemplateType'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -127,7 +128,7 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'readStatus',
-      title: '是否已读',
+      title: $t('system.notify.message.fields.gridReadStatus'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -136,18 +137,18 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'readTime',
-      title: '阅读时间',
+      title: $t('system.notify.message.fields.gridReadTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.notify.message.fields.gridCreateTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.notify.message.fields.gridActions'),
       width: 80,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -160,11 +161,11 @@ export function useDetailSchema(): DescriptionItemSchema[] {
   return [
     {
       field: 'id',
-      label: '编号',
+      label: $t('system.notify.message.fields.gridId'),
     },
     {
       field: 'userType',
-      label: '用户类型',
+      label: $t('system.notify.message.fields.gridUserType'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.USER_TYPE,
@@ -174,27 +175,27 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'userId',
-      label: '用户编号',
+      label: $t('system.notify.message.fields.gridUserId'),
     },
     {
       field: 'templateId',
-      label: '模版编号',
+      label: $t('system.notify.message.fields.templateId'),
     },
     {
       field: 'templateCode',
-      label: '模板编码',
+      label: $t('system.notify.message.fields.gridTemplateCode'),
     },
     {
       field: 'templateNickname',
-      label: '发送人名称',
+      label: $t('system.notify.message.fields.gridTemplateNickname'),
     },
     {
       field: 'templateContent',
-      label: '模版内容',
+      label: $t('system.notify.message.fields.gridTemplateContent'),
     },
     {
       field: 'templateParams',
-      label: '模版参数',
+      label: $t('system.notify.message.fields.templateParams'),
       render: (val) => {
         try {
           return JSON.stringify(val);
@@ -205,7 +206,7 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'templateType',
-      label: '模版类型',
+      label: $t('system.notify.message.fields.gridTemplateType'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.SYSTEM_NOTIFY_TEMPLATE_TYPE,
@@ -215,7 +216,7 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'readStatus',
-      label: '是否已读',
+      label: $t('system.notify.message.fields.gridReadStatus'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.INFRA_BOOLEAN_STRING,
@@ -225,12 +226,12 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'readTime',
-      label: '阅读时间',
+      label: $t('system.notify.message.fields.gridReadTime'),
       render: (val) => formatDateTime(val) as string,
     },
     {
       field: 'createTime',
-      label: '创建时间',
+      label: $t('system.notify.message.fields.gridCreateTime'),
       render: (val) => formatDateTime(val) as string,
     },
   ];

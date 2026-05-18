@@ -5,6 +5,7 @@ import { CommonStatusEnum, DICT_TYPE } from '@vben/constants';
 import { getDictOptions } from '@vben/hooks';
 
 import { z } from '#/adapter/form';
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 新增/修改的表单 */
@@ -20,22 +21,25 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'name',
-      label: '套餐名称',
+      label: $t('system.tenantPackage.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入套餐名称',
+        placeholder: $t('system.tenantPackage.fields.namePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'menuIds',
-      label: '菜单权限',
+      label: $t('system.tenantPackage.fields.name'),
       component: 'Input',
-      formItemClass: 'items-start',
+      componentProps: {
+        placeholder: $t('system.tenantPackage.fields.namePlaceholder'),
+      },
+      rules: 'required',
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.tenantPackage.fields.status'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
@@ -46,10 +50,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'remark',
-      label: '备注',
+      label: $t('system.tenantPackage.fields.remark'),
       component: 'Textarea',
       componentProps: {
-        placeholder: '请输入备注',
+        placeholder: $t('system.tenantPackage.fields.remarkPlaceholder'),
       },
     },
   ];
@@ -60,26 +64,26 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'name',
-      label: '套餐名称',
+      label: $t('system.tenantPackage.fields.name'),
       component: 'Input',
       componentProps: {
+        placeholder: $t('system.tenantPackage.fields.namePlaceholder'),
         allowClear: true,
-        placeholder: '请输入套餐名称',
       },
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.tenantPackage.fields.status'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
         allowClear: true,
-        placeholder: '请选择状态',
+        placeholder: $t('system.tenantPackage.fields.statusPlaceholder'),
       },
     },
     {
       fieldName: 'createTime',
-      label: '创建时间',
+      label: $t('system.common.createTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -95,17 +99,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'id',
-      title: '套餐编号',
+      title: $t('system.tenantPackage.fields.gridId'),
       minWidth: 100,
     },
     {
       field: 'name',
-      title: '套餐名称',
+      title: $t('system.tenantPackage.fields.gridName'),
       minWidth: 180,
     },
     {
       field: 'status',
-      title: '状态',
+      title: $t('system.tenantPackage.fields.gridStatus'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -114,17 +118,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'remark',
-      title: '备注',
+      title: $t('system.tenantPackage.fields.gridRemark'),
       minWidth: 200,
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.tenantPackage.fields.gridCreateTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.tenantPackage.fields.gridActions'),
       width: 220,
       fixed: 'right',
       slots: { default: 'actions' },

@@ -17,8 +17,8 @@ const emit = defineEmits(['success']);
 const formData = ref<SystemNoticeApi.Notice>();
 const getTitle = computed(() => {
   return formData.value?.id
-    ? $t('ui.actionTitle.edit', ['公告'])
-    : $t('ui.actionTitle.create', ['公告']);
+    ? $t('ui.actionTitle.edit', [$t('system.notice.entityName')])
+    : $t('ui.actionTitle.create', [$t('system.notice.entityName')]);
 });
 
 const [Form, formApi] = useVbenForm({

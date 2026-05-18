@@ -36,15 +36,15 @@ function handleUpload() {
 const { copy } = useClipboard({ legacy: true });
 async function handleCopyUrl(row: InfraFileApi.File) {
   if (!row.url) {
-    message.error('文件 URL 为空');
+    message.error($t('infra.common.urlEmpty'));
     return;
   }
 
   try {
     await copy(row.url);
-    message.success('复制成功');
+    message.success($t('infra.common.copySuccess'));
   } catch {
-    message.error('复制失败');
+    message.error($t('infra.common.copyFailed'));
   }
 }
 
@@ -129,12 +129,12 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <FormModal @success="handleRefresh" />
-    <Grid table-title="文件列表">
+    <Grid :table-title="$t('infra.file.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: '上传文件',
+              label: $t('infra.file.uploadFile'),
               type: 'primary',
               icon: ACTION_ICON.UPLOAD,
               onClick: handleUpload,
@@ -154,14 +154,14 @@ const [Grid, gridApi] = useVbenVxeGrid({
       <template #file-content="{ row }">
         <Image v-if="row.type && row.type.includes('image')" :src="row.url" />
         <Button v-else type="link" @click="() => openWindow(row.url!)">
-          {{ row.type && row.type.includes('pdf') ? '预览' : '下载' }}
+          {{ row.type && row.type.includes('pdf') ? $t('infra.file.preview') : $t('infra.file.download') }}
         </Button>
       </template>
       <template #actions="{ row }">
         <TableAction
           :actions="[
             {
-              label: '复制链接',
+              label: $t('infra.file.copyLink'),
               type: 'link',
               icon: ACTION_ICON.COPY,
               onClick: handleCopyUrl.bind(null, row),

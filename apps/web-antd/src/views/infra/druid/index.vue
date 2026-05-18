@@ -24,9 +24,9 @@ onMounted(async () => {
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="数据库 MyBatis" url="https://doc.iocoder.cn/mybatis/" />
+      <DocAlert :title="$t('infra.druid.docMybatis')" url="https://doc.iocoder.cn/mybatis/" />
       <DocAlert
-        title="多数据源（读写分离）"
+        :title="$t('infra.druid.docDynamicDatasource')"
         url="https://doc.iocoder.cn/dynamic-datasource/"
       />
     </template>

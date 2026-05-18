@@ -73,7 +73,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
     </template>
 
     <DetailModal />
-    <Grid table-title="任务日志列表">
+    <Grid :table-title="$t('infra.job.logTableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[

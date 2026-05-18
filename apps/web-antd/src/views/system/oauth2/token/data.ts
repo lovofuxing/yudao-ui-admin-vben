@@ -4,34 +4,36 @@ import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 import { DICT_TYPE } from '@vben/constants';
 import { getDictOptions } from '@vben/hooks';
 
+import { $t } from '#/locales';
+
 /** 列表的搜索表单 */
 export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'userId',
-      label: '用户编号',
+      label: $t('system.oauth2.token.fields.userId'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入用户编号',
+        placeholder: $t('system.oauth2.token.fields.userIdPlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'userType',
-      label: '用户类型',
+      label: $t('system.oauth2.token.fields.userType'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.USER_TYPE, 'number'),
-        placeholder: '请选择用户类型',
+        placeholder: $t('system.oauth2.token.fields.userTypePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'clientId',
-      label: '客户端编号',
+      label: $t('system.oauth2.token.fields.clientId'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入客户端编号',
+        placeholder: $t('system.oauth2.token.fields.clientIdPlaceholder'),
         allowClear: true,
       },
     },
@@ -44,22 +46,22 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'accessToken',
-      title: '访问令牌',
+      title: $t('system.oauth2.token.fields.accessToken'),
       minWidth: 300,
     },
     {
       field: 'refreshToken',
-      title: '刷新令牌',
+      title: $t('system.oauth2.token.fields.refreshToken'),
       minWidth: 300,
     },
     {
       field: 'userId',
-      title: '用户编号',
+      title: $t('system.oauth2.token.fields.userId'),
       minWidth: 100,
     },
     {
       field: 'userType',
-      title: '用户类型',
+      title: $t('system.oauth2.token.fields.userType'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -68,23 +70,23 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'clientId',
-      title: '客户端编号',
+      title: $t('system.oauth2.token.fields.clientId'),
       minWidth: 120,
     },
     {
       field: 'expiresTime',
-      title: '过期时间',
+      title: $t('system.oauth2.token.fields.expiresTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.common.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.common.actions'),
       width: 80,
       fixed: 'right',
       slots: { default: 'actions' },

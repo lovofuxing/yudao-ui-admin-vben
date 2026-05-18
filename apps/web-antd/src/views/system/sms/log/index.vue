@@ -67,11 +67,11 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="短信配置" url="https://doc.iocoder.cn/sms/" />
+      <DocAlert :title="$t('system.sms.docTitle')" url="https://doc.iocoder.cn/sms/" />
     </template>
 
     <DetailModal @success="handleRefresh" />
-    <Grid table-title="短信日志列表">
+    <Grid :table-title="$t('system.sms.log.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[

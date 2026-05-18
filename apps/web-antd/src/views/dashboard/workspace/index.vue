@@ -21,6 +21,8 @@ import { preferences } from '@vben/preferences';
 import { useUserStore } from '@vben/stores';
 import { openWindow } from '@vben/utils';
 
+import { $t } from '#/locales';
+
 import AnalyticsVisitsSource from '../analytics/analytics-visits-source.vue';
 
 const userStore = useUserStore();
@@ -90,37 +92,37 @@ const quickNavItems: WorkbenchQuickNavItem[] = [
   {
     color: '#1fdaca',
     icon: 'ion:home-outline',
-    title: '首页',
+    title: $t('dashboard.workspace.quickNav.home'),
     url: '/',
   },
   {
     color: '#ff6b6b',
     icon: 'lucide:shopping-bag',
-    title: '商城中心',
+    title: $t('dashboard.workspace.quickNav.mall'),
     url: '/mall',
   },
   {
     color: '#7c3aed',
     icon: 'tabler:ai',
-    title: 'AI 大模型',
+    title: $t('dashboard.workspace.quickNav.ai'),
     url: '/ai',
   },
   {
     color: '#3fb27f',
     icon: 'simple-icons:erpnext',
-    title: 'ERP 系统',
+    title: $t('dashboard.workspace.quickNav.erp'),
     url: '/erp',
   },
   {
     color: '#4daf1bc9',
     icon: 'simple-icons:civicrm',
-    title: 'CRM 系统',
+    title: $t('dashboard.workspace.quickNav.crm'),
     url: '/crm',
   },
   {
     color: '#1a73e8',
     icon: 'fa-solid:hdd',
-    title: 'IoT 物联网',
+    title: $t('dashboard.workspace.quickNav.iot'),
     url: '/iot',
   },
 ];

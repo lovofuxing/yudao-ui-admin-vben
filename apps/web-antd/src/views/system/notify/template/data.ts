@@ -6,6 +6,7 @@ import { getDictOptions } from '@vben/hooks';
 
 import { z } from '#/adapter/form';
 import { getSimpleUserList } from '#/api/system/user';
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 新增/修改的表单 */
@@ -21,56 +22,56 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'name',
-      label: '模板名称',
+      label: $t('system.notify.template.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入模板名称',
+        placeholder: $t('system.notify.template.fields.namePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'code',
-      label: '模板编码',
+      label: $t('system.notify.template.fields.code'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入模板编码',
+        placeholder: $t('system.notify.template.fields.codePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'nickname',
-      label: '发送人名称',
+      label: $t('system.notify.template.fields.nickname'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入发送人名称',
+        placeholder: $t('system.notify.template.fields.nicknamePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'content',
-      label: '模板内容',
+      label: $t('system.notify.template.fields.content'),
       component: 'Textarea',
       componentProps: {
-        placeholder: '请输入模板内容',
+        placeholder: $t('system.notify.template.fields.contentPlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'type',
-      label: '模板类型',
+      label: $t('system.notify.template.fields.type'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(
           DICT_TYPE.SYSTEM_NOTIFY_TEMPLATE_TYPE,
           'number',
         ),
-        placeholder: '请选择模板类型',
+        placeholder: $t('system.notify.template.fields.typePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.notify.template.fields.status'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
@@ -81,10 +82,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'remark',
-      label: '备注',
+      label: $t('system.notify.template.fields.remark'),
       component: 'Textarea',
       componentProps: {
-        placeholder: '请输入备注',
+        placeholder: $t('system.notify.template.fields.remarkPlaceholder'),
       },
     },
   ];
@@ -95,35 +96,35 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'name',
-      label: '模板名称',
+      label: $t('system.notify.template.fields.name'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入模板名称',
+        placeholder: $t('system.notify.template.fields.namePlaceholder'),
       },
     },
     {
       fieldName: 'code',
-      label: '模板编码',
+      label: $t('system.notify.template.fields.code'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入模板编码',
+        placeholder: $t('system.notify.template.fields.codePlaceholder'),
       },
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.notify.template.fields.status'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
         allowClear: true,
-        placeholder: '请选择状态',
+        placeholder: $t('system.notify.template.fields.statusPlaceholder'),
       },
     },
     {
       fieldName: 'type',
-      label: '模板类型',
+      label: $t('system.notify.template.fields.type'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(
@@ -131,12 +132,12 @@ export function useGridFormSchema(): VbenFormSchema[] {
           'number',
         ),
         allowClear: true,
-        placeholder: '请选择模板类型',
+        placeholder: $t('system.notify.template.fields.typePlaceholder'),
       },
     },
     {
       fieldName: 'createTime',
-      label: '创建时间',
+      label: $t('system.notify.template.fields.createTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -151,7 +152,7 @@ export function useSendNotifyFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'content',
-      label: '模板内容',
+      label: $t('system.notify.template.fields.content'),
       component: 'Textarea',
       componentProps: {
         disabled: true,
@@ -159,7 +160,7 @@ export function useSendNotifyFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'templateCode',
-      label: '模板编码',
+      label: $t('system.notify.template.fields.code'),
       component: 'Input',
       dependencies: {
         triggerFields: [''],
@@ -168,7 +169,7 @@ export function useSendNotifyFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'userType',
-      label: '用户类型',
+      label: $t('system.notify.template.fields.userType'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.USER_TYPE, 'number'),
@@ -177,10 +178,10 @@ export function useSendNotifyFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'userId',
-      label: '接收人 ID',
+      label: $t('system.notify.template.fields.userId'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入用户编号',
+        placeholder: $t('system.notify.template.fields.userIdPlaceholder'),
       },
       dependencies: {
         show(values) {
@@ -192,13 +193,13 @@ export function useSendNotifyFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'userId',
-      label: '接收人',
+      label: $t('system.notify.template.fields.userNickname'),
       component: 'ApiSelect',
       componentProps: {
         api: getSimpleUserList,
         labelField: 'nickname',
         valueField: 'id',
-        placeholder: '请选择接收人',
+        placeholder: $t('system.notify.template.fields.userNicknamePlaceholder'),
       },
       dependencies: {
         show(values) {
@@ -210,7 +211,7 @@ export function useSendNotifyFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'templateParams',
-      label: '模板参数',
+      label: $t('system.notify.template.fields.templateParams'),
       component: 'Input',
       dependencies: {
         triggerFields: [''],
@@ -226,32 +227,32 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'id',
-      title: '编号',
+      title: $t('system.notify.template.fields.gridId'),
       minWidth: 100,
     },
     {
       field: 'name',
-      title: '模板名称',
+      title: $t('system.notify.template.fields.gridName'),
       minWidth: 120,
     },
     {
       field: 'code',
-      title: '模板编码',
+      title: $t('system.notify.template.fields.gridCode'),
       minWidth: 120,
     },
     {
       field: 'nickname',
-      title: '发送人名称',
+      title: $t('system.notify.template.fields.gridNickname'),
       minWidth: 120,
     },
     {
       field: 'content',
-      title: '模板内容',
+      title: $t('system.notify.template.fields.gridContent'),
       minWidth: 200,
     },
     {
       field: 'type',
-      title: '模板类型',
+      title: $t('system.notify.template.fields.gridType'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -260,7 +261,7 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'status',
-      title: '状态',
+      title: $t('system.notify.template.fields.gridStatus'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -269,17 +270,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'remark',
-      title: '备注',
+      title: $t('system.notify.template.fields.gridRemark'),
       minWidth: 120,
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.notify.template.fields.gridCreateTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.notify.template.fields.gridActions'),
       width: 220,
       fixed: 'right',
       slots: { default: 'actions' },

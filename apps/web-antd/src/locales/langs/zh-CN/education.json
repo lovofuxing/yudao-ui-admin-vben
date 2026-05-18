@@ -52,6 +52,27 @@
       "status": "学员状态",
       "enrollTime": "入学时间",
       "remark": "备注"
+    },
+    "detail": {
+      "title": "学员详情"
+    },
+    "tab": {
+      "follow": "跟进记录",
+      "trial": "试听记录",
+      "course": "报读课程",
+      "classRecord": "上课记录",
+      "deduction": "扣课记录",
+      "schedule": "排课信息",
+      "communication": "沟通记录",
+      "growth": "成长记录",
+      "leave": "请假记录",
+      "points": "积分优惠券"
+    },
+    "action": {
+      "suspend": "停课",
+      "transfer": "转课",
+      "refund": "退课",
+      "communicate": "沟通记录"
     }
   },
   "course": {
@@ -82,6 +103,20 @@
       "scheduleText": "上课时间",
       "classroom": "上课教室",
       "status": "班级状态"
+    },
+    "detail": {
+      "title": "班级详情"
+    },
+    "tab": {
+      "students": "班级学员",
+      "schedule": "班级课表",
+      "record": "上课记录",
+      "scheduleConfig": "排课信息",
+      "orders": "收费订单"
+    },
+    "action": {
+      "schedule": "排课",
+      "callOver": "点名"
     }
   },
   "schedule": {
@@ -102,6 +137,12 @@
   "lessonRecord": {
     "title": "上课记录",
     "tableTitle": "上课记录列表",
+    "tab": {
+      "records": "上课记录",
+      "studentRecords": "学员上课记录",
+      "checkinEdit": "点名修改记录",
+      "makeup": "补课管理"
+    },
     "fields": {
       "id": "编号",
       "lessonDate": "上课日期",
@@ -132,6 +173,11 @@
   "quickDeduction": {
     "title": "快速扣课",
     "tableTitle": "扣课记录列表",
+    "tab": {
+      "student": "按学员扣课",
+      "course": "按课程扣课",
+      "records": "扣课记录"
+    },
     "fields": {
       "id": "编号",
       "studentName": "学员",

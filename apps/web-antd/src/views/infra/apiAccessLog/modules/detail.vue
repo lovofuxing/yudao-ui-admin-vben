@@ -40,7 +40,7 @@ const [Modal, modalApi] = useVbenModal({
 
 <template>
   <Modal
-    title="API 访问日志详情"
+    :title="$t('infra.apiAccessLog.detail.title')"
     class="w-1/2"
     :show-cancel-button="false"
     :show-confirm-button="false"

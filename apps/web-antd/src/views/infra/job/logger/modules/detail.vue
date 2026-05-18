@@ -41,7 +41,7 @@ const [Modal, modalApi] = useVbenModal({
 
 <template>
   <Modal
-    title="日志详情"
+    :title="$t('infra.job.log.detailTitle')"
     class="w-1/2"
     :show-cancel-button="false"
     :show-confirm-button="false"

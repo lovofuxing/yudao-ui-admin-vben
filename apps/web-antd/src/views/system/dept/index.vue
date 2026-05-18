@@ -161,7 +161,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: '新增下级',
+              label: $t('system.dept.addSubDept'),
               type: 'link',
               icon: ACTION_ICON.ADD,
               auth: ['system:dept:create'],

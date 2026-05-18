@@ -9,6 +9,7 @@ import {
 import { getDictOptions } from '@vben/hooks';
 
 import { z } from '#/adapter/form';
+import { $t } from '#/locales';
 
 /** 新增/修改的表单 */
 export function useFormSchema(): VbenFormSchema[] {
@@ -23,26 +24,26 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'name',
-      label: '应用名',
+      label: $t('system.social.client.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入应用名',
+        placeholder: $t('system.social.client.fields.namePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'socialType',
-      label: '社交平台',
+      label: $t('system.social.client.fields.socialType'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.SYSTEM_SOCIAL_TYPE, 'number'),
-        placeholder: '请选择社交平台',
+        placeholder: $t('system.social.client.fields.socialTypePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'userType',
-      label: '用户类型',
+      label: $t('system.social.client.fields.userType'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.USER_TYPE, 'number'),
@@ -53,28 +54,28 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'clientId',
-      label: '客户端编号',
+      label: $t('system.social.client.fields.clientId'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入客户端编号，对应各平台的 appKey',
+        placeholder: $t('system.social.client.fields.clientIdPlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'clientSecret',
-      label: '客户端密钥',
+      label: $t('system.social.client.fields.clientSecret'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入客户端密钥，对应各平台的 appSecret',
+        placeholder: $t('system.social.client.fields.clientSecretPlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'agentId',
-      label: 'agentId',
+      label: $t('system.social.client.fields.agentId'),
       component: 'Input',
       componentProps: {
-        placeholder: '授权方的网页应用 ID，有则填',
+        placeholder: $t('system.social.client.fields.agentIdPlaceholder'),
       },
       dependencies: {
         triggerFields: ['socialType'],
@@ -84,10 +85,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'publicKey',
-      label: 'publicKey',
+      label: $t('system.social.client.fields.publicKey'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入 publicKey 公钥',
+        placeholder: $t('system.social.client.fields.publicKeyPlaceholder'),
       },
       dependencies: {
         triggerFields: ['socialType'],
@@ -96,7 +97,7 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.social.client.fields.status'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
@@ -113,49 +114,49 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'name',
-      label: '应用名',
+      label: $t('system.social.client.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入应用名',
+        placeholder: $t('system.social.client.fields.namePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'socialType',
-      label: '社交平台',
+      label: $t('system.social.client.fields.socialType'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.SYSTEM_SOCIAL_TYPE, 'number'),
-        placeholder: '请选择社交平台',
+        placeholder: $t('system.social.client.fields.socialTypePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'userType',
-      label: '用户类型',
+      label: $t('system.social.client.fields.userType'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.USER_TYPE, 'number'),
-        placeholder: '请选择用户类型',
+        placeholder: $t('system.social.client.fields.userTypePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'clientId',
-      label: '客户端编号',
+      label: $t('system.social.client.fields.clientId'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入客户端编号',
+        placeholder: $t('system.social.client.fields.clientIdSearchPlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.social.client.fields.status'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
-        placeholder: '请选择状态',
+        placeholder: $t('system.social.client.fields.statusPlaceholder'),
         allowClear: true,
       },
     },
@@ -168,17 +169,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'id',
-      title: '编号',
+      title: $t('system.common.id'),
       minWidth: 100,
     },
     {
       field: 'name',
-      title: '应用名',
+      title: $t('system.social.client.fields.name'),
       minWidth: 120,
     },
     {
       field: 'socialType',
-      title: '社交平台',
+      title: $t('system.social.client.fields.socialType'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -187,7 +188,7 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'userType',
-      title: '用户类型',
+      title: $t('system.social.client.fields.userType'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -196,12 +197,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'clientId',
-      title: '客户端编号',
+      title: $t('system.social.client.fields.clientId'),
       minWidth: 180,
     },
     {
       field: 'status',
-      title: '状态',
+      title: $t('system.social.client.fields.status'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -210,12 +211,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.common.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.common.actions'),
       width: 220,
       fixed: 'right',
       slots: { default: 'actions' },

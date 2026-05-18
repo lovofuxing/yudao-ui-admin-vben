@@ -61,11 +61,11 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="邮件配置" url="https://doc.iocoder.cn/mail" />
+      <DocAlert :title="$t('system.mail.docTitle')" url="https://doc.iocoder.cn/mail" />
     </template>
 
     <DetailModal @success="handleRefresh" />
-    <Grid table-title="邮件日志列表">
+    <Grid :table-title="$t('system.mail.log.tableTitle')">
       <template #userInfo="{ row }">
         <div v-if="row.userType && row.userId" class="flex items-center gap-1">
           <DictTag :type="DICT_TYPE.USER_TYPE" :value="row.userType" />

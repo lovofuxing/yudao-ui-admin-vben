@@ -36,7 +36,7 @@ function handleRefresh() {
 /** 导出表格 */
 async function handleExport() {
   const data = await exportDictType(await gridApi.formApi.getValues());
-  downloadFileFromBlobPart({ fileName: '字典类型.xls', source: data });
+  downloadFileFromBlobPart({ fileName: $t('system.dict.type.exportFilename'), source: data });
 }
 
 /** 创建字典类型 */
@@ -132,12 +132,12 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <div class="h-full">
     <TypeFormModal @success="handleRefresh" />
-    <Grid table-title="字典类型列表">
+    <Grid :table-title="$t('system.dict.type.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['字典类型']),
+              label: $t('ui.actionTitle.create', [$t('system.dict.type.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:dict:create'],

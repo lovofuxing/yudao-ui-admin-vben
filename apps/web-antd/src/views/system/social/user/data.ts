@@ -10,6 +10,7 @@ import { getDictOptions } from '@vben/hooks';
 import { Image } from 'ant-design-vue';
 
 import { DictTag } from '#/components/dict-tag';
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 列表的搜索表单 */
@@ -17,35 +18,35 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'type',
-      label: '社交平台',
+      label: $t('system.social.user.fields.type'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.SYSTEM_SOCIAL_TYPE, 'number'),
-        placeholder: '请选择社交平台',
+        placeholder: $t('system.social.user.fields.typePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'nickname',
-      label: '用户昵称',
+      label: $t('system.social.user.fields.nickname'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入用户昵称',
+        placeholder: $t('system.social.user.fields.nicknamePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'openid',
-      label: '社交 openid',
+      label: $t('system.social.user.fields.openid'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入社交 openid',
+        placeholder: $t('system.social.user.fields.openidPlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'createTime',
-      label: '创建时间',
+      label: $t('system.common.createTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -60,7 +61,7 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
   return [
     {
       field: 'type',
-      title: '社交平台',
+      title: $t('system.social.user.fields.type'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -69,17 +70,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'openid',
-      title: '社交 openid',
+      title: $t('system.social.user.fields.openid'),
       minWidth: 180,
     },
     {
       field: 'nickname',
-      title: '用户昵称',
+      title: $t('system.social.user.fields.nickname'),
       minWidth: 120,
     },
     {
       field: 'avatar',
-      title: '用户头像',
+      title: $t('system.social.user.fields.avatar'),
       minWidth: 100,
       cellRender: {
         name: 'CellImage',
@@ -87,18 +88,18 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.common.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
       field: 'updateTime',
-      title: '更新时间',
+      title: $t('system.common.updateTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.common.actions'),
       width: 120,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -111,7 +112,7 @@ export function useDetailSchema(): DescriptionItemSchema[] {
   return [
     {
       field: 'type',
-      label: '社交平台',
+      label: $t('system.social.user.fields.type'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.SYSTEM_SOCIAL_TYPE,
@@ -121,32 +122,32 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'nickname',
-      label: '用户昵称',
+      label: $t('system.social.user.fields.nickname'),
     },
     {
       field: 'avatar',
-      label: '用户头像',
-      render: (val) => (val ? h(Image, { src: val }) : '无'),
+      label: $t('system.social.user.fields.avatar'),
+      render: (val) => (val ? h(Image, { src: val }) : $t('system.social.user.fields.noAvatar')),
     },
     {
       field: 'token',
-      label: '社交 token',
+      label: $t('system.social.user.fields.token'),
     },
     {
       field: 'rawTokenInfo',
-      label: '原始 Token 数据',
+      label: $t('system.social.user.fields.rawTokenInfo'),
     },
     {
       field: 'rawUserInfo',
-      label: '原始 User 数据',
+      label: $t('system.social.user.fields.rawUserInfo'),
     },
     {
       field: 'code',
-      label: '最后一次的认证 code',
+      label: $t('system.social.user.fields.code'),
     },
     {
       field: 'state',
-      label: '最后一次的认证 state',
+      label: $t('system.social.user.fields.state'),
     },
   ];
 }

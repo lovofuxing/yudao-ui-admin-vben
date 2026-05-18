@@ -10,6 +10,7 @@ import { handleTree } from '@vben/utils';
 import { z } from '#/adapter/form';
 import { getDeptList } from '#/api/system/dept';
 import { getSimpleUserList } from '#/api/system/user';
+import { $t } from '#/locales';
 
 /** 关联数据 */
 let userList: SystemUserApi.User[] = [];
@@ -28,7 +29,7 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'parentId',
-      label: '上级部门',
+      label: $t('system.dept.fields.parentId'),
       component: 'ApiTreeSelect',
       componentProps: {
         allowClear: true,
@@ -36,72 +37,72 @@ export function useFormSchema(): VbenFormSchema[] {
           const data = await getDeptList();
           data.unshift({
             id: 0,
-            name: '顶级部门',
+            name: $t('system.dept.fields.topLevelDept'),
           });
           return handleTree(data);
         },
         labelField: 'name',
         valueField: 'id',
         childrenField: 'children',
-        placeholder: '请选择上级部门',
+        placeholder: $t('system.dept.fields.parentIdPlaceholder'),
         treeDefaultExpandAll: true,
       },
       rules: 'selectRequired',
     },
     {
       fieldName: 'name',
-      label: '部门名称',
+      label: $t('system.dept.fields.name'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入部门名称',
+        placeholder: $t('system.dept.fields.namePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'sort',
-      label: '显示顺序',
+      label: $t('system.dept.fields.sort'),
       component: 'InputNumber',
       componentProps: {
         min: 0,
-        placeholder: '请输入显示顺序',
+        placeholder: $t('system.dept.fields.sortPlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'leaderUserId',
-      label: '负责人',
+      label: $t('system.dept.fields.leaderUserId'),
       component: 'ApiSelect',
       componentProps: {
         api: getSimpleUserList,
         labelField: 'nickname',
         valueField: 'id',
-        placeholder: '请选择负责人',
+        placeholder: $t('system.dept.fields.leaderUserIdPlaceholder'),
         allowClear: true,
       },
       rules: z.number().optional(),
     },
     {
       fieldName: 'phone',
-      label: '联系电话',
+      label: $t('system.dept.fields.phone'),
       component: 'Input',
       componentProps: {
         maxLength: 11,
-        placeholder: '请输入联系电话',
+        placeholder: $t('system.dept.fields.phonePlaceholder'),
       },
       rules: 'mobileRequired',
     },
     {
       fieldName: 'email',
-      label: '邮箱',
+      label: $t('system.dept.fields.email'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入邮箱',
+        placeholder: $t('system.dept.fields.emailPlaceholder'),
       },
-      rules: z.string().email('邮箱格式不正确').or(z.literal('')).optional(),
+      rules: z.string().email($t('system.dept.fields.emailValidationMessage')).or(z.literal('')).optional(),
     },
     {
       fieldName: 'status',
-      label: '状态',
+      label: $t('system.dept.fields.status'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
@@ -119,7 +120,7 @@ export function useGridColumns(): VxeTableGridOptions<SystemDeptApi.Dept>['colum
     { type: 'checkbox', width: 40 },
     {
       field: 'name',
-      title: '部门名称',
+      title: $t('system.dept.fields.name'),
       minWidth: 150,
       align: 'left',
       fixed: 'left',
@@ -127,19 +128,19 @@ export function useGridColumns(): VxeTableGridOptions<SystemDeptApi.Dept>['colum
     },
     {
       field: 'leaderUserId',
-      title: '负责人',
+      title: $t('system.dept.fields.leaderUserId'),
       minWidth: 150,
       formatter: ({ cellValue }) =>
         userList.find((user) => user.id === cellValue)?.nickname || '-',
     },
     {
       field: 'sort',
-      title: '显示顺序',
+      title: $t('system.dept.fields.sort'),
       minWidth: 100,
     },
     {
       field: 'status',
-      title: '部门状态',
+      title: $t('system.dept.fields.status'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -148,12 +149,12 @@ export function useGridColumns(): VxeTableGridOptions<SystemDeptApi.Dept>['colum
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.dept.fields.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.dept.fields.actions'),
       width: 220,
       fixed: 'right',
       slots: { default: 'actions' },

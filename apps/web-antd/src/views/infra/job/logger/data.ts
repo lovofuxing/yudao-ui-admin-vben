@@ -11,26 +11,27 @@ import { formatDateTime } from '@vben/utils';
 import dayjs from 'dayjs';
 
 import { DictTag } from '#/components/dict-tag';
+import { $t } from '#/locales';
 
 /** 列表的搜索表单 */
 export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'handlerName',
-      label: '处理器的名字',
+      label: $t('infra.job.log.handlerName'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入处理器的名字',
+        placeholder: $t('infra.job.placeholder.handlerName'),
       },
     },
     {
       fieldName: 'beginTime',
-      label: '开始执行时间',
+      label: $t('infra.job.log.beginTime'),
       component: 'DatePicker',
       componentProps: {
         allowClear: true,
-        placeholder: '选择开始执行时间',
+        placeholder: $t('infra.job.log.beginTimePlaceholder'),
         valueFormat: 'YYYY-MM-DD HH:mm:ss',
         showTime: {
           format: 'HH:mm:ss',
@@ -40,11 +41,11 @@ export function useGridFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'endTime',
-      label: '结束执行时间',
+      label: $t('infra.job.log.endTime'),
       component: 'DatePicker',
       componentProps: {
         allowClear: true,
-        placeholder: '选择结束执行时间',
+        placeholder: $t('infra.job.log.endTimePlaceholder'),
         valueFormat: 'YYYY-MM-DD HH:mm:ss',
         showTime: {
           format: 'HH:mm:ss',
@@ -54,12 +55,12 @@ export function useGridFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'status',
-      label: '任务状态',
+      label: $t('infra.job.log.status'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.INFRA_JOB_LOG_STATUS, 'number'),
         allowClear: true,
-        placeholder: '请选择任务状态',
+        placeholder: $t('infra.job.placeholder.status'),
       },
     },
   ];
@@ -70,32 +71,32 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
   return [
     {
       field: 'id',
-      title: '日志编号',
+      title: $t('infra.job.log.id'),
       minWidth: 80,
     },
     {
       field: 'jobId',
-      title: '任务编号',
+      title: $t('infra.job.fields.jobId'),
       minWidth: 80,
     },
     {
       field: 'handlerName',
-      title: '处理器的名字',
+      title: $t('infra.job.log.handlerName'),
       minWidth: 180,
     },
     {
       field: 'handlerParam',
-      title: '处理器的参数',
+      title: $t('infra.job.log.handlerParam'),
       minWidth: 140,
     },
     {
       field: 'executeIndex',
-      title: '第几次执行',
+      title: $t('infra.job.fields.executeIndex'),
       minWidth: 100,
     },
     {
       field: 'beginTime',
-      title: '执行时间',
+      title: $t('infra.job.fields.beginTime'),
       minWidth: 280,
       formatter: ({ row }) => {
         return `${formatDateTime(row.beginTime)} ~ ${formatDateTime(row.endTime)}`;
@@ -103,15 +104,15 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'duration',
-      title: '执行时长',
+      title: $t('infra.job.fields.duration'),
       minWidth: 120,
       formatter: ({ row }) => {
-        return `${row.duration} 毫秒`;
+        return `${row.duration} ${$t('infra.common.milliseconds')}`;
       },
     },
     {
       field: 'status',
-      title: '任务状态',
+      title: $t('infra.job.fields.status'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -119,7 +120,7 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
       },
     },
     {
-      title: '操作',
+      title: $t('infra.common.action'),
       width: 80,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -132,27 +133,27 @@ export function useDetailSchema(): DescriptionItemSchema[] {
   return [
     {
       field: 'id',
-      label: '日志编号',
+      label: $t('infra.job.log.id'),
     },
     {
       field: 'jobId',
-      label: '任务编号',
+      label: $t('infra.job.fields.jobId'),
     },
     {
       field: 'handlerName',
-      label: '处理器的名字',
+      label: $t('infra.job.log.handlerName'),
     },
     {
       field: 'handlerParam',
-      label: '处理器的参数',
+      label: $t('infra.job.log.handlerParam'),
     },
     {
       field: 'executeIndex',
-      label: '第几次执行',
+      label: $t('infra.job.fields.executeIndex'),
     },
     {
       field: 'beginTime',
-      label: '执行时间',
+      label: $t('infra.job.fields.beginTime'),
       render: (val, data) => {
         if (val && data?.endTime) {
           return `${formatDateTime(val)} ~ ${formatDateTime(data.endTime)}`;
@@ -162,14 +163,14 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'duration',
-      label: '执行时长',
+      label: $t('infra.job.fields.duration'),
       render: (val) => {
-        return val ? `${val} 毫秒` : '';
+        return val ? `${val} ${$t('infra.common.milliseconds')}` : '';
       },
     },
     {
       field: 'status',
-      label: '任务状态',
+      label: $t('infra.job.fields.status'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.INFRA_JOB_LOG_STATUS,
@@ -179,7 +180,7 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'result',
-      label: '执行结果',
+      label: $t('infra.job.fields.result'),
     },
   ];
 }

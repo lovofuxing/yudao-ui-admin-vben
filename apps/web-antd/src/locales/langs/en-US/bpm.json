@@ -1,0 +1,415 @@
+{
+  "common": {
+    "action": "Action",
+    "detail": "Detail",
+    "copy": "Copy",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "restart": "Restart",
+    "history": "History",
+    "report": "Report",
+    "more": "More",
+    "clean": "Clean",
+    "deploy": "Deploy",
+    "save": "Save",
+    "recover": "Recover",
+    "rename": "Rename",
+    "sort": "Sort",
+    "sortCancel": "Cancel",
+    "sortSave": "Save Sort",
+    "dragSort": "Drag to Sort",
+    "approvalProgress": "Approval Progress",
+    "withdraw": "Withdraw",
+    "audit": "Process",
+    "allVisible": "All Visible",
+    "noForm": "No Form",
+    "undeployed": "Not Deployed",
+    "disabled": "Disabled"
+  },
+  "category": {
+    "title": "Process Category",
+    "tableTitle": "Process Category",
+    "renameTitle": "Rename Process Category",
+    "fields": {
+      "id": "Category ID",
+      "name": "Category Name",
+      "code": "Category Code",
+      "description": "Category Description",
+      "status": "Category Status",
+      "sort": "Category Sort",
+      "createTime": "Create Time"
+    },
+    "placeholder": {
+      "name": "Please enter category name",
+      "code": "Please enter category code",
+      "description": "Please enter category description",
+      "status": "Please select category status",
+      "sort": "Please enter category sort"
+    }
+  },
+  "model": {
+    "title": "Process Model",
+    "tableTitle": "Process Model",
+    "searchPlaceholder": "Search process",
+    "newModel": "New Model",
+    "newCategory": "New Category",
+    "sortCategory": "Sort Category",
+    "cannotDeleteCategory": "This category still has process definitions and cannot be deleted",
+    "deleteCategoryConfirm": "Are you sure you want to delete [{0}]?",
+    "deletingCategory": "Deleting category: \"{0}\"...",
+    "sortCategorySuccess": "Category sorted successfully",
+    "deployConfirm": "Confirm to deploy [{0}] process?",
+    "deploying": "Deploying process: \"{0}\"...",
+    "deploySuccess": "Deployed [{0}] process successfully",
+    "cleanConfirm": "Confirm to clean process: \"{0}\"?",
+    "cleaning": "Cleaning process: \"{0}\"...",
+    "cleanSuccess": "Cleaned process: \"{0}\" successfully",
+    "deleteConfirm": "Confirm to delete process: \"{0}\"?",
+    "deleteSuccess": "Deleted process: \"{0}\" successfully",
+    "sortModelSuccess": "Model sorted successfully",
+    "sortModelError": "Sort data error, please retry",
+    "sortSaving": "Saving sort...",
+    "stateEnable": "Enable",
+    "stateDisable": "Disable",
+    "stateChangeConfirm": "Confirm to {0} process: \"{1}\"?",
+    "stateChanging": "{0} process: \"{1}\"...",
+    "stateChangeSuccess": "Process \"{1}\" {0}d successfully",
+    "visiblePeople": "{0} and {1} others visible",
+    "visibleDept": "{0} and {1} other depts visible",
+    "fields": {
+      "name": "Process Name",
+      "visibleRange": "Visible Range",
+      "type": "Process Type",
+      "formInfo": "Form Info",
+      "lastDeploy": "Last Deploy"
+    },
+    "definition": {
+      "title": "Process Definition List",
+      "fields": {
+        "id": "Definition ID",
+        "name": "Process Name",
+        "icon": "Process Icon",
+        "visibleRange": "Visible Range",
+        "type": "Process Type",
+        "formInfo": "Form Info",
+        "version": "Process Version",
+        "deploymentTime": "Deployment Time"
+      }
+    },
+    "edit": {
+      "title": "Create Process",
+      "stepBasic": "Basic Info",
+      "stepForm": "Form Design",
+      "stepProcess": "Process Design",
+      "stepExtra": "More Settings",
+      "save": "Save",
+      "deploy": "Deploy",
+      "recover": "Recover",
+      "copySuccess": "Copied successfully. Click [Deploy] to publish the model",
+      "recoverSuccess": "Recovered successfully. Click [Deploy] to publish the model",
+      "updateSuccess": "Updated successfully. Click [Deploy] to publish the model",
+      "createSuccess": "Created successfully. Click [Deploy] to publish the model",
+      "deploySuccess": "Deployed successfully",
+      "deployFail": "Deploy failed",
+      "deployConfirm": "Are you sure you want to deploy this process?",
+      "pleaseCompleteBasicInfo": "Please complete the basic information",
+      "pleaseCompleteFormInfo": "Please complete the custom form information",
+      "pleaseCompleteStepInfo": "Please complete the required fields in the current step first"
+    },
+    "basicInfo": {
+      "title": "Basic Information",
+      "name": "Process Name",
+      "namePlaceholder": "Please enter process name",
+      "nameRequired": "Process name is required",
+      "key": "Process Key",
+      "keyPlaceholder": "Please enter process key",
+      "keyRequired": "Process key is required",
+      "keyInvalid": "Only letters, numbers, underscores, hyphens and dots are allowed, and must start with a letter or underscore",
+      "category": "Process Category",
+      "categoryPlaceholder": "Please select process category",
+      "categoryRequired": "Process category is required",
+      "icon": "Process Icon",
+      "description": "Description",
+      "descriptionPlaceholder": "Please enter description",
+      "type": "Process Type",
+      "typeRequired": "Process type is required",
+      "formType": "Form Type",
+      "visible": "Visibility",
+      "visibleRequired": "Visibility is required",
+      "startUserType": "Visible Range",
+      "startUserTypeAll": "All Users",
+      "startUserTypeUser": "Specified Users",
+      "startUserTypeDept": "Specified Departments",
+      "startUserPlaceholder": "Please select users",
+      "startDeptPlaceholder": "Please select departments",
+      "managerUsers": "Process Manager",
+      "managerUsersPlaceholder": "Please select process manager",
+      "managerUsersRequired": "Process manager is required",
+      "form": "Process Form",
+      "formPlaceholder": "Please select process form",
+      "formRequired": "Process form is required",
+      "formCustomCreatePath": "Custom Form Route",
+      "formCustomCreatePathPlaceholder": "Please enter custom form route",
+      "formCustomViewPath": "Custom Form View Route",
+      "formCustomViewPathPlaceholder": "Please enter custom form view route",
+      "simpleModel": "Simple Model",
+      "flowNode": "Flow Node"
+    },
+    "extraSetting": {
+      "title": "More Settings",
+      "allowCancelRunningProcess": "Allow Cancelling Running Process",
+      "allowCancelRunningProcessHelp": "When enabled, the initiator can cancel the process during execution",
+      "processIdRule": "Process ID Rule",
+      "processIdRuleEnable": "Enable",
+      "processIdRulePrefix": "Prefix",
+      "processIdRuleInfix": "Infix",
+      "processIdRulePostfix": "Postfix",
+      "processIdRuleLength": "ID Length",
+      "processIdRulePrefixPlaceholder": "Prefix (optional)",
+      "processIdRuleInfixPlaceholder": "Infix (optional)",
+      "processIdRulePostfixPlaceholder": "Postfix (optional)",
+      "processIdRuleLengthPlaceholder": "Please enter ID length",
+      "autoApprovalType": "Auto Approval Type",
+      "titleSetting": "Title Settings",
+      "titleSettingEnable": "Enable",
+      "titleSettingTitle": "Title",
+      "titleSettingTitlePlaceholder": "Please enter process title",
+      "summarySetting": "Summary Settings",
+      "summarySettingEnable": "Enable",
+      "summarySettingSummary": "Summary Fields",
+      "summarySettingSummaryPlaceholder": "Please select summary fields",
+      "allowWithdrawTask": "Allow Approver to Withdraw Approved Tasks",
+      "allowWithdrawTaskHelp": "When enabled, the approver can withdraw the approved task before the next node approves"
+    },
+    "formDesign": {
+      "title": "Process Form Configuration"
+    },
+    "processDesign": {
+      "title": "Process Design"
+    }
+  },
+  "form": {
+    "title": "Process Form",
+    "tableTitle": "Process Form",
+    "detailTitle": "Process Form Detail",
+    "fields": {
+      "id": "ID",
+      "name": "Form Name",
+      "status": "Status",
+      "remark": "Remark",
+      "createTime": "Create Time"
+    },
+    "placeholder": {
+      "name": "Please enter form name"
+    }
+  },
+  "group": {
+    "title": "User Group",
+    "tableTitle": "User Group",
+    "fields": {
+      "id": "ID",
+      "name": "Group Name",
+      "description": "Description",
+      "members": "Members",
+      "status": "Status",
+      "createTime": "Create Time"
+    },
+    "placeholder": {
+      "name": "Please enter group name",
+      "description": "Please enter description",
+      "members": "Please select members",
+      "status": "Please select status"
+    }
+  },
+  "oa": {
+    "leave": {
+      "title": "Leave List",
+      "create": "Apply Leave",
+      "recreate": "Re-apply Leave",
+      "cancel": "Cancel Process",
+      "cancelReason": "Please enter cancel reason",
+      "cancelling": "Cancelling...",
+      "cancelSuccess": "Cancelled successfully",
+      "cancelReasonRequired": "Please enter cancel reason",
+      "fields": {
+        "id": "Application ID",
+        "type": "Leave Type",
+        "startTime": "Start Time",
+        "endTime": "End Time",
+        "reason": "Reason",
+        "status": "Status",
+        "createTime": "Application Time",
+        "approvalResult": "Approval Result"
+      },
+      "placeholder": {
+        "type": "Please select leave type",
+        "startTime": "Please select start time",
+        "endTime": "Please select end time",
+        "reason": "Please enter reason",
+        "approvalResult": "Please select approval result"
+      },
+      "detail": {
+        "loading": "Loading..."
+      },
+      "backConfirm": "Are you sure you want to go back? Please save your information first!",
+      "noApprovalDetail": "No approval detail information found!",
+      "selectApprover": "Please select the approver for {0}",
+      "recreateFailed": "Failed to re-apply leave, reason: leave data does not exist"
+    }
+  },
+  "processExpression": {
+    "title": "Process Expression",
+    "tableTitle": "Process Expression",
+    "fields": {
+      "id": "ID",
+      "name": "Name",
+      "status": "Status",
+      "expression": "Expression",
+      "createTime": "Create Time"
+    },
+    "placeholder": {
+      "name": "Please enter name",
+      "status": "Please select status",
+      "expression": "Please enter expression"
+    }
+  },
+  "processInstance": {
+    "title": "Process Instance",
+    "tableTitle": "Process Status",
+    "managerTitle": "Process Instance",
+    "reportTitle": "Process Instance List",
+    "definitionTitle": "Process Definition List",
+    "cancelTitle": "Cancel Process",
+    "cancelReason": "Please enter cancel reason",
+    "cancelSuccess": "Cancelled successfully",
+    "createTitle": "Start Process",
+    "createFailed": "Failed to restart process, reason: process instance does not exist",
+    "createDefFailed": "Failed to restart process, reason: process definition does not exist",
+    "noBpmFormRoute": "No submit route configured for business form, unable to restart",
+    "approving": "Approving",
+    "multiApproving": "{0} and {1} others approving",
+    "fields": {
+      "id": "Process ID",
+      "name": "Process Name",
+      "summary": "Summary",
+      "categoryName": "Process Category",
+      "status": "Process Status",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "startUser": "Initiator",
+      "deptName": "Department",
+      "duration": "Duration",
+      "currentTask": "Current Task",
+      "definitionName": "Process Definition"
+    },
+    "placeholder": {
+      "name": "Please enter process name",
+      "definition": "Please select process definition",
+      "category": "Please enter process category",
+      "status": "Please select process status",
+      "startUser": "Please select initiator"
+    },
+    "detail": {
+      "loading": "Loading...",
+      "noApprovalDetail": "No approval detail information found!",
+      "noProcessInfo": "No process information found!",
+      "getApprovalDetailFailed": "Failed to get approval detail!",
+      "form": "Form",
+      "history": "Approval History",
+      "task": "Approval Task List",
+      "processImage": "Process Diagram",
+      "startUser": "Initiator",
+      "department": "Department",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "duration": "Duration",
+      "status": "Process Status",
+      "category": "Process Category"
+    }
+  },
+  "processListener": {
+    "title": "Process Listener",
+    "tableTitle": "Process Listener",
+    "event": {
+      "start": "Start",
+      "end": "End",
+      "create": "Create",
+      "assignment": "Assignment",
+      "complete": "Complete",
+      "delete": "Delete",
+      "update": "Update",
+      "timeout": "Timeout"
+    },
+    "fields": {
+      "id": "ID",
+      "name": "Name",
+      "status": "Status",
+      "type": "Type",
+      "event": "Event",
+      "valueType": "Value Type",
+      "value": "Value",
+      "createTime": "Create Time"
+    },
+    "placeholder": {
+      "name": "Please enter name",
+      "status": "Please select status",
+      "type": "Please select type",
+      "event": "Please select event",
+      "valueType": "Please select value type",
+      "valueClass": "Please enter class path",
+      "valueExpression": "Please enter expression"
+    }
+  },
+  "task": {
+    "todo": {
+      "title": "To-do Tasks",
+      "audit": "Process"
+    },
+    "done": {
+      "title": "Done Tasks",
+      "withdraw": "Withdraw",
+      "history": "History",
+      "withdrawConfirm": "Are you sure you want to withdraw this task?",
+      "withdrawing": "Withdrawing...",
+      "withdrawSuccess": "Withdrawn successfully"
+    },
+    "copy": {
+      "title": "Copy Tasks"
+    },
+    "manager": {
+      "title": "Process Tasks",
+      "history": "History"
+    },
+    "fields": {
+      "process": "Process",
+      "summary": "Summary",
+      "startUser": "Initiator",
+      "startTime": "Start Time",
+      "currentTask": "Current Task",
+      "taskTime": "Task Time",
+      "taskStartTime": "Task Start Time",
+      "taskEndTime": "Task End Time",
+      "processId": "Process ID",
+      "taskId": "Task ID",
+      "approvalStatus": "Approval Status",
+      "approvalSuggestion": "Approval Suggestion",
+      "duration": "Duration",
+      "approver": "Approver",
+      "processName": "Process Name",
+      "processStartUser": "Process Initiator",
+      "processStartTime": "Process Start Time",
+      "copyNode": "Copy Node",
+      "copyUser": "Copy User",
+      "copySuggestion": "Copy Suggestion",
+      "copyTime": "Copy Time"
+    },
+    "placeholder": {
+      "taskName": "Please enter task name",
+      "processDefinition": "Please select process definition",
+      "category": "Please enter process category",
+      "status": "Please select process status",
+      "approvalStatus": "Please select approval status"
+    }
+  }
+}

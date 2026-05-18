@@ -1,6 +1,8 @@
 import type { VbenFormSchema } from '#/adapter/form';
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 
+import { $t } from '#/locales';
+
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 表单的字段 */
@@ -8,10 +10,10 @@ export function useFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'file',
-      label: '文件上传',
+      label: $t('infra.file.fields.file'),
       component: 'Upload',
       componentProps: {
-        placeholder: '请选择要上传的文件',
+        placeholder: $t('infra.file.placeholder.file'),
       },
       rules: 'required',
     },
@@ -23,25 +25,25 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'path',
-      label: '文件路径',
+      label: $t('infra.file.fields.path'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入文件路径',
+        placeholder: $t('infra.file.placeholder.path'),
         clearable: true,
       },
     },
     {
       fieldName: 'type',
-      label: '文件类型',
+      label: $t('infra.file.fields.type'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入文件类型',
+        placeholder: $t('infra.file.placeholder.type'),
         clearable: true,
       },
     },
     {
       fieldName: 'createTime',
-      label: '创建时间',
+      label: $t('infra.file.fields.createTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -57,35 +59,35 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     { type: 'checkbox', width: 40 },
     {
       field: 'name',
-      title: '文件名',
+      title: $t('infra.file.fields.name'),
       minWidth: 150,
     },
     {
       field: 'path',
-      title: '文件路径',
+      title: $t('infra.file.fields.path'),
       minWidth: 200,
       showOverflow: true,
     },
     {
       field: 'url',
-      title: 'URL',
+      title: $t('infra.file.fields.url'),
       minWidth: 200,
       showOverflow: true,
     },
     {
       field: 'size',
-      title: '文件大小',
+      title: $t('infra.file.fields.size'),
       minWidth: 80,
       formatter: 'formatFileSize',
     },
     {
       field: 'type',
-      title: '文件类型',
+      title: $t('infra.file.fields.type'),
       minWidth: 120,
     },
     {
       field: 'file-content',
-      title: '文件内容',
+      title: $t('infra.file.fields.fileContent'),
       minWidth: 120,
       slots: {
         default: 'file-content',
@@ -93,12 +95,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'createTime',
-      title: '上传时间',
+      title: $t('infra.file.fields.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('infra.common.action'),
       width: 160,
       fixed: 'right',
       slots: { default: 'actions' },

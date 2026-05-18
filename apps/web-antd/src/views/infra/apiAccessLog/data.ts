@@ -10,6 +10,7 @@ import { getDictOptions } from '@vben/hooks';
 import { formatDateTime } from '@vben/utils';
 
 import { DictTag } from '#/components/dict-tag';
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 列表的搜索表单 */
@@ -17,35 +18,35 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'userId',
-      label: '用户编号',
+      label: $t('infra.apiAccessLog.fields.userId'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入用户编号',
+        placeholder: $t('infra.apiAccessLog.placeholder.userId'),
       },
     },
     {
       fieldName: 'userType',
-      label: '用户类型',
+      label: $t('infra.apiAccessLog.fields.userType'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.USER_TYPE, 'number'),
         allowClear: true,
-        placeholder: '请选择用户类型',
+        placeholder: $t('infra.apiAccessLog.placeholder.userType'),
       },
     },
     {
       fieldName: 'applicationName',
-      label: '应用名',
+      label: $t('infra.apiAccessLog.fields.applicationName'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入应用名',
+        placeholder: $t('infra.apiAccessLog.placeholder.applicationName'),
       },
     },
     {
       fieldName: 'beginTime',
-      label: '请求时间',
+      label: $t('infra.apiAccessLog.fields.beginTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -54,20 +55,20 @@ export function useGridFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'duration',
-      label: '执行时长',
+      label: $t('infra.apiAccessLog.fields.duration'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入执行时长',
+        placeholder: $t('infra.apiAccessLog.placeholder.duration'),
       },
     },
     {
       fieldName: 'resultCode',
-      label: '结果码',
+      label: $t('infra.apiAccessLog.fields.resultCode'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入结果码',
+        placeholder: $t('infra.apiAccessLog.placeholder.resultCode'),
       },
     },
   ];
@@ -78,17 +79,17 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
   return [
     {
       field: 'id',
-      title: '日志编号',
+      title: $t('infra.apiAccessLog.fields.id'),
       minWidth: 100,
     },
     {
       field: 'userId',
-      title: '用户编号',
+      title: $t('infra.apiAccessLog.fields.userId'),
       minWidth: 100,
     },
     {
       field: 'userType',
-      title: '用户类型',
+      title: $t('infra.apiAccessLog.fields.userType'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -97,52 +98,52 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'applicationName',
-      title: '应用名',
+      title: $t('infra.apiAccessLog.fields.applicationName'),
       minWidth: 150,
     },
     {
       field: 'requestMethod',
-      title: '请求方法',
+      title: $t('infra.apiAccessLog.fields.requestMethod'),
       minWidth: 80,
     },
     {
       field: 'requestUrl',
-      title: '请求地址',
+      title: $t('infra.apiAccessLog.fields.requestUrl'),
       minWidth: 300,
     },
     {
       field: 'beginTime',
-      title: '请求时间',
+      title: $t('infra.apiAccessLog.fields.beginTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
       field: 'duration',
-      title: '执行时长',
+      title: $t('infra.apiAccessLog.fields.duration'),
       minWidth: 120,
-      formatter: ({ cellValue }) => `${cellValue} ms`,
+      formatter: ({ cellValue }) => `${cellValue} ${$t('infra.common.ms')}`,
     },
     {
       field: 'resultCode',
-      title: '操作结果',
+      title: $t('infra.apiAccessLog.fields.resultCode'),
       minWidth: 150,
       formatter: ({ row }) => {
-        return row.resultCode === 0 ? '成功' : `失败(${row.resultMsg})`;
+        return row.resultCode === 0 ? $t('infra.apiAccessLog.success') : `${$t('infra.apiAccessLog.failure')}(${row.resultMsg})`;
       },
     },
     {
       field: 'operateModule',
-      title: '操作模块',
+      title: $t('infra.apiAccessLog.fields.operateModule'),
       minWidth: 150,
     },
     {
       field: 'operateName',
-      title: '操作名',
+      title: $t('infra.apiAccessLog.fields.operateName'),
       minWidth: 220,
     },
     {
       field: 'operateType',
-      title: '操作类型',
+      title: $t('infra.apiAccessLog.fields.operateType'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -150,7 +151,7 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
       },
     },
     {
-      title: '操作',
+      title: $t('infra.common.action'),
       width: 80,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -163,23 +164,23 @@ export function useDetailSchema(): DescriptionItemSchema[] {
   return [
     {
       field: 'id',
-      label: '日志编号',
+      label: $t('infra.apiAccessLog.fields.id'),
     },
     {
       field: 'traceId',
-      label: '链路追踪',
+      label: $t('infra.apiAccessLog.detail.traceId'),
     },
     {
       field: 'applicationName',
-      label: '应用名',
+      label: $t('infra.apiAccessLog.fields.applicationName'),
     },
     {
       field: 'userId',
-      label: '用户Id',
+      label: $t('infra.apiAccessLog.fields.userId'),
     },
     {
       field: 'userType',
-      label: '用户类型',
+      label: $t('infra.apiAccessLog.fields.userType'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.USER_TYPE,
@@ -189,15 +190,15 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'userIp',
-      label: '用户 IP',
+      label: $t('infra.apiAccessLog.detail.userIp'),
     },
     {
       field: 'userAgent',
-      label: '用户 UA',
+      label: $t('infra.apiAccessLog.detail.userAgent'),
     },
     {
       field: 'requestMethod',
-      label: '请求信息',
+      label: $t('infra.apiAccessLog.detail.requestInfo'),
       render: (val, data) => {
         if (val && data?.requestUrl) {
           return `${val} ${data.requestUrl}`;
@@ -207,7 +208,7 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'requestParams',
-      label: '请求参数',
+      label: $t('infra.apiAccessLog.detail.requestParams'),
       render: (val) => {
         if (val) {
           return h(JsonViewer, {
@@ -220,10 +221,10 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'responseBody',
-      label: '请求结果',
+      label: $t('infra.apiAccessLog.detail.requestResult'),
     },
     {
-      label: '请求时间',
+      label: $t('infra.apiAccessLog.detail.requestTime'),
       field: 'beginTime',
       render: (val, data) => {
         if (val && data?.endTime) {
@@ -233,35 +234,35 @@ export function useDetailSchema(): DescriptionItemSchema[] {
       },
     },
     {
-      label: '请求耗时',
+      label: $t('infra.apiAccessLog.detail.requestDuration'),
       field: 'duration',
       render: (val) => {
-        return val ? `${val} ms` : '';
+        return val ? `${val} ${$t('infra.common.ms')}` : '';
       },
     },
     {
-      label: '操作结果',
+      label: $t('infra.apiAccessLog.detail.operateResult'),
       field: 'resultCode',
       render: (val, data) => {
         if (val === 0) {
-          return '正常';
+          return $t('infra.common.success');
         } else if (val > 0 && data?.resultMsg) {
-          return `失败 | ${val} | ${data.resultMsg}`;
+          return `${$t('infra.apiAccessLog.failure')} | ${val} | ${data.resultMsg}`;
         }
         return '';
       },
     },
     {
       field: 'operateModule',
-      label: '操作模块',
+      label: $t('infra.apiAccessLog.fields.operateModule'),
     },
     {
       field: 'operateName',
-      label: '操作名',
+      label: $t('infra.apiAccessLog.fields.operateName'),
     },
     {
       field: 'operateType',
-      label: '操作类型',
+      label: $t('infra.apiAccessLog.fields.operateType'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.INFRA_OPERATE_TYPE,

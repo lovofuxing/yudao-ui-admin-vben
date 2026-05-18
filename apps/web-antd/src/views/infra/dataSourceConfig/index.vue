@@ -110,12 +110,12 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <FormModal @success="handleRefresh" />
-    <Grid table-title="数据源列表">
+    <Grid :table-title="$t('infra.dataSourceConfig.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['数据源']),
+              label: $t('ui.actionTitle.create', [$t('infra.dataSourceConfig.title')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['infra:data-source-config:create'],

@@ -43,10 +43,10 @@ function handleDetail(row: InfraApiErrorLogApi.ApiErrorLog) {
 /** 处理已处理 / 已忽略的操作 */
 async function handleProcess(id: number, processStatus: number) {
   await confirm({
-    content: `确认标记为${InfraApiErrorLogProcessStatusEnum.DONE ? '已处理' : '已忽略'}?`,
+    content: $t('infra.apiErrorLog.actions.markConfirm', [InfraApiErrorLogProcessStatusEnum.DONE ? $t('infra.apiErrorLog.actions.processed') : $t('infra.apiErrorLog.actions.ignored')]),
   });
   const hideLoading = message.loading({
-    content: '正在处理中...',
+    content: $t('infra.common.processing'),
     duration: 0,
   });
   try {
@@ -92,11 +92,11 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="系统日志" url="https://doc.iocoder.cn/system-log/" />
+      <DocAlert :title="$t('infra.apiErrorLog.title')" url="https://doc.iocoder.cn/api-error-log/" />
     </template>
 
     <DetailModal @success="handleRefresh" />
-    <Grid table-title="API 错误日志列表">
+    <Grid :table-title="$t('infra.apiErrorLog.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
@@ -121,7 +121,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               onClick: handleDetail.bind(null, row),
             },
             {
-              label: '已处理',
+              label: $t('infra.apiErrorLog.actions.processed'),
               type: 'link',
               icon: ACTION_ICON.ADD,
               auth: ['infra:api-error-log:update-status'],
@@ -134,7 +134,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               ),
             },
             {
-              label: '已忽略',
+              label: $t('infra.apiErrorLog.actions.ignored'),
               type: 'link',
               icon: ACTION_ICON.DELETE,
               auth: ['infra:api-error-log:update-status'],

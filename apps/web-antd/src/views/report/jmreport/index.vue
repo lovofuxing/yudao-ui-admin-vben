@@ -4,6 +4,8 @@ import { ref } from 'vue';
 import { DocAlert, IFrame, Page } from '@vben/common-ui';
 import { useAccessStore } from '@vben/stores';
 
+import { $t } from '#/locales';
+
 defineOptions({ name: 'JimuReport' });
 const accessStore = useAccessStore();
 
@@ -17,7 +19,7 @@ const src = ref(
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="报表设计器" url="https://doc.iocoder.cn/report/" />
+      <DocAlert :title="$t('report.jmreport.title')" url="https://doc.iocoder.cn/report/" />
     </template>
 
     <IFrame :src="src" />

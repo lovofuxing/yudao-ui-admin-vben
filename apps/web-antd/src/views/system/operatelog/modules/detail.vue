@@ -7,6 +7,8 @@ import { useVbenModal } from '@vben/common-ui';
 
 import { useDescription } from '#/components/description';
 
+import { $t } from '#/locales';
+
 import { useDetailSchema } from '../data';
 
 const formData = ref<SystemOperateLogApi.OperateLog>();
@@ -40,7 +42,7 @@ const [Modal, modalApi] = useVbenModal({
 
 <template>
   <Modal
-    title="操作日志详情"
+    :title="$t('system.operatelog.modal.detailTitle')"
     class="w-1/2"
     :show-cancel-button="false"
     :show-confirm-button="false"

@@ -52,6 +52,27 @@
       "status": "學員狀態",
       "enrollTime": "入學時間",
       "remark": "備註"
+    },
+    "detail": {
+      "title": "學員詳情"
+    },
+    "tab": {
+      "follow": "跟進記錄",
+      "trial": "試聽記錄",
+      "course": "報讀課程",
+      "classRecord": "上課記錄",
+      "deduction": "扣課記錄",
+      "schedule": "排課資訊",
+      "communication": "溝通記錄",
+      "growth": "成長記錄",
+      "leave": "請假記錄",
+      "points": "積分優惠券"
+    },
+    "action": {
+      "suspend": "停課",
+      "transfer": "轉課",
+      "refund": "退課",
+      "communicate": "溝通記錄"
     }
   },
   "course": {
@@ -82,6 +103,20 @@
       "scheduleText": "上課時間",
       "classroom": "上課教室",
       "status": "班級狀態"
+    },
+    "detail": {
+      "title": "班級詳情"
+    },
+    "tab": {
+      "students": "班級學員",
+      "schedule": "班級課表",
+      "record": "上課記錄",
+      "scheduleConfig": "排課資訊",
+      "orders": "收費訂單"
+    },
+    "action": {
+      "schedule": "排課",
+      "callOver": "點名"
     }
   },
   "schedule": {
@@ -102,6 +137,12 @@
   "lessonRecord": {
     "title": "上課記錄",
     "tableTitle": "上課記錄列表",
+    "tab": {
+      "records": "上課記錄",
+      "studentRecords": "學員上課記錄",
+      "checkinEdit": "點名修改記錄",
+      "makeup": "補課管理"
+    },
     "fields": {
       "id": "編號",
       "lessonDate": "上課日期",
@@ -132,6 +173,11 @@
   "quickDeduction": {
     "title": "快速扣課",
     "tableTitle": "扣課記錄列表",
+    "tab": {
+      "student": "按學員扣課",
+      "course": "按課程扣課",
+      "records": "扣課記錄"
+    },
     "fields": {
       "id": "編號",
       "studentName": "學員",

@@ -60,11 +60,11 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="站内信" url="https://doc.iocoder.cn/notify/" />
+      <DocAlert :title="$t('system.notify.docTitle')" url="https://doc.iocoder.cn/notify/" />
     </template>
 
     <DetailModal @success="handleRefresh" />
-    <Grid table-title="站内信列表">
+    <Grid :table-title="$t('system.notify.message.tableTitle')">
       <template #actions="{ row }">
         <TableAction
           :actions="[

@@ -24,8 +24,8 @@ const emit = defineEmits(['success']);
 const formData = ref<SystemTenantPackageApi.TenantPackage>();
 const getTitle = computed(() => {
   return formData.value
-    ? $t('ui.actionTitle.edit', ['套餐'])
-    : $t('ui.actionTitle.create', ['套餐']);
+    ? $t('ui.actionTitle.edit', [$t('system.tenantPackage.entityName')])
+    : $t('ui.actionTitle.create', [$t('system.tenantPackage.entityName')]);
 });
 const menuTree = ref<SystemMenuApi.Menu[]>([]); // 菜单树
 const menuLoading = ref(false); // 加载菜单列表
@@ -151,10 +151,10 @@ function getAllNodeIds(nodes: any[], ids: number[] = []): number[] {
     <template #prepend-footer>
       <div class="flex flex-auto items-center">
         <Checkbox :checked="isAllSelected" @change="handleSelectAll">
-          全选
+          {{ $t('system.tenantPackage.selectAll') }}
         </Checkbox>
         <Checkbox :checked="isExpanded" @change="handleExpandAll">
-          全部展开
+          {{ $t('system.tenantPackage.expandAll') }}
         </Checkbox>
       </div>
     </template>

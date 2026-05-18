@@ -119,16 +119,16 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="短信配置" url="https://doc.iocoder.cn/sms/" />
+      <DocAlert :title="$t('system.sms.docTitle')" url="https://doc.iocoder.cn/sms/" />
     </template>
 
     <FormModal @success="handleRefresh" />
-    <Grid table-title="短信渠道列表">
+    <Grid :table-title="$t('system.sms.channel.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['短信渠道']),
+              label: $t('ui.actionTitle.create', [$t('system.sms.channel.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:sms-channel:create'],

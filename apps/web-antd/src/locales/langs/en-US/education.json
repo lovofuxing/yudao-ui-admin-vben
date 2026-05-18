@@ -52,6 +52,27 @@
       "status": "Status",
       "enrollTime": "Enrollment Time",
       "remark": "Remark"
+    },
+    "detail": {
+      "title": "Student Detail"
+    },
+    "tab": {
+      "follow": "Follow-up",
+      "trial": "Trial",
+      "course": "Enrolled Courses",
+      "classRecord": "Class Records",
+      "deduction": "Deductions",
+      "schedule": "Schedule",
+      "communication": "Communication",
+      "growth": "Growth",
+      "leave": "Leave",
+      "points": "Points & Coupons"
+    },
+    "action": {
+      "suspend": "Suspend",
+      "transfer": "Transfer",
+      "refund": "Refund",
+      "communicate": "Communication"
     }
   },
   "course": {
@@ -82,6 +103,20 @@
       "scheduleText": "Schedule",
       "classroom": "Classroom",
       "status": "Status"
+    },
+    "detail": {
+      "title": "Class Detail"
+    },
+    "tab": {
+      "students": "Students",
+      "schedule": "Schedule",
+      "record": "Records",
+      "scheduleConfig": "Schedule Config",
+      "orders": "Orders"
+    },
+    "action": {
+      "schedule": "Schedule",
+      "callOver": "Call Over"
     }
   },
   "schedule": {
@@ -102,6 +137,12 @@
   "lessonRecord": {
     "title": "Lesson Records",
     "tableTitle": "Lesson Record List",
+    "tab": {
+      "records": "Records",
+      "studentRecords": "Student Records",
+      "checkinEdit": "Check-in Edits",
+      "makeup": "Makeup"
+    },
     "fields": {
       "id": "ID",
       "lessonDate": "Lesson Date",
@@ -132,6 +173,11 @@
   "quickDeduction": {
     "title": "Quick Deduction",
     "tableTitle": "Deduction Record List",
+    "tab": {
+      "student": "By Student",
+      "course": "By Course",
+      "records": "Records"
+    },
     "fields": {
       "id": "ID",
       "studentName": "Student",

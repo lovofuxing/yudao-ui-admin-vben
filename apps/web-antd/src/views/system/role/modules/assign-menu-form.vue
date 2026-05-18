@@ -139,7 +139,7 @@ function getNodeClass(node: Recordable<any>) {
 </script>
 
 <template>
-  <Modal title="菜单权限" class="w-2/5">
+  <Modal :title="$t('system.role.action.assignMenu')" class="w-2/5">
     <Form class="mx-4">
       <template #menuIds="slotProps">
         <Spin :spinning="menuLoading" wrapper-class-name="w-full">

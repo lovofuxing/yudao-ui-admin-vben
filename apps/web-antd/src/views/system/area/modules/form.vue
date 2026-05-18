@@ -44,7 +44,7 @@ const [Modal, modalApi] = useVbenModal({
 </script>
 
 <template>
-  <Modal title="IP 查询">
+  <Modal :title="$t('system.area.ipQuery')">
     <Form class="mx-4" />
   </Modal>
 </template>

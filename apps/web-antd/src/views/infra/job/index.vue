@@ -70,11 +70,11 @@ async function handleUpdateStatus(row: InfraJobApi.Job) {
     row.status === InfraJobStatusEnum.STOP
       ? InfraJobStatusEnum.NORMAL
       : InfraJobStatusEnum.STOP;
-  const statusText = status === InfraJobStatusEnum.NORMAL ? '启用' : '停用';
+  const statusText = status === InfraJobStatusEnum.NORMAL ? $t('infra.job.actions.enable') : $t('infra.job.actions.disable');
 
-  await confirm(`确定${statusText} ${row.name} 吗？`);
+  await confirm($t('infra.job.actions.statusConfirm', [statusText, row.name]));
   const hideLoading = message.loading({
-    content: `正在${statusText}中...`,
+    content: status === InfraJobStatusEnum.NORMAL ? $t('infra.job.actions.enabling') : $t('infra.job.actions.disabling'),
     duration: 0,
   });
   try {
@@ -88,9 +88,9 @@ async function handleUpdateStatus(row: InfraJobApi.Job) {
 
 /** 执行一次任务 */
 async function handleTrigger(row: InfraJobApi.Job) {
-  await confirm(`确定执行一次 ${row.name} 吗？`);
+  await confirm($t('infra.job.actions.triggerConfirm', [row.name]));
   const hideLoading = message.loading({
-    content: '正在执行中...',
+    content: $t('infra.job.actions.executing'),
     duration: 0,
   });
   try {
@@ -184,19 +184,19 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="定时任务" url="https://doc.iocoder.cn/job/" />
+      <DocAlert :title="$t('infra.job.title')" url="https://doc.iocoder.cn/job/" />
       <DocAlert title="异步任务" url="https://doc.iocoder.cn/async-task/" />
       <DocAlert title="消息队列" url="https://doc.iocoder.cn/message-queue/" />
     </template>
 
     <FormModal @success="handleRefresh" />
     <DetailModal />
-    <Grid table-title="定时任务列表">
+    <Grid :table-title="$t('infra.job.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['任务']),
+              label: $t('ui.actionTitle.create', [$t('infra.job.title')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['infra:job:create'],
@@ -210,7 +210,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               onClick: handleExport,
             },
             {
-              label: '执行日志',
+              label: $t('infra.job.actions.execLog'),
               type: 'primary',
               icon: 'lucide:history',
               auth: ['infra:job:query'],
@@ -239,7 +239,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               onClick: handleEdit.bind(null, row),
             },
             {
-              label: '开启',
+              label: $t('infra.job.actions.open'),
               type: 'link',
               icon: 'lucide:circle-play',
               auth: ['infra:job:update'],
@@ -247,7 +247,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               onClick: handleUpdateStatus.bind(null, row),
             },
             {
-              label: '暂停',
+              label: $t('infra.job.actions.pause'),
               type: 'link',
               icon: 'lucide:circle-pause',
               auth: ['infra:job:update'],
@@ -255,7 +255,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               onClick: handleUpdateStatus.bind(null, row),
             },
             {
-              label: '执行',
+              label: $t('infra.job.actions.execute'),
               type: 'link',
               icon: 'lucide:clock-plus',
               auth: ['infra:job:trigger'],
@@ -270,7 +270,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               onClick: handleDetail.bind(null, row),
             },
             {
-              label: '日志',
+              label: $t('infra.job.actions.log'),
               type: 'link',
               auth: ['infra:job:query'],
               onClick: handleLog.bind(null, row),

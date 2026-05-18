@@ -6,6 +6,7 @@ import type { InfraRedisApi } from '#/api/infra/redis';
 import { onMounted, ref, watch } from 'vue';
 
 import { EchartsUI, useEcharts } from '@vben/plugins/echarts';
+import { $t } from '#/locales';
 
 const props = defineProps<{
   redisData?: InfraRedisApi.RedisMonitorInfo;
@@ -42,7 +43,7 @@ function renderMemoryChart() {
   // 渲染图表
   renderEcharts({
     title: {
-      text: '内存使用情况',
+      text: $t('infra.redis.chart.memoryUsage'),
       left: 'center',
     },
     tooltip: {
@@ -50,7 +51,7 @@ function renderMemoryChart() {
     },
     series: [
       {
-        name: '峰值',
+        name: $t('infra.redis.chart.peak'),
         type: 'gauge',
         min: 0,
         max: 100,
@@ -104,7 +105,7 @@ function renderMemoryChart() {
         data: [
           {
             value: memoryValue,
-            name: '内存消耗',
+            name: $t('infra.redis.chart.memoryConsumption'),
           },
         ],
       },

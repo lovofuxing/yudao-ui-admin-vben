@@ -32,20 +32,20 @@ onMounted(() => {
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="Redis 缓存" url="https://doc.iocoder.cn/redis-cache/" />
-      <DocAlert title="本地缓存" url="https://doc.iocoder.cn/local-cache/" />
+      <DocAlert :title="$t('infra.redis.docRedisCache')" url="https://doc.iocoder.cn/redis-cache/" />
+      <DocAlert :title="$t('infra.redis.docLocalCache')" url="https://doc.iocoder.cn/local-cache/" />
     </template>
 
-    <Card title="Redis 概览">
+    <Card :title="$t('infra.redis.overview')">
       <Info :redis-data="redisData" />
     </Card>
 
     <div class="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">
-      <Card title="内存使用">
+      <Card :title="$t('infra.redis.memoryUsage')">
         <Memory :redis-data="redisData" />
       </Card>
 
-      <Card title="命令统计">
+      <Card :title="$t('infra.redis.commandStats')">
         <Commands :redis-data="redisData" />
       </Card>
     </div>

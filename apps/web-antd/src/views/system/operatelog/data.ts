@@ -9,6 +9,7 @@ import { formatDateTime } from '@vben/utils';
 
 import { getSimpleUserList } from '#/api/system/user';
 import { DictTag } from '#/components/dict-tag';
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 列表的搜索表单 */
@@ -16,46 +17,46 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'userId',
-      label: '操作人',
+      label: $t('system.operatelog.fields.userId'),
       component: 'ApiSelect',
       componentProps: {
         api: getSimpleUserList,
         labelField: 'nickname',
         valueField: 'id',
         allowClear: true,
-        placeholder: '请选择操作人员',
+        placeholder: $t('system.operatelog.fields.userIdPlaceholder'),
       },
     },
     {
       fieldName: 'type',
-      label: '操作模块',
+      label: $t('system.operatelog.fields.type'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入操作模块',
+        placeholder: $t('system.operatelog.fields.typePlaceholder'),
       },
     },
     {
       fieldName: 'subType',
-      label: '操作名',
+      label: $t('system.operatelog.fields.subType'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入操作名',
+        placeholder: $t('system.operatelog.fields.subTypePlaceholder'),
       },
     },
     {
       fieldName: 'action',
-      label: '操作内容',
+      label: $t('system.operatelog.fields.action'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入操作内容',
+        placeholder: $t('system.operatelog.fields.actionPlaceholder'),
       },
     },
     {
       fieldName: 'createTime',
-      label: '操作时间',
+      label: $t('system.operatelog.fields.createTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -64,11 +65,11 @@ export function useGridFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'bizId',
-      label: '业务编号',
+      label: $t('system.operatelog.fields.bizId'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入业务编号',
+        placeholder: $t('system.operatelog.fields.bizIdPlaceholder'),
       },
     },
   ];
@@ -79,47 +80,47 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
   return [
     {
       field: 'id',
-      title: '日志编号',
+      title: $t('system.operatelog.fields.id'),
       minWidth: 100,
     },
     {
       field: 'userName',
-      title: '操作人',
+      title: $t('system.operatelog.fields.userId'),
       minWidth: 120,
     },
     {
       field: 'type',
-      title: '操作模块',
+      title: $t('system.operatelog.fields.type'),
       minWidth: 120,
     },
     {
       field: 'subType',
-      title: '操作名',
+      title: $t('system.operatelog.fields.subType'),
       minWidth: 160,
     },
     {
       field: 'action',
-      title: '操作内容',
+      title: $t('system.operatelog.fields.action'),
       minWidth: 200,
     },
     {
       field: 'createTime',
-      title: '操作时间',
+      title: $t('system.operatelog.fields.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
       field: 'bizId',
-      title: '业务编号',
+      title: $t('system.operatelog.fields.bizId'),
       minWidth: 120,
     },
     {
       field: 'userIp',
-      title: '操作 IP',
+      title: $t('system.operatelog.fields.userIp'),
       minWidth: 120,
     },
     {
-      title: '操作',
+      title: $t('system.common.actions'),
       width: 80,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -132,54 +133,54 @@ export function useDetailSchema(): DescriptionItemSchema[] {
   return [
     {
       field: 'id',
-      label: '日志编号',
+      label: $t('system.operatelog.fields.id'),
     },
     {
       field: 'traceId',
-      label: '链路追踪',
+      label: $t('system.operatelog.fields.traceId'),
       show: (data) => !data?.traceId,
     },
     {
       field: 'userId',
-      label: '操作人编号',
+      label: $t('system.operatelog.fields.userId'),
     },
     {
       field: 'userType',
-      label: '操作人类型',
+      label: $t('system.operatelog.fields.userType'),
       render: (val) => h(DictTag, { type: DICT_TYPE.USER_TYPE, value: val }),
     },
     {
       field: 'userName',
-      label: '操作人名字',
+      label: $t('system.operatelog.fields.userName'),
     },
     {
       field: 'userIp',
-      label: '操作人 IP',
+      label: $t('system.operatelog.fields.userIp'),
     },
     {
       field: 'userAgent',
-      label: '操作人 UA',
+      label: $t('system.operatelog.fields.userAgent'),
     },
     {
       field: 'type',
-      label: '操作模块',
+      label: $t('system.operatelog.fields.type'),
     },
     {
       field: 'subType',
-      label: '操作名',
+      label: $t('system.operatelog.fields.subType'),
     },
     {
       field: 'action',
-      label: '操作内容',
+      label: $t('system.operatelog.fields.action'),
     },
     {
       field: 'extra',
-      label: '操作拓展参数',
+      label: $t('system.operatelog.fields.extra'),
       show: (val) => !val,
     },
     {
       field: 'requestUrl',
-      label: '请求 URL',
+      label: $t('system.operatelog.fields.requestUrl'),
       render: (val, data) => {
         if (data?.requestMethod && val) {
           return `${data.requestMethod} ${val}`;
@@ -189,12 +190,12 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'createTime',
-      label: '操作时间',
+      label: $t('system.operatelog.fields.createTime'),
       render: (val) => formatDateTime(val) as string,
     },
     {
       field: 'bizId',
-      label: '业务编号',
+      label: $t('system.operatelog.fields.bizId'),
     },
   ];
 }

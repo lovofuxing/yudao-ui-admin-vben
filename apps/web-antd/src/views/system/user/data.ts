@@ -26,15 +26,15 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'username',
-      label: '用户名称',
+      label: $t('system.user.fields.username'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入用户名称',
+        placeholder: $t('system.user.fields.usernamePlaceholder'),
       },
       rules: 'required',
     },
     {
-      label: '用户密码',
+      label: $t('system.user.fields.password'),
       fieldName: 'password',
       component: 'InputPassword',
       rules: 'required',
@@ -45,16 +45,16 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'nickname',
-      label: '用户昵称',
+      label: $t('system.user.fields.nickname'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入用户昵称',
+        placeholder: $t('system.user.fields.nicknamePlaceholder'),
       },
       rules: 'required',
     },
     {
       fieldName: 'deptId',
-      label: '归属部门',
+      label: $t('system.user.fields.deptId'),
       component: 'ApiTreeSelect',
       componentProps: {
         api: async () => {
@@ -64,42 +64,42 @@ export function useFormSchema(): VbenFormSchema[] {
         labelField: 'name',
         valueField: 'id',
         childrenField: 'children',
-        placeholder: '请选择归属部门',
+        placeholder: $t('system.user.fields.deptPlaceholder'),
         treeDefaultExpandAll: true,
       },
     },
     {
       fieldName: 'postIds',
-      label: '岗位',
+      label: $t('system.user.fields.postIds'),
       component: 'ApiSelect',
       componentProps: {
         api: getSimplePostList,
         labelField: 'name',
         valueField: 'id',
         mode: 'multiple',
-        placeholder: '请选择岗位',
+        placeholder: $t('system.user.fields.postPlaceholder'),
       },
     },
     {
       fieldName: 'email',
-      label: '邮箱',
+      label: $t('system.user.fields.email'),
       component: 'Input',
-      rules: z.string().email('邮箱格式不正确').or(z.literal('')).optional(),
+      rules: z.string().email($t('system.user.fields.emailInvalid')).or(z.literal('')).optional(),
       componentProps: {
-        placeholder: '请输入邮箱',
+        placeholder: $t('system.user.fields.emailPlaceholder'),
       },
     },
     {
       fieldName: 'mobile',
-      label: '手机号码',
+      label: $t('system.user.fields.mobile'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入手机号码',
+        placeholder: $t('system.user.fields.mobilePlaceholder'),
       },
     },
     {
       fieldName: 'sex',
-      label: '用户性别',
+      label: $t('system.user.fields.sex'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.SYSTEM_USER_SEX, 'number'),
@@ -110,7 +110,7 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'status',
-      label: '用户状态',
+      label: $t('system.user.fields.status'),
       component: 'RadioGroup',
       componentProps: {
         options: getDictOptions(DICT_TYPE.COMMON_STATUS, 'number'),
@@ -121,10 +121,10 @@ export function useFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'remark',
-      label: '备注',
+      label: $t('system.user.fields.remark'),
       component: 'Textarea',
       componentProps: {
-        placeholder: '请输入备注',
+        placeholder: $t('system.user.fields.remarkPlaceholder'),
       },
     },
   ];
@@ -145,23 +145,23 @@ export function useResetPasswordFormSchema(): VbenFormSchema[] {
       component: 'VbenInputPassword',
       componentProps: {
         passwordStrength: true,
-        placeholder: '请输入新密码',
+        placeholder: $t('system.user.fields.newPasswordPlaceholder'),
       },
       dependencies: {
         rules(values) {
           return z
-            .string({ message: '请输入新密码' })
-            .min(5, '密码长度不能少于 5 个字符')
-            .max(20, '密码长度不能超过 20 个字符')
+            .string({ message: $t('system.user.fields.newPasswordRequired') })
+            .min(5, $t('system.user.fields.passwordMinLength'))
+            .max(20, $t('system.user.fields.passwordMaxLength'))
             .refine(
               (value) => value !== values.oldPassword,
-              '新旧密码不能相同',
+              $t('system.user.fields.passwordSameAsOld'),
             );
         },
         triggerFields: ['newPassword', 'oldPassword'],
       },
       fieldName: 'newPassword',
-      label: '新密码',
+      label: $t('system.user.fields.newPassword'),
       rules: 'required',
     },
     {
@@ -173,18 +173,18 @@ export function useResetPasswordFormSchema(): VbenFormSchema[] {
       dependencies: {
         rules(values) {
           return z
-            .string({ message: '请输入确认密码' })
-            .min(5, '密码长度不能少于 5 个字符')
-            .max(20, '密码长度不能超过 20 个字符')
+            .string({ message: $t('system.user.fields.confirmPasswordRequired') })
+            .min(5, $t('system.user.fields.passwordMinLength'))
+            .max(20, $t('system.user.fields.passwordMaxLength'))
             .refine(
               (value) => value === values.newPassword,
-              '新密码和确认密码不一致',
+              $t('system.user.fields.passwordMismatch'),
             );
         },
         triggerFields: ['newPassword', 'confirmPassword'],
       },
       fieldName: 'confirmPassword',
-      label: '确认密码',
+      label: $t('system.user.fields.confirmPassword'),
       rules: 'required',
     },
   ];
@@ -203,7 +203,7 @@ export function useAssignRoleFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'username',
-      label: '用户名称',
+      label: $t('system.user.fields.username'),
       component: 'Input',
       componentProps: {
         disabled: true,
@@ -211,7 +211,7 @@ export function useAssignRoleFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'nickname',
-      label: '用户昵称',
+      label: $t('system.user.fields.nickname'),
       component: 'Input',
       componentProps: {
         disabled: true,
@@ -219,14 +219,14 @@ export function useAssignRoleFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'roleIds',
-      label: '角色',
+      label: $t('system.user.fields.roleIds'),
       component: 'ApiSelect',
       componentProps: {
         api: getSimpleRoleList,
         labelField: 'name',
         valueField: 'id',
         mode: 'multiple',
-        placeholder: '请选择角色',
+        placeholder: $t('system.user.fields.rolePlaceholder'),
       },
     },
   ];
@@ -237,21 +237,21 @@ export function useImportFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'file',
-      label: '用户数据',
+      label: $t('system.user.import.file'),
       component: 'Upload',
       rules: 'required',
-      help: '仅允许导入 xls、xlsx 格式文件',
+      help: $t('system.user.import.fileHelp'),
     },
     {
       fieldName: 'updateSupport',
-      label: '是否覆盖',
+      label: $t('system.user.import.updateSupport'),
       component: 'Switch',
       componentProps: {
-        checkedChildren: '是',
-        unCheckedChildren: '否',
+        checkedChildren: $t('system.user.import.yes'),
+        unCheckedChildren: $t('system.user.import.no'),
       },
       rules: z.boolean().default(false),
-      help: '是否更新已经存在的用户数据',
+      help: $t('system.user.import.updateSupportHelp'),
     },
   ];
 }
@@ -261,25 +261,25 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'username',
-      label: '用户名称',
+      label: $t('system.user.fields.username'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入用户名称',
+        placeholder: $t('system.user.fields.usernamePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'mobile',
-      label: '手机号码',
+      label: $t('system.user.fields.mobile'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入手机号码',
+        placeholder: $t('system.user.fields.mobilePlaceholder'),
         allowClear: true,
       },
     },
     {
       fieldName: 'createTime',
-      label: '创建时间',
+      label: $t('system.common.createTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -300,32 +300,32 @@ export function useGridColumns(
     { type: 'checkbox', width: 40 },
     {
       field: 'id',
-      title: '用户编号',
+      title: $t('system.user.fields.gridId'),
       minWidth: 100,
     },
     {
       field: 'username',
-      title: '用户名称',
+      title: $t('system.user.fields.gridUsername'),
       minWidth: 120,
     },
     {
       field: 'nickname',
-      title: '用户昵称',
+      title: $t('system.user.fields.gridNickname'),
       minWidth: 120,
     },
     {
       field: 'deptName',
-      title: '部门',
+      title: $t('system.user.fields.deptName'),
       minWidth: 120,
     },
     {
       field: 'mobile',
-      title: '手机号码',
+      title: $t('system.user.fields.gridMobile'),
       minWidth: 120,
     },
     {
       field: 'status',
-      title: '状态',
+      title: $t('system.user.fields.gridStatus'),
       minWidth: 100,
       align: 'center',
       cellRender: {
@@ -339,12 +339,12 @@ export function useGridColumns(
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.user.fields.gridCreateTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.user.fields.gridActions'),
       width: 180,
       fixed: 'right',
       slots: { default: 'actions' },

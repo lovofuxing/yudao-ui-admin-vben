@@ -1,0 +1,415 @@
+{
+  "common": {
+    "action": "操作",
+    "detail": "详情",
+    "copy": "复制",
+    "edit": "编辑",
+    "delete": "删除",
+    "cancel": "取消",
+    "restart": "重新发起",
+    "history": "历史",
+    "report": "报表",
+    "more": "更多",
+    "clean": "清理",
+    "deploy": "发布",
+    "save": "保存",
+    "recover": "恢复",
+    "rename": "重命名",
+    "sort": "排序",
+    "sortCancel": "取 消",
+    "sortSave": "保存排序",
+    "dragSort": "拖动排序",
+    "approvalProgress": "审批进度",
+    "withdraw": "撤回",
+    "audit": "办理",
+    "allVisible": "全部可见",
+    "noForm": "暂无表单",
+    "undeployed": "未部署",
+    "disabled": "已停用"
+  },
+  "category": {
+    "title": "流程分类",
+    "tableTitle": "流程分类",
+    "renameTitle": "重命名流程分类",
+    "fields": {
+      "id": "分类编号",
+      "name": "分类名",
+      "code": "分类标志",
+      "description": "分类描述",
+      "status": "分类状态",
+      "sort": "分类排序",
+      "createTime": "创建时间"
+    },
+    "placeholder": {
+      "name": "请输入分类名",
+      "code": "请输入分类标志",
+      "description": "请输入分类描述",
+      "status": "请选择分类状态",
+      "sort": "请输入分类排序"
+    }
+  },
+  "model": {
+    "title": "流程模型",
+    "tableTitle": "流程模型",
+    "searchPlaceholder": "搜索流程",
+    "newModel": "新建模型",
+    "newCategory": "新建分类",
+    "sortCategory": "分类排序",
+    "cannotDeleteCategory": "该分类下仍有流程定义,不允许删除",
+    "deleteCategoryConfirm": "确定要删除[{0}]吗？",
+    "deletingCategory": "正在删除分类: \"{0}\"...",
+    "sortCategorySuccess": "分类排序成功",
+    "deployConfirm": "确认要发布[{0}]流程吗？",
+    "deploying": "正在发布流程: \"{0}\"...",
+    "deploySuccess": "发布[{0}]流程成功",
+    "cleanConfirm": "确认要清理流程: \"{0}\" 吗？",
+    "cleaning": "正在清理流程: \"{0}\"...",
+    "cleanSuccess": "清理流程: \"{0}\" 成功",
+    "deleteConfirm": "确认要删除流程: \"{0}\" 吗？",
+    "deleteSuccess": "删除流程: \"{0}\" 成功",
+    "sortModelSuccess": "排序模型成功",
+    "sortModelError": "排序数据异常，请重试",
+    "sortSaving": "正在保存排序...",
+    "stateEnable": "启用",
+    "stateDisable": "停用",
+    "stateChangeConfirm": "确认要{0}流程: \"{1}\" 吗？",
+    "stateChanging": "正在{0}流程: \"{1}\"...",
+    "stateChangeSuccess": "{0} 流程: \"{1}\" 成功",
+    "visiblePeople": "{0}等 {1} 人可见",
+    "visibleDept": "{0}等 {1} 个部门可见",
+    "fields": {
+      "name": "流程名称",
+      "visibleRange": "可见范围",
+      "type": "流程类型",
+      "formInfo": "表单信息",
+      "lastDeploy": "最后发布"
+    },
+    "definition": {
+      "title": "流程定义列表",
+      "fields": {
+        "id": "定义编号",
+        "name": "流程名称",
+        "icon": "流程图标",
+        "visibleRange": "可见范围",
+        "type": "流程类型",
+        "formInfo": "表单信息",
+        "version": "流程版本",
+        "deploymentTime": "部署时间"
+      }
+    },
+    "edit": {
+      "title": "创建流程",
+      "stepBasic": "基本信息",
+      "stepForm": "表单设计",
+      "stepProcess": "流程设计",
+      "stepExtra": "更多设置",
+      "save": "保 存",
+      "deploy": "发 布",
+      "recover": "恢 复",
+      "copySuccess": "复制成功，可点击【发布】按钮，进行发布模型",
+      "recoverSuccess": "恢复成功，可点击【发布】按钮，进行发布模型",
+      "updateSuccess": "修改成功，可点击【发布】按钮，进行发布模型",
+      "createSuccess": "新建成功，可点击【发布】按钮，进行发布模型",
+      "deploySuccess": "发布成功",
+      "deployFail": "发布失败",
+      "deployConfirm": "是否确认发布该流程？",
+      "pleaseCompleteBasicInfo": "请完善基本信息",
+      "pleaseCompleteFormInfo": "请完善自定义表单信息",
+      "pleaseCompleteStepInfo": "请先完善当前步骤必填信息"
+    },
+    "basicInfo": {
+      "title": "基本信息",
+      "name": "流程名称",
+      "namePlaceholder": "请输入流程名称",
+      "nameRequired": "流程名称不能为空",
+      "key": "流程标识",
+      "keyPlaceholder": "请输入流程标识",
+      "keyRequired": "流程标识不能为空",
+      "keyInvalid": "只能包含字母、数字、下划线、连字符和点号，且必须以字母或下划线开头",
+      "category": "流程分类",
+      "categoryPlaceholder": "请选择流程分类",
+      "categoryRequired": "流程分类不能为空",
+      "icon": "流程图标",
+      "description": "描述",
+      "descriptionPlaceholder": "请输入描述",
+      "type": "流程类型",
+      "typeRequired": "流程类型不能为空",
+      "formType": "表单类型",
+      "visible": "是否可见",
+      "visibleRequired": "是否可见不能为空",
+      "startUserType": "可见范围",
+      "startUserTypeAll": "全员可见",
+      "startUserTypeUser": "指定用户可见",
+      "startUserTypeDept": "指定部门可见",
+      "startUserPlaceholder": "请选择用户",
+      "startDeptPlaceholder": "请选择部门",
+      "managerUsers": "流程管理员",
+      "managerUsersPlaceholder": "请选择流程管理员",
+      "managerUsersRequired": "流程管理员不能为空",
+      "form": "流程表单",
+      "formPlaceholder": "请选择流程表单",
+      "formRequired": "流程表单不能为空",
+      "formCustomCreatePath": "自定义表单路由",
+      "formCustomCreatePathPlaceholder": "请输入自定义表单路由",
+      "formCustomViewPath": "自定义表单查看路由",
+      "formCustomViewPathPlaceholder": "请输入自定义表单查看路由",
+      "simpleModel": "简易模型",
+      "flowNode": "流程节点"
+    },
+    "extraSetting": {
+      "title": "更多设置",
+      "allowCancelRunningProcess": "允许取消正在运行的流程",
+      "allowCancelRunningProcessHelp": "开启后，发起人可以在流程运行中取消流程",
+      "processIdRule": "流程编号规则",
+      "processIdRuleEnable": "启用",
+      "processIdRulePrefix": "前缀",
+      "processIdRuleInfix": "中间部分",
+      "processIdRulePostfix": "后缀",
+      "processIdRuleLength": "编号长度",
+      "processIdRulePrefixPlaceholder": "前缀（可选）",
+      "processIdRuleInfixPlaceholder": "中间部分（可选）",
+      "processIdRulePostfixPlaceholder": "后缀（可选）",
+      "processIdRuleLengthPlaceholder": "请输入编号长度",
+      "autoApprovalType": "自动审批类型",
+      "titleSetting": "标题设置",
+      "titleSettingEnable": "启用",
+      "titleSettingTitle": "标题",
+      "titleSettingTitlePlaceholder": "请输入流程标题",
+      "summarySetting": "摘要设置",
+      "summarySettingEnable": "启用",
+      "summarySettingSummary": "摘要字段",
+      "summarySettingSummaryPlaceholder": "请选择摘要字段",
+      "allowWithdrawTask": "允许审批人撤回已审批的任务",
+      "allowWithdrawTaskHelp": "开启后，审批人可以在下一节点审批前撤回已审批的任务"
+    },
+    "formDesign": {
+      "title": "流程表单配置"
+    },
+    "processDesign": {
+      "title": "流程设计"
+    }
+  },
+  "form": {
+    "title": "流程表单",
+    "tableTitle": "流程表单",
+    "detailTitle": "流程表单详情",
+    "fields": {
+      "id": "编号",
+      "name": "表单名称",
+      "status": "状态",
+      "remark": "备注",
+      "createTime": "创建时间"
+    },
+    "placeholder": {
+      "name": "请输入表单名称"
+    }
+  },
+  "group": {
+    "title": "用户分组",
+    "tableTitle": "用户分组",
+    "fields": {
+      "id": "编号",
+      "name": "组名",
+      "description": "描述",
+      "members": "成员",
+      "status": "状态",
+      "createTime": "创建时间"
+    },
+    "placeholder": {
+      "name": "请输入组名",
+      "description": "请输入描述",
+      "members": "请选择成员",
+      "status": "请选择状态"
+    }
+  },
+  "oa": {
+    "leave": {
+      "title": "请假列表",
+      "create": "发起请假",
+      "recreate": "重新发起请假",
+      "cancel": "取消流程",
+      "cancelReason": "请输入取消原因",
+      "cancelling": "正在取消中...",
+      "cancelSuccess": "取消成功",
+      "cancelReasonRequired": "请输入取消原因",
+      "fields": {
+        "id": "申请编号",
+        "type": "请假类型",
+        "startTime": "开始时间",
+        "endTime": "结束时间",
+        "reason": "原因",
+        "status": "状态",
+        "createTime": "申请时间",
+        "approvalResult": "审批结果"
+      },
+      "placeholder": {
+        "type": "请选择请假类型",
+        "startTime": "请选择开始时间",
+        "endTime": "请选择结束时间",
+        "reason": "请输入原因",
+        "approvalResult": "请选择审批结果"
+      },
+      "detail": {
+        "loading": "加载中..."
+      },
+      "backConfirm": "确定要返回上一页吗？请先保存您填写的信息！",
+      "noApprovalDetail": "查询不到审批详情信息！",
+      "selectApprover": "请选择{0}的审批人",
+      "recreateFailed": "重新发起请假失败，原因：请假数据不存在"
+    }
+  },
+  "processExpression": {
+    "title": "流程表达式",
+    "tableTitle": "流程表达式",
+    "fields": {
+      "id": "编号",
+      "name": "名字",
+      "status": "状态",
+      "expression": "表达式",
+      "createTime": "创建时间"
+    },
+    "placeholder": {
+      "name": "请输入名字",
+      "status": "请选择状态",
+      "expression": "请输入表达式"
+    }
+  },
+  "processInstance": {
+    "title": "流程实例",
+    "tableTitle": "流程状态",
+    "managerTitle": "流程实例",
+    "reportTitle": "流程实例列表",
+    "definitionTitle": "流程定义列表",
+    "cancelTitle": "取消流程",
+    "cancelReason": "请输入取消原因",
+    "cancelSuccess": "取消成功",
+    "createTitle": "发起流程",
+    "createFailed": "重新发起流程失败，原因：流程实例不存在",
+    "createDefFailed": "重新发起流程失败，原因：流程定义不存在",
+    "noBpmFormRoute": "未配置业务表单的提交路由，无法重新发起",
+    "approving": "审批中",
+    "multiApproving": "等 {0} 人 ({1})审批中",
+    "fields": {
+      "id": "流程编号",
+      "name": "流程名称",
+      "summary": "摘要",
+      "categoryName": "流程分类",
+      "status": "流程状态",
+      "startTime": "发起时间",
+      "endTime": "结束时间",
+      "startUser": "发起人",
+      "deptName": "发起部门",
+      "duration": "流程耗时",
+      "currentTask": "当前审批任务",
+      "definitionName": "所属流程"
+    },
+    "placeholder": {
+      "name": "请输入流程名称",
+      "definition": "请选择流程定义",
+      "category": "请输入流程分类",
+      "status": "请选择流程状态",
+      "startUser": "请选择发起人"
+    },
+    "detail": {
+      "loading": "加载中...",
+      "noApprovalDetail": "查询不到审批详情信息！",
+      "noProcessInfo": "查询不到流程信息！",
+      "getApprovalDetailFailed": "获取审批详情失败！",
+      "form": "表单",
+      "history": "审批记录",
+      "task": "审批任务列表",
+      "processImage": "流程图",
+      "startUser": "发起人",
+      "department": "所在部门",
+      "startTime": "发起时间",
+      "endTime": "结束时间",
+      "duration": "流程耗时",
+      "status": "流程状态",
+      "category": "流程分类"
+    }
+  },
+  "processListener": {
+    "title": "流程监听器",
+    "tableTitle": "流程监听器",
+    "event": {
+      "start": "开始",
+      "end": "结束",
+      "create": "创建",
+      "assignment": "指派",
+      "complete": "完成",
+      "delete": "删除",
+      "update": "更新",
+      "timeout": "超时"
+    },
+    "fields": {
+      "id": "编号",
+      "name": "名字",
+      "status": "状态",
+      "type": "类型",
+      "event": "事件",
+      "valueType": "值类型",
+      "value": "值",
+      "createTime": "创建时间"
+    },
+    "placeholder": {
+      "name": "请输入名字",
+      "status": "请选择状态",
+      "type": "请选择类型",
+      "event": "请选择事件",
+      "valueType": "请选择值类型",
+      "valueClass": "请输入类路径",
+      "valueExpression": "请输入表达式"
+    }
+  },
+  "task": {
+    "todo": {
+      "title": "待办任务",
+      "audit": "办理"
+    },
+    "done": {
+      "title": "已办任务",
+      "withdraw": "撤回",
+      "history": "历史",
+      "withdrawConfirm": "确定要撤回该任务吗？",
+      "withdrawing": "正在撤回中...",
+      "withdrawSuccess": "撤回成功"
+    },
+    "copy": {
+      "title": "抄送任务"
+    },
+    "manager": {
+      "title": "流程任务",
+      "history": "历史"
+    },
+    "fields": {
+      "process": "流程",
+      "summary": "摘要",
+      "startUser": "发起人",
+      "startTime": "发起时间",
+      "currentTask": "当前任务",
+      "taskTime": "任务时间",
+      "taskStartTime": "任务开始时间",
+      "taskEndTime": "任务结束时间",
+      "processId": "流程编号",
+      "taskId": "任务编号",
+      "approvalStatus": "审批状态",
+      "approvalSuggestion": "审批建议",
+      "duration": "耗时",
+      "approver": "审批人",
+      "processName": "流程名称",
+      "processStartUser": "流程发起人",
+      "processStartTime": "流程发起时间",
+      "copyNode": "抄送节点",
+      "copyUser": "抄送人",
+      "copySuggestion": "抄送意见",
+      "copyTime": "抄送时间"
+    },
+    "placeholder": {
+      "taskName": "请输入任务名称",
+      "processDefinition": "请选择流程定义",
+      "category": "请输入流程分类",
+      "status": "请选择流程状态",
+      "approvalStatus": "请选择审批状态"
+    }
+  }
+}

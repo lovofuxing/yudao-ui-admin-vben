@@ -1,0 +1,434 @@
+{
+  "common": {
+    "action": "Action",
+    "inputPlaceholder": "Enter {0}",
+    "selectPlaceholder": "Select {0}",
+    "uploadPlaceholder": "Upload {0}",
+    "createTime": "Create Time",
+    "status": "Status",
+    "sort": "Sort",
+    "remark": "Remark",
+    "id": "ID"
+  },
+  "product": {
+    "brand": {
+      "title": "Brands",
+      "tableTitle": "Brand List",
+      "fields": {
+        "id": "Brand ID",
+        "name": "Brand Name",
+        "picUrl": "Brand Image",
+        "sort": "Brand Sort",
+        "status": "Brand Status",
+        "description": "Brand Description",
+        "createTime": "Create Time"
+      }
+    },
+    "category": {
+      "title": "Categories",
+      "tableTitle": "Category List",
+      "fields": {
+        "id": "Category ID",
+        "parentId": "Parent Category",
+        "name": "Category Name",
+        "picUrl": "Mobile Category Image",
+        "sort": "Category Sort",
+        "status": "Category Status",
+        "createTime": "Create Time"
+      },
+      "topLevel": "Top Level",
+      "expand": "Expand",
+      "collapse": "Collapse",
+      "addChild": "Add Child",
+      "viewSpu": "View Products"
+    },
+    "comment": {
+      "title": "Reviews",
+      "tableTitle": "Review List",
+      "fields": {
+        "id": "Review ID",
+        "spuId": "Product",
+        "skuId": "Product SKU",
+        "userAvatar": "User Avatar",
+        "userNickname": "User Name",
+        "content": "Review Content",
+        "descriptionScores": "Description Rating",
+        "benefitScores": "Service Rating",
+        "picUrls": "Review Images",
+        "replyStatus": "Reply Status",
+        "spuName": "Product Name",
+        "orderId": "Order ID",
+        "createTime": "Review Time",
+        "skuPicUrl": "Product Image",
+        "skuProperties": "Product Attributes",
+        "replyContent": "Reply Content",
+        "visible": "Visible",
+        "descriptionScoresTitle": "Product Rating",
+        "benefitScoresTitle": "Service Rating"
+      },
+      "replied": "Replied",
+      "unreplied": "Not Replied",
+      "selectSku": "Select SKU",
+      "selected": "Selected: "
+    },
+    "property": {
+      "title": "Properties",
+      "tableTitle": "Property List",
+      "fields": {
+        "id": "Property ID",
+        "name": "Property Name",
+        "remark": "Remark",
+        "createTime": "Create Time"
+      },
+      "value": {
+        "title": "Property Values",
+        "tableTitle": "Property Value List",
+        "fields": {
+          "id": "Value ID",
+          "propertyId": "Property",
+          "name": "Value Name",
+          "remark": "Remark",
+          "createTime": "Create Time",
+          "propertyItem": "Property Item"
+        }
+      }
+    },
+    "spu": {
+      "title": "Products",
+      "tableTitle": "Product List",
+      "fields": {
+        "id": "Product ID",
+        "name": "Product Name",
+        "categoryId": "Category",
+        "picUrl": "Product Image",
+        "status": "Sale Status",
+        "price": "Price (CNY)",
+        "marketPrice": "Market Price (CNY)",
+        "costPrice": "Cost Price (CNY)",
+        "salesCount": "Sales",
+        "virtualSalesCount": "Virtual Sales",
+        "stock": "Stock",
+        "browseCount": "Views",
+        "sort": "Sort",
+        "createTime": "Create Time"
+      },
+      "listed": "Listed",
+      "unlisted": "Unlisted",
+      "form": {
+        "infoTab": "Basic Info",
+        "skuTab": "Price & Stock",
+        "deliveryTab": "Delivery",
+        "descriptionTab": "Description",
+        "otherTab": "Others",
+        "fields": {
+          "name": "Product Name",
+          "categoryId": "Category",
+          "brandId": "Brand",
+          "keyword": "Keywords",
+          "introduction": "Introduction",
+          "picUrl": "Cover Image",
+          "sliderPicUrls": "Carousel Images",
+          "subCommissionType": "Commission Type",
+          "specType": "Specification Type",
+          "productAttributes": "Product Attributes",
+          "batchSkuList": "Batch Settings",
+          "multiSkuList": "SKU List",
+          "deliveryTypes": "Delivery Methods",
+          "deliveryTemplateId": "Shipping Template",
+          "description": "Product Description",
+          "sort": "Sort",
+          "giveIntegral": "Gift Points",
+          "virtualSalesCount": "Virtual Sales"
+        },
+        "singleSpec": "Single Spec",
+        "multiSpec": "Multi Spec",
+        "defaultSetting": "Default",
+        "separateSetting": "Separate"
+      }
+    }
+  },
+  "promotion": {
+    "article": {
+      "title": "Articles",
+      "tableTitle": "Article List",
+      "fields": {
+        "id": "ID",
+        "title": "Title",
+        "categoryId": "Category",
+        "author": "Author",
+        "introduction": "Introduction",
+        "picUrl": "Cover",
+        "recommendHot": "Hot",
+        "recommendBanner": "Banner",
+        "spuId": "Product Link",
+        "sort": "Sort",
+        "status": "Status",
+        "content": "Content",
+        "createTime": "Create Time"
+      }
+    },
+    "articleCategory": {
+      "title": "Article Categories",
+      "tableTitle": "Article Category List",
+      "fields": {
+        "id": "ID",
+        "name": "Category Name",
+        "picUrl": "Category Image",
+        "sort": "Display Order",
+        "status": "Status",
+        "createTime": "Create Time"
+      }
+    },
+    "banner": {
+      "title": "Banners",
+      "tableTitle": "Banner List",
+      "fields": {
+        "id": "ID",
+        "title": "Banner Title",
+        "picUrl": "Image URL",
+        "position": "Position",
+        "url": "Link URL",
+        "sort": "Sort",
+        "status": "Status",
+        "memo": "Description",
+        "createTime": "Create Time"
+      }
+    },
+    "bargain": {
+      "activity": {
+        "title": "Bargain Activities",
+        "tableTitle": "Bargain Activity List",
+        "fields": {
+          "id": "Activity ID",
+          "name": "Activity Name",
+          "startTime": "Start Time",
+          "endTime": "End Time",
+          "helpMaxCount": "Help Count",
+          "bargainCount": "Bargain Times",
+          "totalLimitCount": "Purchase Limit",
+          "randomMinPrice": "Min Bargain Amount (CNY)",
+          "randomMaxPrice": "Max Bargain Amount (CNY)",
+          "spuId": "Bargain Product",
+          "activityTime": "Activity Time",
+          "picUrl": "Product Image",
+          "spuName": "Product Title",
+          "bargainFirstPrice": "Starting Price",
+          "bargainMinPrice": "Bargain Floor Price",
+          "recordUserCount": "Total Bargain Users",
+          "recordSuccessUserCount": "Successful Bargain Users",
+          "helpUserCount": "Help Count",
+          "status": "Status",
+          "stock": "Stock",
+          "totalStock": "Total Stock",
+          "createTime": "Create Time"
+        }
+      },
+      "record": {
+        "title": "Bargain Records",
+        "tableTitle": "Bargain Record List",
+        "fields": {
+          "id": "ID",
+          "status": "Bargain Status",
+          "avatar": "User Avatar",
+          "nickname": "User Nickname",
+          "createTime": "Start Time",
+          "activityName": "Activity",
+          "bargainMinPrice": "Min Price",
+          "bargainPrice": "Current Price",
+          "totalBargainCount": "Total Bargain Count",
+          "remainingBargainCount": "Remaining Bargain Count",
+          "endTime": "End Time",
+          "orderId": "Order ID"
+        },
+        "help": {
+          "userId": "User ID",
+          "avatar": "User Avatar",
+          "nickname": "User Nickname",
+          "reducePrice": "Bargain Amount",
+          "createTime": "Help Time"
+        }
+      }
+    },
+    "combination": {
+      "activity": {
+        "title": "Group Buy Activities",
+        "tableTitle": "Group Buy Activity List",
+        "fields": {
+          "id": "Activity ID",
+          "name": "Activity Name",
+          "startTime": "Start Time",
+          "endTime": "End Time",
+          "userSize": "Group Size",
+          "limitDuration": "Duration Limit",
+          "totalLimitCount": "Total Purchase Limit",
+          "singleLimitCount": "Single Purchase Limit",
+          "virtualGroup": "Virtual Group",
+          "spuId": "Group Buy Product",
+          "activityTime": "Activity Time",
+          "picUrl": "Product Image",
+          "spuName": "Product Title",
+          "marketPrice": "Original Price",
+          "combinationPrice": "Group Price",
+          "groupCount": "Groups Started",
+          "groupSuccessCount": "Groups Completed",
+          "status": "Status",
+          "stock": "Stock",
+          "totalStock": "Total Stock",
+          "createTime": "Create Time"
+        }
+      },
+      "record": {
+        "title": "Group Buy Records",
+        "tableTitle": "Group Buy Record List",
+        "fields": {
+          "id": "Group ID",
+          "status": "Group Status",
+          "avatar": "Avatar",
+          "nickname": "Nickname",
+          "headId": "Group Leader",
+          "picUrl": "Group Product Image",
+          "spuName": "Group Product",
+          "activityName": "Activity",
+          "userSize": "Group Size",
+          "userCount": "Participants",
+          "createTime": "Join Time",
+          "endTime": "End Time"
+        },
+        "user": {
+          "id": "ID",
+          "avatar": "User Avatar",
+          "nickname": "User Nickname",
+          "headId": "Group Leader",
+          "createTime": "Join Time",
+          "endTime": "End Time",
+          "status": "Group Status"
+        },
+        "leader": "Leader",
+        "member": "Member"
+      }
+    },
+    "coupon": {
+      "title": "Coupons",
+      "tableTitle": "Coupon List",
+      "fields": {
+        "nickname": "Member",
+        "name": "Coupon Name",
+        "productScope": "Type",
+        "discountType": "Discount",
+        "discountPrice": "Discount Value",
+        "takeType": "Receive Method",
+        "status": "Status",
+        "createTime": "Receive Time",
+        "useTime": "Use Time"
+      },
+      "template": {
+        "title": "Coupon Templates",
+        "tableTitle": "Coupon Template List",
+        "fields": {
+          "id": "ID",
+          "name": "Coupon Name",
+          "description": "Description",
+          "productScope": "Coupon Type",
+          "productSpuIds": "Product",
+          "productCategoryIds": "Category",
+          "discountType": "Discount Type",
+          "discountPrice": "Coupon Value",
+          "discountPercent": "Coupon Discount",
+          "discountLimitPrice": "Max Discount",
+          "usePrice": "Min Order Amount",
+          "takeType": "Receive Method",
+          "totalCount": "Total Quantity",
+          "takeLimitCount": "Per User Limit",
+          "validityType": "Validity Type",
+          "fixedStartTime": "Fixed Start Time",
+          "fixedEndTime": "Fixed End Time",
+          "validEndTime": "Valid Days After Claim",
+          "status": "Status",
+          "createTime": "Create Time"
+        }
+      }
+    },
+    "discountActivity": {
+      "title": "Flash Sales",
+      "tableTitle": "Flash Sale List",
+      "fields": {
+        "id": "Activity ID",
+        "name": "Activity Name",
+        "status": "Status",
+        "startTime": "Start Time",
+        "endTime": "End Time",
+        "remark": "Remark",
+        "spuIds": "Products",
+        "activeTime": "Activity Time",
+        "createTime": "Create Time"
+      }
+    },
+    "seckill": {
+      "activity": {
+        "title": "Seckill Activities",
+        "tableTitle": "Seckill Activity List",
+        "fields": {
+          "id": "Activity ID",
+          "name": "Activity Name",
+          "startTime": "Start Time",
+          "endTime": "End Time",
+          "configIds": "Seckill Slots",
+          "totalLimitCount": "Total Purchase Limit",
+          "singleLimitCount": "Single Purchase Limit",
+          "sort": "Sort",
+          "remark": "Remark",
+          "spuId": "Seckill Product",
+          "activityTime": "Activity Time",
+          "picUrl": "Product Image",
+          "spuName": "Product Title",
+          "marketPrice": "Original Price",
+          "seckillPrice": "Seckill Price",
+          "status": "Status",
+          "stock": "Stock",
+          "totalStock": "Total Stock",
+          "createTime": "Create Time"
+        }
+      },
+      "config": {
+        "title": "Seckill Slots",
+        "tableTitle": "Seckill Slot List",
+        "fields": {
+          "id": "ID",
+          "name": "Slot Name",
+          "startTime": "Start Time",
+          "endTime": "End Time",
+          "sliderPicUrls": "Seckill Carousel",
+          "status": "Status",
+          "createTime": "Create Time"
+        },
+        "enabled": "Enabled",
+        "disabled": "Disabled"
+      }
+    }
+  },
+  "trade": {
+    "order": {
+      "title": "Orders",
+      "tableTitle": "Order List",
+      "fields": {
+        "id": "Order ID",
+        "no": "Order No.",
+        "spuName": "Product Title",
+        "userNickname": "User",
+        "payStatus": "Payment Status",
+        "deliveryStatus": "Delivery Status",
+        "afterSaleStatus": "After-Sale Status",
+        "price": "Price (CNY)",
+        "payPrice": "Paid Amount (CNY)",
+        "deliveryType": "Delivery Method",
+        "receiverName": "Recipient",
+        "userRemark": "User Remark",
+        "remark": "Merchant Remark",
+        "createTime": "Order Time"
+      }
+    }
+  },
+  "home": {
+    "title": "Mall Overview"
+  }
+}

@@ -83,7 +83,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
 
 /** 模态框实例 */
 const [Modal, modalApi] = useVbenModal({
-  title: '导入表',
+  title: $t('infra.codegen.importTable'),
   class: 'w-1/2',
   async onOpenChange(isOpen: boolean) {
     if (!isOpen) {
@@ -96,18 +96,18 @@ const [Modal, modalApi] = useVbenModal({
     modalApi.lock();
     // 1.1 获取表单值
     if (formData?.dataSourceConfigId === undefined) {
-      message.error('请选择数据源');
+      message.error($t('infra.codegen.placeholder.dataSource'));
       return;
     }
     // 1.2 校验是否选择了表
     if (formData.tableNames.length === 0) {
-      message.error('请选择需要导入的表');
+      message.error($t('infra.codegen.importTableError'));
       return;
     }
 
     // 2. 提交请求
     const hideLoading = message.loading({
-      content: '导入中...',
+      content: $t('infra.codegen.importing'),
       duration: 0,
     });
     try {

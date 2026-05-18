@@ -3,25 +3,26 @@ import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { SystemAreaApi } from '#/api/system/area';
 
 import { z } from '#/adapter/form';
+import { $t } from '#/locales';
 
 /** 查询 IP 的表单 */
 export function useFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'ip',
-      label: 'IP 地址',
+      label: $t('system.area.fields.ip'),
       component: 'Input',
       componentProps: {
-        placeholder: '请输入 IP 地址',
+        placeholder: $t('system.area.fields.ipPlaceholder'),
       },
-      rules: z.string().ip({ message: '请输入正确的 IP 地址' }),
+      rules: z.string().ip({ message: $t('system.area.fields.ipValidationMessage') }),
     },
     {
       fieldName: 'result',
-      label: '地址',
+      label: $t('system.area.fields.result'),
       component: 'Input',
       componentProps: {
-        placeholder: '展示查询 IP 结果',
+        placeholder: $t('system.area.fields.resultPlaceholder'),
         readonly: true,
       },
     },
@@ -33,7 +34,7 @@ export function useGridColumns(): VxeTableGridOptions<SystemAreaApi.Area>['colum
   return [
     {
       field: 'id',
-      title: '地区编码',
+      title: $t('system.area.fields.id'),
       minWidth: 120,
       align: 'left',
       fixed: 'left',
@@ -41,7 +42,7 @@ export function useGridColumns(): VxeTableGridOptions<SystemAreaApi.Area>['colum
     },
     {
       field: 'name',
-      title: '地区名称',
+      title: $t('system.area.fields.name'),
       minWidth: 200,
     },
   ];

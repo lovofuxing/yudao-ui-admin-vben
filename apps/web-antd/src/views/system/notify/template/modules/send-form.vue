@@ -106,7 +106,7 @@ function buildFormSchema() {
 </script>
 
 <template>
-  <Modal title="测试发送站内信">
+  <Modal :title="$t('system.notify.template.sendTestTitle')">
     <Form class="mx-4" />
   </Modal>
 </template>

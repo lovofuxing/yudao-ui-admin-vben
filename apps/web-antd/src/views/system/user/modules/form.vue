@@ -17,8 +17,8 @@ const emit = defineEmits(['success']);
 const formData = ref<SystemUserApi.User>();
 const getTitle = computed(() => {
   return formData.value?.id
-    ? $t('ui.actionTitle.edit', ['用户'])
-    : $t('ui.actionTitle.create', ['用户']);
+    ? $t('ui.actionTitle.edit', [$t('system.user.entityName')])
+    : $t('ui.actionTitle.create', [$t('system.user.entityName')]);
 });
 
 const [Form, formApi] = useVbenForm({

@@ -70,11 +70,11 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="系统日志" url="https://doc.iocoder.cn/system-log/" />
+      <DocAlert :title="$t('infra.apiAccessLog.title')" url="https://doc.iocoder.cn/system-log/" />
     </template>
 
     <DetailModal @success="handleRefresh" />
-    <Grid table-title="API 访问日志列表">
+    <Grid :table-title="$t('infra.apiAccessLog.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[

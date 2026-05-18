@@ -5,6 +5,7 @@ import { DocAlert, Page, useVbenModal } from '@vben/common-ui';
 
 import { ACTION_ICON, TableAction, useVbenVxeGrid } from '#/adapter/vxe-table';
 import { getAreaTree } from '#/api/system/area';
+import { $t } from '#/locales';
 
 import { useGridColumns } from './data';
 import Form from './modules/form.vue';
@@ -57,16 +58,16 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="地区 & IP" url="https://doc.iocoder.cn/area-and-ip/" />
+      <DocAlert :title="$t('system.area.docTitle')" url="https://doc.iocoder.cn/area-and-ip/" />
     </template>
 
     <FormModal @success="handleRefresh" />
-    <Grid table-title="地区列表">
+    <Grid :table-title="$t('system.area.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: 'IP 查询',
+              label: $t('system.area.ipQuery'),
               type: 'primary',
               icon: ACTION_ICON.SEARCH,
               onClick: handleQueryIp,

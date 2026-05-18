@@ -2,25 +2,26 @@ import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { BpmModelApi } from '#/api/bpm/model';
 
 import { DICT_TYPE } from '@vben/constants';
+import { $t } from '#/locales';
 
 /** 列表的字段 */
 export function useGridColumns(): VxeTableGridOptions<BpmModelApi.Model>['columns'] {
   return [
     {
       field: 'name',
-      title: '流程名称',
+      title: $t('bpm.model.fields.name'),
       minWidth: 200,
       slots: { default: 'name' },
     },
     {
       field: 'startUserIds',
-      title: '可见范围',
+      title: $t('bpm.model.fields.visibleRange'),
       minWidth: 150,
       slots: { default: 'startUserIds' },
     },
     {
       field: 'type',
-      title: '流程类型',
+      title: $t('bpm.model.fields.type'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -29,18 +30,18 @@ export function useGridColumns(): VxeTableGridOptions<BpmModelApi.Model>['column
     },
     {
       field: 'formType',
-      title: '表单信息',
+      title: $t('bpm.model.fields.formInfo'),
       minWidth: 150,
       slots: { default: 'formInfo' },
     },
     {
       field: 'deploymentTime',
-      title: '最后发布',
+      title: $t('bpm.model.fields.lastDeploy'),
       minWidth: 280,
       slots: { default: 'deploymentTime' },
     },
     {
-      title: '操作',
+      title: $t('bpm.common.action'),
       width: 150,
       fixed: 'right',
       slots: { default: 'actions' },

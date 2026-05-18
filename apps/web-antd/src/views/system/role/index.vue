@@ -47,7 +47,7 @@ function handleRefresh() {
 /** 导出表格 */
 async function handleExport() {
   const data = await exportRole(await gridApi.formApi.getValues());
-  downloadFileFromBlobPart({ fileName: '角色.xls', source: data });
+  downloadFileFromBlobPart({ fileName: $t('system.role.exportFilename'), source: data });
 }
 
 /** 创建角色 */
@@ -150,21 +150,21 @@ const [Grid, gridApi] = useVbenVxeGrid({
   <Page auto-content-height>
     <template #doc>
       <DocAlert
-        title="功能权限"
-        url="https://doc.iocoder.cn/resource-permission"
-      />
-      <DocAlert title="数据权限" url="https://doc.iocoder.cn/data-permission" />
+          :title="$t('system.role.docAlert.functionPermission')"
+          url="https://doc.iocoder.cn/resource-permission"
+        />
+        <DocAlert :title="$t('system.role.docAlert.dataPermission')" url="https://doc.iocoder.cn/data-permission" />
     </template>
 
     <FormModal @success="handleRefresh" />
     <AssignDataPermissionFormModel @success="handleRefresh" />
     <AssignMenuFormModel @success="handleRefresh" />
-    <Grid table-title="角色列表">
+    <Grid :table-title="$t('system.role.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['角色']),
+              label: $t('ui.actionTitle.create', [$t('system.role.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:role:create'],
@@ -213,13 +213,13 @@ const [Grid, gridApi] = useVbenVxeGrid({
           ]"
           :drop-down-actions="[
             {
-              label: '数据权限',
+              label: $t('system.role.action.assignDataPermission'),
               type: 'link',
               auth: ['system:permission:assign-role-data-scope'],
               onClick: handleAssignDataPermission.bind(null, row),
             },
             {
-              label: '菜单权限',
+              label: $t('system.role.action.assignMenu'),
               type: 'link',
               auth: ['system:permission:assign-role-menu'],
               onClick: handleAssignMenu.bind(null, row),

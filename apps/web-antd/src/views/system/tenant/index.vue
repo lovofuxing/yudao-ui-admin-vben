@@ -125,16 +125,16 @@ const [Grid, gridApi] = useVbenVxeGrid({
 <template>
   <Page auto-content-height>
     <template #doc>
-      <DocAlert title="SaaS 多租户" url="https://doc.iocoder.cn/saas-tenant/" />
+      <DocAlert :title="$t('system.tenant.docTitle')" url="https://doc.iocoder.cn/saas-tenant/" />
     </template>
 
     <FormModal @success="handleRefresh" />
-    <Grid table-title="租户列表">
+    <Grid :table-title="$t('system.tenant.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', ['租户']),
+              label: $t('ui.actionTitle.create', [$t('system.tenant.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:tenant:create'],

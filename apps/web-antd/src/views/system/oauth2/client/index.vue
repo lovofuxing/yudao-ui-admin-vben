@@ -131,7 +131,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
         <TableAction
           :actions="[
             {
-              label: $t('ui.actionTitle.create', [' OAuth2.0 客户端']),
+              label: $t('ui.actionTitle.create', [$t('system.oauth2.client.entityName')]),
               type: 'primary',
               icon: ACTION_ICON.ADD,
               auth: ['system:oauth2-client:create'],

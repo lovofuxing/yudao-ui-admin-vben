@@ -127,7 +127,7 @@ async function handleSync(row: InfraCodegenApi.CodegenTable) {
 /** 生成代码 */
 async function handleGenerate(row: InfraCodegenApi.CodegenTable) {
   const hideLoading = message.loading({
-    content: '正在生成代码...',
+    content: $t('infra.common.generateCodeLoading'),
     duration: 0,
   });
   try {
@@ -139,7 +139,7 @@ async function handleGenerate(row: InfraCodegenApi.CodegenTable) {
     link.download = `codegen-${row.className}.zip`;
     link.click();
     window.URL.revokeObjectURL(url);
-    message.success('代码生成成功');
+    message.success($t('infra.common.generateCodeSuccess'));
   } finally {
     hideLoading();
   }
@@ -196,15 +196,15 @@ initDataSourceConfig();
   <Page auto-content-height>
     <template #doc>
       <DocAlert
-        title="代码生成（单表）"
+        :title="$t('infra.codegen.title')"
         url="https://doc.iocoder.cn/new-feature/"
       />
       <DocAlert
-        title="代码生成（树表）"
+        :title="$t('infra.codegen.treeTitle')"
         url="https://doc.iocoder.cn/new-feature/tree/"
       />
       <DocAlert
-        title="代码生成（主子表）"
+        :title="$t('infra.codegen.subTitle')"
         url="https://doc.iocoder.cn/new-feature/master-sub/"
       />
       <DocAlert title="单元测试" url="https://doc.iocoder.cn/unit-test/" />
@@ -212,7 +212,7 @@ initDataSourceConfig();
 
     <ImportModal @success="handleRefresh" />
     <PreviewModal />
-    <Grid table-title="代码生成列表">
+    <Grid :table-title="$t('infra.codegen.tableTitle')">
       <template #toolbar-tools>
         <TableAction
           :actions="[
@@ -239,14 +239,14 @@ initDataSourceConfig();
         <TableAction
           :actions="[
             {
-              label: '预览',
+              label: $t('infra.codegen.preview'),
               type: 'link',
               icon: ACTION_ICON.VIEW,
               auth: ['infra:codegen:preview'],
               onClick: handlePreview.bind(null, row),
             },
             {
-              label: '生成代码',
+              label: $t('infra.codegen.generateCode'),
               type: 'link',
               icon: ACTION_ICON.DOWNLOAD,
               auth: ['infra:codegen:download'],
@@ -261,7 +261,7 @@ initDataSourceConfig();
               onClick: handleEdit.bind(null, row),
             },
             {
-              label: '同步',
+              label: $t('infra.codegen.sync'),
               type: 'link',
               auth: ['infra:codegen:update'],
               onClick: handleSync.bind(null, row),

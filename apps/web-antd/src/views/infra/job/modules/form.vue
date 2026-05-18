@@ -17,8 +17,8 @@ const emit = defineEmits(['success']);
 const formData = ref<InfraJobApi.Job>();
 const getTitle = computed(() => {
   return formData.value?.id
-    ? $t('ui.actionTitle.edit', ['任务'])
-    : $t('ui.actionTitle.create', ['任务']);
+    ? $t('ui.actionTitle.edit', [$t('infra.job.title')])
+    : $t('ui.actionTitle.create', [$t('infra.job.title')]);
 });
 
 const [Form, formApi] = useVbenForm({

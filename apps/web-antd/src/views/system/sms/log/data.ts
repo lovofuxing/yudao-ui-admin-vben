@@ -10,6 +10,7 @@ import { formatDateTime } from '@vben/utils';
 
 import { getSimpleSmsChannelList } from '#/api/system/sms/channel';
 import { DictTag } from '#/components/dict-tag';
+import { $t } from '#/locales';
 import { getRangePickerDefaultProps } from '#/utils';
 
 /** 列表的搜索表单 */
@@ -17,47 +18,47 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       fieldName: 'mobile',
-      label: '手机号',
+      label: $t('system.sms.log.fields.mobile'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入手机号',
+        placeholder: $t('system.sms.log.fields.mobilePlaceholder'),
       },
     },
     {
       fieldName: 'channelId',
-      label: '短信渠道',
+      label: $t('system.sms.log.fields.channelCode'),
       component: 'ApiSelect',
       componentProps: {
         api: getSimpleSmsChannelList,
         labelField: 'signature',
         valueField: 'id',
         allowClear: true,
-        placeholder: '请选择短信渠道',
+        placeholder: $t('system.sms.log.fields.channelPlaceholder'),
       },
     },
     {
       fieldName: 'templateId',
-      label: '模板编号',
+      label: $t('system.sms.log.fields.templateId'),
       component: 'Input',
       componentProps: {
         allowClear: true,
-        placeholder: '请输入模板编号',
+        placeholder: $t('system.sms.log.fields.templateIdPlaceholder'),
       },
     },
     {
       fieldName: 'sendStatus',
-      label: '发送状态',
+      label: $t('system.sms.log.fields.sendStatus'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.SYSTEM_SMS_SEND_STATUS, 'number'),
         allowClear: true,
-        placeholder: '请选择发送状态',
+        placeholder: $t('system.sms.log.fields.sendStatusPlaceholder'),
       },
     },
     {
       fieldName: 'sendTime',
-      label: '发送时间',
+      label: $t('system.sms.log.fields.sendTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -66,17 +67,17 @@ export function useGridFormSchema(): VbenFormSchema[] {
     },
     {
       fieldName: 'receiveStatus',
-      label: '接收状态',
+      label: $t('system.sms.log.fields.receiveStatus'),
       component: 'Select',
       componentProps: {
         options: getDictOptions(DICT_TYPE.SYSTEM_SMS_RECEIVE_STATUS, 'number'),
         allowClear: true,
-        placeholder: '请选择接收状态',
+        placeholder: $t('system.sms.log.fields.receiveStatusPlaceholder'),
       },
     },
     {
       fieldName: 'receiveTime',
-      label: '接收时间',
+      label: $t('system.sms.log.fields.receiveTime'),
       component: 'RangePicker',
       componentProps: {
         ...getRangePickerDefaultProps(),
@@ -91,22 +92,22 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
   return [
     {
       field: 'id',
-      title: '编号',
+      title: $t('system.common.id'),
       minWidth: 100,
     },
     {
       field: 'mobile',
-      title: '手机号',
+      title: $t('system.sms.log.fields.mobile'),
       minWidth: 120,
     },
     {
       field: 'templateContent',
-      title: '短信内容',
+      title: $t('system.sms.log.fields.templateContent'),
       minWidth: 300,
     },
     {
       field: 'sendStatus',
-      title: '发送状态',
+      title: $t('system.sms.log.fields.sendStatus'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -115,13 +116,13 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'sendTime',
-      title: '发送时间',
+      title: $t('system.sms.log.fields.sendTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
       field: 'receiveStatus',
-      title: '接收状态',
+      title: $t('system.sms.log.fields.receiveStatus'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -130,13 +131,13 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'receiveTime',
-      title: '接收时间',
+      title: $t('system.sms.log.fields.receiveTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
       field: 'channelCode',
-      title: '短信渠道',
+      title: $t('system.sms.log.fields.channelCode'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -145,12 +146,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'templateId',
-      title: '模板编号',
+      title: $t('system.sms.log.fields.templateId'),
       minWidth: 100,
     },
     {
       field: 'templateType',
-      title: '短信类型',
+      title: $t('system.sms.log.fields.templateType'),
       minWidth: 100,
       cellRender: {
         name: 'CellDict',
@@ -159,12 +160,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'createTime',
-      title: '创建时间',
+      title: $t('system.common.createTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('system.common.actions'),
       width: 80,
       fixed: 'right',
       slots: { default: 'actions' },
@@ -177,24 +178,24 @@ export function useDetailSchema(): DescriptionItemSchema[] {
   return [
     {
       field: 'createTime',
-      label: '创建时间',
+      label: $t('system.common.createTime'),
       render: (val) => formatDateTime(val) as string,
     },
     {
       field: 'mobile',
-      label: '手机号',
+      label: $t('system.sms.log.fields.mobile'),
     },
     {
       field: 'channelCode',
-      label: '短信渠道',
+      label: $t('system.sms.log.fields.channelCode'),
     },
     {
       field: 'templateId',
-      label: '模板编号',
+      label: $t('system.sms.log.fields.templateId'),
     },
     {
       field: 'templateType',
-      label: '模板类型',
+      label: $t('system.sms.log.fields.templateType'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.SYSTEM_SMS_TEMPLATE_TYPE,
@@ -204,11 +205,11 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'templateContent',
-      label: '短信内容',
+      label: $t('system.sms.log.fields.templateContent'),
     },
     {
       field: 'sendStatus',
-      label: '发送状态',
+      label: $t('system.sms.log.fields.sendStatus'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.SYSTEM_SMS_SEND_STATUS,
@@ -218,20 +219,20 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'sendTime',
-      label: '发送时间',
+      label: $t('system.sms.log.fields.sendTime'),
       render: (val) => formatDateTime(val) as string,
     },
     {
       field: 'apiSendCode',
-      label: 'API 发送编码',
+      label: $t('system.sms.log.fields.apiSendCode'),
     },
     {
       field: 'apiSendMsg',
-      label: 'API 发送消息',
+      label: $t('system.sms.log.fields.apiSendMsg'),
     },
     {
       field: 'receiveStatus',
-      label: '接收状态',
+      label: $t('system.sms.log.fields.receiveStatus'),
       render: (val) => {
         return h(DictTag, {
           type: DICT_TYPE.SYSTEM_SMS_RECEIVE_STATUS,
@@ -241,25 +242,25 @@ export function useDetailSchema(): DescriptionItemSchema[] {
     },
     {
       field: 'receiveTime',
-      label: '接收时间',
+      label: $t('system.sms.log.fields.receiveTime'),
       render: (val) => formatDateTime(val) as string,
     },
     {
       field: 'apiReceiveCode',
-      label: 'API 接收编码',
+      label: $t('system.sms.log.fields.apiReceiveCode'),
     },
     {
       field: 'apiReceiveMsg',
-      label: 'API 接收消息',
+      label: $t('system.sms.log.fields.apiReceiveMsg'),
       span: 2,
     },
     {
       field: 'apiRequestId',
-      label: 'API 请求 ID',
+      label: $t('system.sms.log.fields.apiRequestId'),
     },
     {
       field: 'apiSerialNo',
-      label: 'API 序列号',
+      label: $t('system.sms.log.fields.apiSerialNo'),
     },
   ];
 }

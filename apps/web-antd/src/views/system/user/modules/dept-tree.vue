@@ -54,7 +54,7 @@ onMounted(async () => {
 <template>
   <div>
     <Input
-      placeholder="搜索部门"
+      :placeholder="$t('system.user.deptSearchPlaceholder')"
       allow-clear
       v-model:value="searchValue"
       @change="handleSearch"
@@ -74,7 +74,7 @@ onMounted(async () => {
         :field-names="{ title: 'name', key: 'id', children: 'children' }"
       />
       <div v-else-if="!loading" class="py-4 text-center text-gray-500">
-        暂无数据
+        {{ $t('system.user.deptNoData') }}
       </div>
     </Spin>
   </div>

@@ -49,12 +49,12 @@ async function submitForm() {
   // 表单验证
   const basicInfoValid = await basicInfoRef.value?.validate();
   if (!basicInfoValid) {
-    message.warn('保存失败，原因：基本信息表单校验失败请检查！！！');
+    message.warn($t('infra.codegen.saveFailedBaseInfo'));
     return;
   }
   const generateInfoValid = await generateInfoRef.value?.validate();
   if (!generateInfoValid) {
-    message.warn('保存失败，原因：生成信息表单校验失败请检查！！！');
+    message.warn($t('infra.codegen.saveFailedGenInfo'));
     return;
   }
 
@@ -104,13 +104,13 @@ function prevStep() {
 /** 步骤配置 */
 const steps = [
   {
-    title: '基本信息',
+    title: $t('infra.codegen.basicInfo'),
   },
   {
-    title: '字段信息',
+    title: $t('infra.codegen.columnInfo'),
   },
   {
-    title: '生成信息',
+    title: $t('infra.codegen.generationInfo'),
   },
 ];
 
@@ -154,12 +154,17 @@ getDetail();
       </div>
 
       <div class="mt-4 flex justify-end space-x-2">
-        <Button :disabled="currentStep === 0" @click="prevStep">上一步</Button>
-        <Button :disabled="currentStep === steps.length - 1" @click="nextStep">
-          下一步
+        <Button :disabled="currentStep === 0" @click="prevStep">
+          {{ $t('infra.codegen.prevStep') }}
+        </Button>
+        <Button
+          :disabled="currentStep === steps.length - 1"
+          @click="nextStep"
+        >
+          {{ $t('infra.codegen.nextStep') }}
         </Button>
         <Button type="primary" :loading="loading" @click="submitForm">
-          保存
+          {{ $t('infra.codegen.save') }}
         </Button>
       </div>
     </div>

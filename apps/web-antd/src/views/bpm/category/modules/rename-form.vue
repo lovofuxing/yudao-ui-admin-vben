@@ -74,7 +74,7 @@ const [Modal, modalApi] = useVbenModal({
 </script>
 
 <template>
-  <Modal title="重命名流程分类" class="w-1/3">
+  <Modal :title="$t('bpm.category.renameTitle')" class="w-1/3">
     <Form class="mx-4" />
   </Modal>
 </template>

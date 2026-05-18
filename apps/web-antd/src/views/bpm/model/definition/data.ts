@@ -1,23 +1,24 @@
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 
 import { DICT_TYPE } from '@vben/constants';
+import { $t } from '#/locales';
 
 /** 列表的字段 */
 export function useGridColumns(): VxeTableGridOptions['columns'] {
   return [
     {
       field: 'id',
-      title: '定义编号',
+      title: $t('bpm.model.definition.fields.id'),
       minWidth: 250,
     },
     {
       field: 'name',
-      title: '流程名称',
+      title: $t('bpm.model.definition.fields.name'),
       minWidth: 150,
     },
     {
       field: 'icon',
-      title: '流程图标',
+      title: $t('bpm.model.definition.fields.icon'),
       minWidth: 100,
       cellRender: {
         name: 'CellImage',
@@ -29,13 +30,13 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'startUsers',
-      title: '可见范围',
+      title: $t('bpm.model.definition.fields.visibleRange'),
       minWidth: 100,
       slots: { default: 'startUsers' },
     },
     {
       field: 'modelType',
-      title: '流程类型',
+      title: $t('bpm.model.definition.fields.type'),
       minWidth: 120,
       cellRender: {
         name: 'CellDict',
@@ -44,13 +45,13 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'formType',
-      title: '表单信息',
+      title: $t('bpm.model.definition.fields.formInfo'),
       minWidth: 150,
       slots: { default: 'formInfo' },
     },
     {
       field: 'version',
-      title: '流程版本',
+      title: $t('bpm.model.definition.fields.version'),
       minWidth: 80,
       cellRender: {
         name: 'CellTag',
@@ -58,12 +59,12 @@ export function useGridColumns(): VxeTableGridOptions['columns'] {
     },
     {
       field: 'deploymentTime',
-      title: '部署时间',
+      title: $t('bpm.model.definition.fields.deploymentTime'),
       minWidth: 180,
       formatter: 'formatDateTime',
     },
     {
-      title: '操作',
+      title: $t('bpm.common.action'),
       width: 120,
       fixed: 'right',
       slots: { default: 'actions' },
